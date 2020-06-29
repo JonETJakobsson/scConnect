@@ -2,10 +2,11 @@
     :target: https://scconnect.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-=========
-scConnect
-=========
-
+.. image:: scConnect/assets/logo.png
+  :width: 100px
+  :align: center
+  :height: 100px
+ 
 The end goal of scConnect is to provide information about putative interaction between cell populations 
 in single cell RNA-seq data. 
 To do so gene expression levels are used to asses precence or absence of ligands and receptors. 
