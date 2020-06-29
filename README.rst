@@ -18,6 +18,6 @@ __ https://www.guidetopharmacology.org/
 ?????????????
 Documentation
 ?????????????
-For helpful tutorials and information about the API please consult the `documentetion`__.
+For helpful tutorials and information about the API please consult the `documentation`__.
 
 __ https://scconnect.readthedocs.io/en/latest/
