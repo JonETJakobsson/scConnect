@@ -34,4 +34,4 @@ To install scConnect, for now, please clone this repository and install using
   cd scConnect/
   pip install .
 
-When the initial version is released we will make the packaged available at PyPI.
+When the initial version is released we will make the package available at PyPI.
