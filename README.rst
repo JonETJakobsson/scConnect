@@ -17,3 +17,14 @@ Documentation
 For helpful tutorials and information about the API please consult the `documentetion`__.
 
 __ https://scconnect.readthedocs.io/en/latest/
+
+????????????
+Installation
+????????????
+
+To install scConnect, for now, please clone this repository and install using
+..code:: bash
+    cd scConnect/
+    pip install .
+
+When the initial version is released we will make the packaged available at PyPI.
