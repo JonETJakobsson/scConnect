@@ -7,7 +7,7 @@ Building the database
 +++++++++++++++++++++
 The current version of scConnect have version 2019-5 of the latest ligand, receptor and interaction data from `guide to pharmacology`__ allready compiled.
 Should you find the need to change to an older database version, download and replace the csv files under data/GTP_tables/ 
-and run :py:func:`scConnect.database.setup_database`. If you have allready built this database, set the version using :py:const:´scConnect.database.version´
+and run :py:func:`scConnect.database.setup_database`. If you have allready built this database, set the version using :py:const:`scConnect.database.version`
 
 __ https://www.guidetopharmacology.org/download.jsp
 
