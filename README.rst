@@ -12,6 +12,6 @@ The resulting NetworkX graph can be analysed and browsed using a dash web app.
 ?????????????
 Documentation
 ?????????????
-For helpful tutorials and information about the API please consult the ´documentetion´.
+For helpful tutorials and information about the API please consult the `documentetion`__.
 __ https://www.guidetopharmacology.org/
 __ https://scconnect.readthedocs.io/en/latest/
