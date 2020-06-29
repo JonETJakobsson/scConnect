@@ -29,8 +29,8 @@ Installation
 To install scConnect, for now, please clone this repository and install using
 
 .. code-block:: bash
-`cd scConnect/`
 
-`pip install .`
+  cd scConnect/
+  pip install .
 
 When the initial version is released we will make the packaged available at PyPI.
