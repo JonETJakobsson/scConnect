@@ -1,3 +1,7 @@
+.. image:: https://readthedocs.org/projects/scconnect/badge/?version=latest
+    :target: https://scconnect.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
 =========
 scConnect
 =========
