@@ -1,0 +1,3 @@
+,ligand,ligand_type,preprogene,synthesis,transport,reuptake,excluded,comment
+346,neuropeptide FF,peptide,"['ACA1', 'CST6', 'SKO1']",,,,,inferred from Human
+393,xenin,peptide,['COP1'],,,,,inferred from Mouse

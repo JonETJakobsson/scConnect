@@ -1,0 +1,9 @@
+,ligand,ligand_type,preprogene,synthesis,transport,reuptake,excluded,comment
+0,L-glutamic acid,molecule,,,"['Slc17a6', 'Slc17a7', 'Slc17a8']","['Slc1a1', 'Slc1a2', 'Slc1a6']",,Manually added genes
+1,GABA,molecule,,"['Gad1', 'Gad2']",['Slc32a1'],['Slc6a1'],,Manually added genes
+2,glycine,molecule,,,['Slc32a1'],['Slc6a9'],,Manually added genes
+3,dopamine,molecule,,"['Th', 'Ddc']","['Slc18a2', 'Slc18a3']",['Slc6a3'],['Dbh'],Manually added genes
+4,(-)-noradrenaline,molecule,,"['Th', 'Ddc', 'Dbh']","['Slc18a2', 'Slc18a3']",['Slc6a3'],['Pnmt'],Manually added genes
+5,(-)-adrenaline,molecule,,"['Th', 'Ddc', 'Dbh', 'Pnmt']",['Slc18a2'],,,Manually added genes
+6,5-hydroxytryptamine,molecule,,"['Tph2', 'Ddc']",['Slc18a2'],['Slc6a4'],,Manually added genes
+7,acetylcholine,molecule,,['Chat'],['Slc18a3'],"['Ache', 'Slc5a7']",,Manually added genes

@@ -1,0 +1,4 @@
+The Guide to PHARMACOLOGY database is licensed under the Open Data Commons Open Database License (ODbL).
+Creative Commons LicenceIts contents are licensed under a Creative Commons Attribution-ShareAlike 4.0 International License
+
+original data is found at https://www.guidetopharmacology.org/download.jsp

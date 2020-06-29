@@ -1,0 +1,82 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 300px 1fr 0.5fr 1fr 1.5fr;
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "head network"
+        "network-setting network"
+        "sankey-settings sankey"
+        ". interactions"
+        "L-R-settings L-R-scores";
+}
+
+.wrapper > div{
+    background: rgb(255, 255, 255);
+    border: 1px dashed #b8b8b8;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.header {
+    grid-area: head;
+    display: grid;
+    grid-template-rows: 200px 100px;
+    grid-template-areas:
+        "logo"
+        "info"
+}
+
+.header > img{
+    height: 250px;
+    grid-column: 2;
+    grid-area: logo
+}
+
+
+.menu > li {
+    display: inline-flex;
+    color: rgb(4, 15, 109);
+    font-size: 1.5em;
+    list-style: none;
+    padding: 0em 1em;
+    object-position: center;
+}
+
+.load-data {
+    grid-area: load;
+}
+
+.graph-info {
+    grid-area: info
+}
+
+.network-settings {
+    grid-area: network-setting;
+}
+
+.network-graph {
+    grid-area: network;
+    background: #ffffff;
+}
+
+.sankey-settings {
+    grid-area: sankey-settings;
+}
+
+.sankey {
+    grid-area: sankey;
+}
+
+.interaction-list {
+    grid-area: interactions;
+}
+
+.L-R-scores{
+    grid-area: L-R-scores
+}
+
+.L-R-settings{
+    grid-area: L-R-settings
+}

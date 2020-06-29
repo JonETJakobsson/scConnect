@@ -1,0 +1,9 @@
+ligand;transport;synthesis;reuptake;excluded
+L-glutamic acid;Slc17a6, Slc17a7, Slc17a8;;Slc1a1, Slc1a2, Slc1a6;
+GABA;Slc32a1;Gad1, Gad2;Slc6a1;
+glycine;Slc32a1;;Slc6a9;
+dopamine;Slc18a2, Slc18a3;Th, Ddc;Slc6a3;Dbh
+(-)-noradrenaline;Slc18a2, Slc18a3;Th, Ddc, Dbh;Slc6a3;Pnmt
+(-)-adrenaline;Slc18a2;Th, Ddc, Dbh, Pnmt;;
+5-hydroxytryptamine;Slc18a2;Tph2, Ddc;Slc6a4;
+acetylcholine;Slc18a3;Chat;Ache, Slc5a7;

@@ -1,0 +1,332 @@
+,receptor,family,gene
+0,5-HT1A receptor,5-Hydroxytryptamine receptors,['htr1aa']
+1,5-HT2A receptor,5-Hydroxytryptamine receptors,"['htr2aa', 'htr2ab']"
+2,5-HT2B receptor,5-Hydroxytryptamine receptors,['htr2b']
+3,5-HT4 receptor,5-Hydroxytryptamine receptors,['htr4']
+4,5-HT5A receptor,5-Hydroxytryptamine receptors,"['htr5aa', 'htr5ab']"
+5,5-ht5b receptor,5-Hydroxytryptamine receptors,"['htr5aa', 'htr5ab']"
+6,5-HT6 receptor,5-Hydroxytryptamine receptors,"['htr1b', 'htr1d', 'htr1ab', 'htr1fa']"
+7,5-HT7 receptor,5-Hydroxytryptamine receptors,"['htr7a', 'HTR7', 'htr7a', 'HTR7']"
+8,M1 receptor,Acetylcholine receptors (muscarinic),['chrm1a']
+9,M2 receptor,Acetylcholine receptors (muscarinic),"['chrm2a', 'chrm2b']"
+10,M3 receptor,Acetylcholine receptors (muscarinic),"['chrm3a', 'chrm3b']"
+11,M4 receptor,Acetylcholine receptors (muscarinic),['chrm4a']
+12,M5 receptor,Acetylcholine receptors (muscarinic),"['chrm5b', 'chrm5a']"
+13,A1 receptor,Adenosine receptors,"['adora1a', 'adora1b']"
+14,A2A receptor,Adenosine receptors,['adora2aa']
+15,A2B receptor,Adenosine receptors,['adora2b']
+16,A3 receptor,Adenosine receptors,"['CR847944.1', 'adora4a', 'CR847944.1', 'adora4a']"
+17,ADGRA2,Adhesion Class GPCRs,['adgra2']
+18,ADGRA3,Adhesion Class GPCRs,['adgra3']
+19,ADGRB2,Adhesion Class GPCRs,['adgrb2']
+20,ADGRB3,Adhesion Class GPCRs,['adgrb3']
+21,CELSR1,Adhesion Class GPCRs,"['celsr1b', 'celsr1a']"
+22,CELSR2,Adhesion Class GPCRs,['celsr2']
+23,CELSR3,Adhesion Class GPCRs,['celsr3']
+24,ADGRD1,Adhesion Class GPCRs,['adgrd1']
+25,ADGRE5,Adhesion Class GPCRs,['si:ch211-241f5.3']
+26,ADGRG2,Adhesion Class GPCRs,['adgrg4b']
+27,ADGRG3,Adhesion Class GPCRs,['adgrg1']
+28,ADGRG6,Adhesion Class GPCRs,['adgrg6']
+29,ADGRG7,Adhesion Class GPCRs,"['adgrg7.2', 'adgrg7.1', 'adgrg7.2', 'adgrg7.1']"
+30,ADGRL1,Adhesion Class GPCRs,['adgrl1a']
+31,ADGRL2,Adhesion Class GPCRs,"['adgrl2a', 'si:ch1073-186i23.1', 'adgrl2b.1']"
+32,ADGRL3,Adhesion Class GPCRs,"['adgrl3.1', 'ADGRL3']"
+33,ADGRL4,Adhesion Class GPCRs,['adgrl4']
+34,ADGRV1,Adhesion Class GPCRs,['adgrv1']
+35,α1A-adrenoceptor,Adrenoceptors,['adra1aa']
+36,α1B-adrenoceptor,Adrenoceptors,"['adra1ba', 'adra1bb']"
+37,α1D-adrenoceptor,Adrenoceptors,['adra1d']
+38,α2A-adrenoceptor,Adrenoceptors,"['adra2a', 'FP236542.1']"
+39,α2B-adrenoceptor,Adrenoceptors,['adra2b']
+40,α2C-adrenoceptor,Adrenoceptors,['adra2c']
+41,β1-adrenoceptor,Adrenoceptors,['adrb1']
+42,β2-adrenoceptor,Adrenoceptors,"['adrb2b', 'adrb2a']"
+43,β3-adrenoceptor,Adrenoceptors,"['adrb3b', 'adrb3a']"
+44,AT2 receptor,Angiotensin receptors,['agtr2']
+45,apelin receptor,Apelin receptor,['aplnr2']
+46,BB1 receptor,Bombesin receptors,['nmbr']
+47,BB2 receptor,Bombesin receptors,['grpr']
+48,B1 receptor,Bradykinin receptors,['bdkrb1']
+49,B2 receptor,Bradykinin receptors,['si:dkey-63b1.1']
+50,CT receptor,Calcitonin receptors,['calcr']
+51,calcitonin receptor-like receptor,Calcitonin receptors,['calcrlb']
+52,CaS receptor,Calcium-sensing receptor,['casr']
+53,CB1 receptor,Cannabinoid receptors,['cnr1']
+54,CB2 receptor,Cannabinoid receptors,['cnr2']
+55,chemerin receptor 1,Chemerin receptors,"['cmklr1', 'cmklrl2', 'cmklrl2']"
+56,chemerin receptor 2,Chemerin receptors,['gpr1']
+57,CCR6,Chemokine receptors,"['ccr6b', 'ccr6a']"
+58,CCR7,Chemokine receptors,['ccr7']
+59,CCR8,Chemokine receptors,"['ccr11.1', 'ccr2', 'ccr2']"
+60,CCR9,Chemokine receptors,"['ccr9a', 'ccr9b']"
+61,CCR10,Chemokine receptors,['ccr10']
+62,CXCR1,Chemokine receptors,['cxcr2']
+63,CXCR2,Chemokine receptors,['cxcr2']
+64,CXCR3,Chemokine receptors,"['cxcr3.1', 'cxcr3.3']"
+65,CXCR4,Chemokine receptors,"['cxcr4b', 'cxcr4a']"
+66,CXCR5,Chemokine receptors,['cxcr5']
+67,CX3CR1,Chemokine receptors,"['ccr11.1', 'ccr2', 'ccr2']"
+68,XCR1,Chemokine receptors,"['xcr1b.1', 'xcr1a.1']"
+69,ACKR2,Chemokine receptors,['CU633991.1']
+70,ACKR3,Chemokine receptors,"['ackr3b', 'ackr3a']"
+71,ACKR4,Chemokine receptors,"['ackr4b', 'ackr4a']"
+72,CCK1 receptor,Cholecystokinin receptors,['CCKAR']
+73,CCK2 receptor,Cholecystokinin receptors,"['si:dkey-1h24.2', 'CCKBR']"
+74,GPR3,Class A Orphans,['gpr186']
+75,GPR4,Class A Orphans,['gpr4']
+76,GPR6,Class A Orphans,['gpr6']
+77,GPR12,Class A Orphans,['gpr12']
+78,GPR17,Class A Orphans,['gpr17']
+79,GPR18,Class A Orphans,['gpr18']
+80,GPR19,Class A Orphans,['gpr19']
+81,GPR22,Class A Orphans,"['gpr22a', 'gpr22b']"
+82,GPR25,Class A Orphans,['gpr25']
+83,GPR26,Class A Orphans,['gpr26']
+84,GPR27,Class A Orphans,['gpr27']
+85,GPR33,Class A Orphans,['CU571081.1']
+86,GPR34,Class A Orphans,"['gpr34b', 'CABZ01118270.1']"
+87,GPR35,Class A Orphans,"['gpr35.1', 'CT583662.1']"
+88,GPR37,Class A Orphans,"['gpr37b', 'gpr37a']"
+89,GPR37L1,Class A Orphans,"['gpr37l1a', 'gpr37l1b']"
+90,GPR39,Class A Orphans,['gpr39']
+91,GPR45,Class A Orphans,['GPR45']
+92,GPR50,Class A Orphans,['mtnr1c']
+93,GPR55,Class A Orphans,['gpr55a']
+94,GPR61,Class A Orphans,['gpr61']
+95,GPR63,Class A Orphans,['gpr63']
+96,GPR65,Class A Orphans,['gpr65']
+97,GPR68,Class A Orphans,"['GPR68', 'GPR68']"
+98,GPR75,Class A Orphans,['gpr75']
+99,GPR83,Class A Orphans,['GPR83']
+100,GPR84,Class A Orphans,['gpr84']
+101,GPR85,Class A Orphans,['gpr85']
+102,GPR101,Class A Orphans,['gpr101']
+103,GPR119,Class A Orphans,['AL935199.1']
+104,GPR135,Class A Orphans,['gpr135']
+105,GPR139,Class A Orphans,['gpr139']
+106,GPR141,Class A Orphans,['si:dkey-94e7.1']
+107,GPR142,Class A Orphans,['gpr142']
+108,GPR151,Class A Orphans,['GPR151']
+109,GPR153,Class A Orphans,['gpr153']
+110,GPR160,Class A Orphans,['gpr160']
+111,GPR161,Class A Orphans,"['gpr161', 'si:ch211-237c6.4']"
+112,GPR171,Class A Orphans,['gpr171']
+113,GPR173,Class A Orphans,['gpr173']
+114,GPR176,Class A Orphans,['gpr176']
+115,GPR182,Class A Orphans,['gpr182']
+116,GPR183,Class A Orphans,"['gpr183a', 'gpr183b']"
+117,LGR4,Class A Orphans,['lgr4']
+118,P2RY10,Class A Orphans,['p2ry10']
+119,TAAR5,Class A Orphans,"['taar13d', 'taar13b', 'taar13c', 'taar13a', 'taar13e']"
+120,GPR156,Class C Orphans,['gpr156']
+121,GPR158,Class C Orphans,"['gpr158a', 'gpr158b']"
+122,GPR179,Class C Orphans,['si:ch211-156l18.8']
+123,GPRC5A,Class C Orphans,['CABZ01109019.1']
+124,GPRC5B,Class C Orphans,"['gprc5bb', 'gprc5ba']"
+125,GPRC5C,Class C Orphans,['gprc5c']
+126,GPRC5D,Class C Orphans,['CABZ01109019.1']
+127,GPRC6 receptor,Class C Orphans,['gprc6a']
+128,FZD1,Class Frizzled GPCRs,['fzd1']
+129,FZD2,Class Frizzled GPCRs,['fzd2']
+130,FZD3,Class Frizzled GPCRs,['fzd3a']
+131,FZD4,Class Frizzled GPCRs,['fzd4']
+132,FZD5,Class Frizzled GPCRs,['fzd5']
+133,FZD6,Class Frizzled GPCRs,['fzd6']
+134,FZD7,Class Frizzled GPCRs,"['fzd7b', 'fzd7a']"
+135,FZD8,Class Frizzled GPCRs,"['fzd8b', 'fzd8a', 'fzd8b', 'fzd8a']"
+136,FZD9,Class Frizzled GPCRs,"['fzd9b', 'fzd9a']"
+137,SMO,Class Frizzled GPCRs,['smo']
+138,C3a receptor,Complement peptide receptors,['C3AR1']
+139,C5a1 receptor,Complement peptide receptors,['CABZ01041494.1']
+140,C5a2 receptor,Complement peptide receptors,['CABZ01041494.1']
+141,CRF1 receptor,Corticotropin-releasing factor receptors,['crhr1']
+142,CRF2 receptor,Corticotropin-releasing factor receptors,['CRHR2']
+143,D1 receptor,Dopamine receptors,['drd1b']
+144,D2 receptor,Dopamine receptors,['drd2l']
+145,D3 receptor,Dopamine receptors,['drd3']
+146,D4 receptor,Dopamine receptors,"['drd4b', 'drd4a']"
+147,D5 receptor,Dopamine receptors,['BX530018.1']
+148,ETA receptor,Endothelin receptors,"['ednraa', 'ednrab']"
+149,ETB receptor,Endothelin receptors,"['ednrbb', 'ednrba']"
+150,FPR1,Formylpeptide receptors,"['si:ch73-160i9.2', 'si:dkey-211g8.1', 'si:ch73-160i9.3', 'si:ch73-160i9.1', 'si:ch73-160i9.3']"
+151,FPR2/ALX,Formylpeptide receptors,"['si:ch73-160i9.2', 'si:dkey-211g8.1', 'si:ch73-160i9.3', 'si:ch73-160i9.1', 'si:ch73-160i9.3']"
+152,FPR3,Formylpeptide receptors,"['si:ch73-160i9.2', 'si:dkey-211g8.1', 'si:ch73-160i9.3', 'si:ch73-160i9.1', 'si:ch73-160i9.3']"
+153,FFA1 receptor,Free fatty acid receptors,['si:dkey-211g8.9']
+154,FFA2 receptor,Free fatty acid receptors,"['si:ch211-231m23.4', 'si:dkey-211g8.7', 'si:dkey-211g8.6', 'CU855821.1', 'si:ch73-90p23.1']"
+155,FFA3 receptor,Free fatty acid receptors,"['si:ch211-231m23.4', 'si:dkey-211g8.7', 'si:dkey-211g8.6', 'CU855821.1', 'si:ch73-90p23.1']"
+156,GABAB1,GABAB receptors,"['gabbr1b', 'gabbr1a']"
+157,GABAB2,GABAB receptors,"['gabbr2', 'CR855311.5']"
+158,GAL1 receptor,Galanin receptors,['galr1a']
+159,GAL2 receptor,Galanin receptors,['galr2a']
+160,GAL3 receptor,Galanin receptors,['galr2b']
+161,ghrelin receptor,Ghrelin receptor,"['ghsra', 'ghsrb']"
+162,GHRH receptor,Glucagon receptor family,['ghrhrl']
+163,glucagon receptor,Glucagon receptor family,['gipr']
+164,FSH receptor,Glycoprotein hormone receptors,['fshr']
+165,LH receptor,Glycoprotein hormone receptors,['lhcgr']
+166,TSH receptor,Glycoprotein hormone receptors,['tshr']
+167,GnRH1 receptor,Gonadotrophin-releasing hormone receptors,"['gnrhr2', 'gnrhr4', 'gnrhr1', 'CABZ01080434.1']"
+168,GPR18,"GPR18, GPR55 and GPR119",['gpr18']
+169,GPR55,"GPR18, GPR55 and GPR119",['gpr55a']
+170,GPR119,"GPR18, GPR55 and GPR119",['AL935199.1']
+171,GPER,G protein-coupled estrogen receptor,['gper1']
+172,H2 receptor,Histamine receptors,['hrh2a']
+173,kisspeptin receptor,Kisspeptin receptor,['kiss1rb']
+174,BLT1 receptor,Leukotriene receptors,['ltb4r']
+175,BLT2 receptor,Leukotriene receptors,"['ltb4r2b', 'ltb4r2a']"
+176,CysLT1 receptor,Leukotriene receptors,['cysltr1']
+177,CysLT2 receptor,Leukotriene receptors,['cysltr3']
+178,FPR2/ALX,Leukotriene receptors,"['si:ch73-160i9.2', 'si:dkey-211g8.1', 'si:ch73-160i9.3', 'si:ch73-160i9.1', 'si:ch73-160i9.3']"
+179,LPA1 receptor,Lysophospholipid (LPA) receptors,['lpar1']
+180,LPA2 receptor,Lysophospholipid (LPA) receptors,"['lpar2a', 'lpar2b']"
+181,LPA3 receptor,Lysophospholipid (LPA) receptors,['lpar3']
+182,LPA4 receptor,Lysophospholipid (LPA) receptors,['lpar4']
+183,LPA5 receptor,Lysophospholipid (LPA) receptors,"['lpar5a', 'lpar5b']"
+184,LPA6 receptor,Lysophospholipid (LPA) receptors,"['lpar6a', 'lpar6b']"
+185,S1P1 receptor,Lysophospholipid (S1P) receptors,['s1pr1']
+186,S1P2 receptor,Lysophospholipid (S1P) receptors,['s1pr2']
+187,S1P4 receptor,Lysophospholipid (S1P) receptors,['s1pr4']
+188,S1P5 receptor,Lysophospholipid (S1P) receptors,['s1pr5b']
+189,MCH1 receptor,Melanin-concentrating hormone receptors,"['mchr1b', 'mchr1a']"
+190,MC2 receptor,Melanocortin receptors,['mc2r']
+191,MC3 receptor,Melanocortin receptors,['mc3r']
+192,MC4 receptor,Melanocortin receptors,['mc4r']
+193,MC5 receptor,Melanocortin receptors,"['mc5ra', 'mc5rb']"
+194,MT1 receptor,Melatonin receptors,"['mtnr1aa', 'mtnr1ab']"
+195,mGlu1 receptor,Metabotropic glutamate receptors,"['grm1a', 'grm1b', 'chadlb']"
+196,mGlu2 receptor,Metabotropic glutamate receptors,"['grm2a', 'grm2b']"
+197,mGlu3 receptor,Metabotropic glutamate receptors,['grm3']
+198,mGlu5 receptor,Metabotropic glutamate receptors,"['grm5a', 'grm5b']"
+199,mGlu6 receptor,Metabotropic glutamate receptors,"['grm6a', 'grm6b']"
+200,mGlu7 receptor,Metabotropic glutamate receptors,"['GRM7', 'CR974456.1']"
+201,mGlu8 receptor,Metabotropic glutamate receptors,"['grm8b', 'grm8a']"
+202,NMU1 receptor,Neuromedin U receptors,"['nmur1b', 'nmur1a']"
+203,NPFF1 receptor,Neuropeptide FF/neuropeptide AF receptors,['npffr1']
+204,NPFF2 receptor,Neuropeptide FF/neuropeptide AF receptors,"['NPFFR2', 'npffr2b']"
+205,NPS receptor,Neuropeptide S receptor,['si:dkey-78k11.9']
+206,Y1 receptor,Neuropeptide Y receptors,['npy1r']
+207,Y2 receptor,Neuropeptide Y receptors,"['npy2rl', 'npy2r']"
+208,Y5 receptor,Neuropeptide Y receptors,['npy4r']
+209,NTS1 receptor,Neurotensin receptors,['ntsr1']
+210,δ receptor,Opioid receptors,"['oprd1b', 'oprd1a']"
+211,κ receptor,Opioid receptors,['oprk1']
+212,μ receptor,Opioid receptors,['oprm1']
+213,NOP receptor,Opioid receptors,['oprl1']
+214,OPN1MW,Opsin receptors,"['opn1lw2', 'opn1lw1']"
+215,OPN1SW,Opsin receptors,['opn1sw1']
+216,Rhodopsin,Opsin receptors,"['rho', 'rhol', 'CABZ01109058.1', 'exorh']"
+217,OPN3,Opsin receptors,['opn3']
+218,OPN4,Opsin receptors,['opn4.1']
+219,OPN5,Opsin receptors,['opn5']
+220,OX2 receptor,Orexin receptors,['hcrtr2']
+221,GPR107,Other 7TM proteins,['gpr107']
+222,GPR137,Other 7TM proteins,['gpr137']
+223,TPRA1,Other 7TM proteins,['tpra1']
+224,GPR143,Other 7TM proteins,['gpr143']
+225,GPR157,Other 7TM proteins,['gpr157']
+226,oxoglutarate receptor,Oxoglutarate receptor,"['oxgr1b', 'oxgr1a.1', 'oxgr1a.3', 'oxgr1a.2']"
+227,P2Y1 receptor,P2Y receptors,['p2ry1']
+228,P2Y2 receptor,P2Y receptors,"['p2ry2.1', 'p2ry2.3', 'p2ry2.2']"
+229,P2Y12 receptor,P2Y receptors,['p2ry12']
+230,P2Y13 receptor,P2Y receptors,['p2ry13']
+231,P2Y14 receptor,P2Y receptors,['P2RY14']
+232,PTH1 receptor,Parathyroid hormone receptors,['pth1ra']
+233,PTH2 receptor,Parathyroid hormone receptors,"['pth2r', 'si:dkeyp-4h4.1']"
+234,PAF receptor,Platelet-activating factor receptor,['ptafr']
+235,PrRP receptor,Prolactin-releasing peptide receptor,['PRLHR']
+236,EP1 receptor,Prostanoid receptors,"['ptger1c', 'ptger1a', 'ptger1b']"
+237,EP2 receptor,Prostanoid receptors,"['ptger2a', 'ptger2b']"
+238,EP3 receptor,Prostanoid receptors,['ptger3']
+239,EP4 receptor,Prostanoid receptors,"['ptger4b', 'ptger4a']"
+240,FP receptor,Prostanoid receptors,['ptgfr']
+241,IP receptor,Prostanoid receptors,['ptgir']
+242,TP receptor,Prostanoid receptors,['tbxa2r']
+243,PAR1,Proteinase-activated receptors,"['si:dkey-163m14.2', 'f2r', 'zgc:171965', 'F2R (1 of many)', 'F2R (1 of many)', 'F2R (1 of many)', 'F2R (1 of many)']"
+244,PAR2,Proteinase-activated receptors,"['f2rl1.1', 'f2rl1.2']"
+245,PAR3,Proteinase-activated receptors,"['CABZ01071020.1', 'f2rl2']"
+246,PAR4,Proteinase-activated receptors,['F2RL3']
+247,QRFP receptor,QRFP receptor,"['qrfpra', 'CABZ01084347.1']"
+248,RXFP1,Relaxin family peptide receptors,['rxfp1']
+249,RXFP2,Relaxin family peptide receptors,"['rxfp2b', 'rxfp2a']"
+250,RXFP3,Relaxin family peptide receptors,['rxfp3']
+251,SST1 receptor,Somatostatin receptors,['sstr1a']
+252,SST2 receptor,Somatostatin receptors,"['sstr2a', 'sstr2b']"
+253,SST3 receptor,Somatostatin receptors,['sstr5']
+254,SST5 receptor,Somatostatin receptors,"['sstr3', 'si:zfos-169g10.2']"
+255,NK1 receptor,Tachykinin receptors,"['tacr1a', 'tacr1b']"
+256,NK2 receptor,Tachykinin receptors,['tacr2']
+257,NK3 receptor,Tachykinin receptors,"['tacr3l', 'tacr3a']"
+258,TAS1R3,Taste 1 receptors,['tas1r3']
+259,TRH1 receptor,Thyrotropin-releasing hormone receptors,"['trhrb', 'trhra']"
+260,TRH2 receptor,Thyrotropin-releasing hormone receptors,['trhr2']
+261,TA1 receptor,Trace amine receptor,['taar1b']
+262,V1A receptor,Vasopressin and oxytocin receptors,"['avpr1ab', 'avpr1aa']"
+263,V2 receptor,Vasopressin and oxytocin receptors,"['avpr2aa', 'avpr2ab']"
+264,OT receptor,Vasopressin and oxytocin receptors,"['oxtr', 'oxtrl']"
+265,PAC1 receptor,VIP and PACAP receptors,"['adcyap1r1a', 'adcyap1r1a']"
+266,VPAC2 receptor,VIP and PACAP receptors,['vipr2']
+267,5-HT3A,5-HT3 receptors,['htr3a']
+268,5-HT3B,5-HT3 receptors,['htr3b']
+269,ASIC1,Acid-sensing (proton-gated) ion channels (ASICs),['asic1a']
+270,ASIC2,Acid-sensing (proton-gated) ion channels (ASICs),['asic2']
+271,GABAA receptor α1 subunit,GABAA receptors,['gabra1']
+272,GABAA receptor α2 subunit,GABAA receptors,"['gabra2a', 'GABRA2']"
+273,GABAA receptor α3 subunit,GABAA receptors,['gabra3']
+274,GABAA receptor α4 subunit,GABAA receptors,['gabra4']
+275,GABAA receptor α5 subunit,GABAA receptors,['gabra5']
+276,GABAA receptor α6 subunit,GABAA receptors,"['gabra6b', 'gabra6a']"
+277,GABAA receptor β2 subunit,GABAA receptors,"['gabrb2a', 'GABRB2 (1 of many)']"
+278,GABAA receptor β3 subunit,GABAA receptors,['gabrb3']
+279,GABAA receptor γ1 subunit,GABAA receptors,['gabrg1']
+280,GABAA receptor γ2 subunit,GABAA receptors,['gabrg2']
+281,GABAA receptor δ subunit,GABAA receptors,['gabrd']
+282,GABAA receptor ρ1 subunit,GABAA receptors,"['gabrr1', 'GABRR1 (1 of many)']"
+283,GABAA receptor ρ2 subunit,GABAA receptors,"['gabrr2b', 'gabrr2a']"
+284,GABAA receptor ρ3 subunit,GABAA receptors,"['gabrr3a', 'gabrr3b']"
+285,glycine receptor α1 subunit,Glycine receptors,['glra1']
+286,glycine receptor α2 subunit,Glycine receptors,['glra2']
+287,glycine receptor α3 subunit,Glycine receptors,['glra3']
+288,glycine receptor α4 subunit (pseudogene in humans),Glycine receptors,['glra4a']
+289,glycine receptor β subunit,Glycine receptors,"['glrbb', 'glrba']"
+290,GluA1,Ionotropic glutamate receptors,"['gria1a', 'gria1b']"
+291,GluA2,Ionotropic glutamate receptors,"['gria2b', 'gria2a']"
+292,GluA3,Ionotropic glutamate receptors,"['gria3a', 'gria3b']"
+293,GluA4,Ionotropic glutamate receptors,['gria4a']
+294,GluD1,Ionotropic glutamate receptors,"['grid1b', 'grid1a']"
+295,GluD2,Ionotropic glutamate receptors,['grid2']
+296,GluK1,Ionotropic glutamate receptors,"['grik1b', 'grik1a']"
+297,GluK2,Ionotropic glutamate receptors,['GRIK2']
+298,GluK3,Ionotropic glutamate receptors,['GRIK3']
+299,GluK4,Ionotropic glutamate receptors,['grik4']
+300,GluK5,Ionotropic glutamate receptors,"['si:ch211-264f5.8', 'grik5', 'LO018585.1']"
+301,GluN1,Ionotropic glutamate receptors,"['grin1b', 'grin1a']"
+302,GluN2A,Ionotropic glutamate receptors,['grin2aa']
+303,GluN2B,Ionotropic glutamate receptors,"['grin2bb', 'GRIN2B (1 of many)']"
+304,GluN2C,Ionotropic glutamate receptors,"['grin2cb', 'grin2ca']"
+305,GluN2D,Ionotropic glutamate receptors,"['grin2db', 'grin2da']"
+306,GluN3B,Ionotropic glutamate receptors,"['grin3ba', 'grin3bb']"
+307,IP3R1,IP3 receptors,"['itpr1a', 'itpr1b']"
+308,IP3R2,IP3 receptors,['itpr2']
+309,IP3R3,IP3 receptors,['itpr3']
+310,nicotinic acetylcholine receptor α1 subunit,Nicotinic acetylcholine receptors,['chrna1']
+311,nicotinic acetylcholine receptor α2 subunit,Nicotinic acetylcholine receptors,"['chrna2a', 'chrna2b']"
+312,nicotinic acetylcholine receptor α3 subunit,Nicotinic acetylcholine receptors,['chrna3']
+313,nicotinic acetylcholine receptor α4 subunit,Nicotinic acetylcholine receptors,"['chrna4b', 'chrna4a']"
+314,nicotinic acetylcholine receptor α5 subunit,Nicotinic acetylcholine receptors,['chrna5']
+315,nicotinic acetylcholine receptor α6 subunit,Nicotinic acetylcholine receptors,['chrna6']
+316,nicotinic acetylcholine receptor α7 subunit,Nicotinic acetylcholine receptors,"['FO907089.1', 'chrna7']"
+317,nicotinic acetylcholine receptor α9 subunit,Nicotinic acetylcholine receptors,"['chrna9', 'LO018568.1']"
+318,nicotinic acetylcholine receptor α10 subunit,Nicotinic acetylcholine receptors,['chrna10a']
+319,nicotinic acetylcholine receptor β1 subunit,Nicotinic acetylcholine receptors,"['chrnb1l', 'chrnb1']"
+320,nicotinic acetylcholine receptor β2 subunit,Nicotinic acetylcholine receptors,['chrnb2']
+321,nicotinic acetylcholine receptor β3 subunit,Nicotinic acetylcholine receptors,"['chrnb3b', 'chrnb3a']"
+322,nicotinic acetylcholine receptor β4 subunit,Nicotinic acetylcholine receptors,['chrnb4']
+323,nicotinic acetylcholine receptor δ subunit,Nicotinic acetylcholine receptors,['chrnd']
+324,nicotinic acetylcholine receptor ε subunit,Nicotinic acetylcholine receptors,['chrne']
+325,P2X1,P2X receptors,['p2rx1']
+326,P2X2,P2X receptors,['p2rx2']
+327,P2X3,P2X receptors,"['p2rx3a', 'p2rx3b']"
+328,P2X4,P2X receptors,"['p2rx4b', 'p2rx4a']"
+329,P2X5,P2X receptors,"['p2rx5', 'p2rx8']"
+330,P2X7,P2X receptors,['p2rx7']
