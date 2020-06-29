@@ -27,6 +27,7 @@ Installation
 ????????????
 
 To install scConnect, for now, please clone this repository and install using
+
 .. code-block:: bash
     `cd scConnect/`
     `pip install .`
