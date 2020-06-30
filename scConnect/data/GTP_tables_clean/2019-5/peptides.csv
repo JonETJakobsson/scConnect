@@ -1634,7 +1634,7 @@ Ligand id,Name,Species,Type,Subunit ids,Subunit names,Approved,Withdrawn,Labelle
 870,pentagastrin,,Other peptide,,,yes,,,,,,,pentagastrin,XWMDF,Boc-βAla-Trp-Met-Asp-Phe-NH2,,,CSCC[C@@H](C(=O)N[C@H](C(=O)N[C@H](C(=O)N)Cc1ccccc1)CC(=O)O)NC(=O)[C@H](Cc1c[nH]c2c1cccc2)NC(=O)CCNC(=O)OCC(C)C,ALXRNCVIQSDJAO-KRCBVYEFSA-N
 9188,pepcan-12,,Other peptide,,,,,,,,,,,RVDPVNFKLLSH,Arg-Val-Asp-Pro-Val-Asn-Phe-Lys-Leu-Leu-Ser-His,,,,
 4012,peptide 234,,Other peptide,,,,,,,,,,,ANWNGFGWRF,Ac-D-Ala-Asn-Trp-Asn-Gly-Phe-Gly-D- Trp-Arg-Phe-NH2,,,,
-9253,peptide 30 [PMID: 27019010],,Other peptide,,,,,,,,,,,GGFL,"H
+9253,peptide 30 [PMID: 27019010],,Other peptide,,,,,,,,,,,GGFL,"H
 H2N-Gly-Gly-Phe-Leu-OMe",,,NCC(=O)NCC(=O)N[C@H](C(=O)N[C@H](C(=O)OC)CC(C)C)Cc1ccccc1,CSHFHJNMIMPJST-HOTGVXAUSA-N
 9588,Peptide 5 [PMID: 28562585],,Other peptide,,,,,,,,,,,,Cap1-c-Tet-Ala-Gly-Thr-X1-Thr-Ser-Asp-X2-X3,,,,
 9220,peptide Cp40 [PMID: 25982307],,Other peptide,,,,,,,,,,,,D-Tyr-Ile-[Cys-Val-(1Me)Trp-Gln-Asp-Trp-Sar-Ala-His-Arg-Cys]-(Me)Ile,,,,
