@@ -90,26 +90,6 @@ def get_data(data):
 
 
 # Annotation support ------------------------------------------------------------------------------------
-def check_gene(gene):
-    """Depreciated.
-    Check if a gene is present in the mouse genome.
-    
-    returns: Boolean
-    
-    """
-
-    import mygene
-    mg = mygene.MyGeneInfo()
-
-    mg_result = mg.query(gene, species="Mouse", as_dataframe=True)
-    if len(mg_result) > 0:
-        if gene in mg_result.symbol.any():
-            return True
-        else:
-            return False
-    else:
-        return False
-
     # Searches for orthogonal genes given an organism for which the gene exist 
     # and a target organism for which to search.
 def find_orth_gene(gene, organism, target):
@@ -118,7 +98,7 @@ def find_orth_gene(gene, organism, target):
     returns a list of gene(s)"""
     import pandas as pd
     from gprofiler import GProfiler
-    gp = GProfiler()
+    gp = GProfiler(user_agent="scConnect")
 
     if organism == target: # do not search if original gene is known
         genes = list(set([gene,]))
