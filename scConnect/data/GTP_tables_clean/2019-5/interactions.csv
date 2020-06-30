@@ -4774,7 +4774,7 @@ interaction_id,target,target_id,target_gene_symbol,target_uniprot,target_ensembl
 4772,CRF1 receptor,,CRHR1,P34998,ENSG00000120088,,,,,,,Human,astressin,,,,,Antagonist,Antagonist,,Not Determined,f,f,,pIC50,,,,IC50,,,,=,,,,12361401
 4773,CRF1 receptor,,CRHR1,P34998,ENSG00000120088,,,,,,,Human,astressin 2B,,,,,Antagonist,Antagonist,,Not Determined,f,f,,pIC50,,,,IC50,,,,>,,,,12361401
 4774,CRF1 receptor,,Crhr1,P35353,ENSRNOG00000004900,,,,,,,Rat,"CP 154,526",,,,,Antagonist,Antagonist,,Selective,f,f,,pIC50,,,,IC50,,,,=,,,,8874139
-4775,CRF1 receptor,,CRHR1,P34998,ENSG00000120088,,,,,,,Human,"CP-316,311",,,,,Antagonist,Antagonist,,Not Determined,f,f,,pKi,,,,Ki,,,,=,"Antagonism of CRF-stimulated
+4775,CRF1 receptor,,CRHR1,P34998,ENSG00000120088,,,,,,,Human,"CP-316,311",,,,,Antagonist,Antagonist,,Not Determined,f,f,,pKi,,,,Ki,,,,=,"Antagonism of CRF-stimulated
 adenylate cyclase activity by the CRF1 receptor endogenously expressed in human IMR32 cells.",,,18260619
 4776,CRF1 receptor,,Crhr1,P35353,ENSRNOG00000004900,,,,,,,Rat,"CP-316,311",,,,,Antagonist,Antagonist,,Not Determined,f,f,,pIC50,,,,IC50,,,,=,In vitro binding to rat cortex.,,,18260619
 4777,CRF1 receptor,,Crhr1,P35353,ENSRNOG00000004900,,,,,,,Rat,"CP 376,395",,,,,Antagonist,Antagonist,,Selective,f,f,,pIC50,,,,IC50,,,,=,,,,18288792

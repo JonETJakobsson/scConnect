@@ -121,7 +121,6 @@ def get_peptide_ligands(organism="mmusculus", save=True, verbouse=False):
     from scConnect.database import get_data
     import pandas as pd
     import numpy as np
-    from scConnect.database import check_gene
     import pkg_resources
     import sys
 
