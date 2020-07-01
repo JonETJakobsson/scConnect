@@ -7,11 +7,7 @@ setup(
    author='Jon Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
    packages=find_packages(),
-   package_data={"scConnect": ["data/Gene_annotation/*/*.csv", #  interaction.csv
-                               "data/Gene_annotation/*/*/*.csv", #  ligands and receptors csv's
-                               "data/GTP_tables/*.txt", #  licence for GTP
-                               "data/GTP_tables/*/*.csv", # GTP tables for specific version
-                               "data/GTP_tables/*/*.csv", # cleaned GTP tables
+   package_data={"scConnect": ["*.csv", #  add all csv files
                                "assets/*.*" # all assets for web app
                               ]},
    
