@@ -7,7 +7,7 @@ setup(
    author='Jon Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
    packages=find_packages(),
-   package_data={"scConnect": ["*.csv", #  add all csv files
+   package_data={"scConnect": ["data/*.*", #  add all files under data/
                                "assets/*.*" # all assets for web app
                               ]},
    
