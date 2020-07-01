@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import glob
 
-csv_files = glob.glob("scConnect/data/**/*.csv", recursive=True)
+csv_files = glob.glob("/**/*.csv", recursive=True)
 
 setup(
    name='scConnect',
