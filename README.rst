@@ -19,9 +19,10 @@ __ https://www.guidetopharmacology.org/
 ?????????????
 Documentation
 ?????????????
-For helpful tutorials and information about the API please consult the `documentation`__.
+For a short introduction to how scConnect can be used please check out this `tutorial`_ and for information about the API please consult the `documentation`_.
 
-__ https://scconnect.readthedocs.io/en/latest/
+.. _tutorial: tutorial/Connecting brain regions.ipynb
+.. _documentation: https://scconnect.readthedocs.io/en/latest/
 
 ????????????
 Installation
