@@ -3,11 +3,14 @@ from setuptools import setup, find_packages
 setup(
    name='scConnect',
    version='0.1',
-   description='scConnect: like tinder for single cells',
+   description='scConnect: Tinder for single cells',
    author='Jon Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
-   packages=find_packages(),
+   packages=["scConnect"],
    package_data={"scConnect": ["data/*.*", #  add all files under data/
+                               "data/*/*.*", #  add all files under data/
+                               "data/*/*/*.*", #  add all files under data/
+                               "data/*/*/*/*.*", #  add all files under data/
                                "assets/*.*" # all assets for web app
                               ]},
    
