@@ -1,4 +1,7 @@
 from setuptools import setup, find_packages
+import glob
+
+csv_files = glob.glob("scConnect/data/**/*.csv", recursive=True)
 
 setup(
    name='scConnect',
@@ -7,10 +10,7 @@ setup(
    author='Jon Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
    packages=["scConnect"],
-   package_data={"scConnect": ["data/*.*", #  add all files under data/
-                               "data/*/*.*", #  add all files under data/
-                               "data/*/*/*.*", #  add all files under data/
-                               "data/*/*/*/*.*", #  add all files under data/
+   package_data={"scConnect": [csv_files, # all database csv files
                                "assets/*.*" # all assets for web app
                               ]},
    
