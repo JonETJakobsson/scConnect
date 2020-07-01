@@ -16,6 +16,6 @@ setup(
       'networkx',
       'dash',
       'dash-cytoscape',
-      'holoviews'
+      'holoviews',
       'notebook'], 
 )
