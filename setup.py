@@ -7,9 +7,14 @@ setup(
    author='Jon Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
    packages=['scConnect'],  #same as name
+   package_dir={"scConnect": "scConnect"},
+   package_data={"scConnect": ["data/*", "assets/*"]},
    install_requires=[#external packages as dependencies
       'scanpy',
       'pandas',
       'numpy',
-      'networkx'], 
+      'networkx',
+      'dash',
+      'dash-cytoscape',
+      'holoviews'], 
 )
