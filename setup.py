@@ -10,9 +10,7 @@ setup(
    author='Jon Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
    packages=["scConnect"],
-   package_data={"scConnect": [csv_files, # all database csv files
-                               "assets/*.*" # all assets for web app
-                              ]},
+   package_data={"scConnect": csv_files+["assets/*.*"]},
    
    install_requires=[#external packages as dependencies
       'scanpy',
