@@ -21,7 +21,7 @@ Documentation
 ?????????????
 For a short introduction to how scConnect can be used please check out this `tutorial`_ and for information about the API please consult the `documentation`_.
 
-.. _tutorial: tutorial/Connecting brain regions.ipynb
+.. _tutorial: https://github.com/JonETJakobsson/scConnect/blob/master/tutorial/Connecting%20brain%20regions.ipynb
 .. _documentation: https://scconnect.readthedocs.io/en/latest/
 
 ????????????
