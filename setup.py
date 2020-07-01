@@ -2,6 +2,7 @@ from setuptools import setup, find_packages
 import glob
 
 csv_files = glob.glob("/**/*.csv", recursive=True)
+csv_files = [path.replace("\\", "/") for path in csv_files]
 
 setup(
    name='scConnect',
