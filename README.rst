@@ -25,9 +25,13 @@ The quickest and easiest way to try out the tutorial is to run through this bind
 
 .. image:: https://mybinder.org/badge_logo.svg
  :target: https://mybinder.org/v2/gh/JonETJakobsson/scConnect/master?filepath=tutorial%2FConnecting%20brain%20regions.ipynb   
-
+ 
 .. _tutorial: https://github.com/JonETJakobsson/scConnect/blob/master/tutorial/Connecting%20brain%20regions.ipynb
 .. _documentation: https://scconnect.readthedocs.io/en/latest/
+
+
+ **Note:** Unfortunatly, to run the web application, you will have to install scConnect and run on your local machine.
+
 
 ????????????
 Installation
