@@ -14,7 +14,7 @@ setup(
    author_email='jon.jakobsson@neuro.uu.se',
    packages=["scConnect"],
    package_data={
-      "": csv_files,
+      "scConnect": csv_files,
       "scConnect": ["assets/*.*"]},
    
    install_requires=[#external packages as dependencies
