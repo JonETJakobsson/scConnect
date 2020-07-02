@@ -3,7 +3,7 @@ import glob
 
 files = glob.glob("scConnect/**/*.*", recursive=True) # add all files under scConnect
 files = [path.replace("\\", "/") for path in files] # Change from windows style to requred style for setuptools
-files = [path.replace("scConnect/data", "data") for path in files]
+files = [path.replace("scConnect/", "") for path in files]
 
 
 setup(
