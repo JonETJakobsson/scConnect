@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 import glob
 
-csv_files = glob.glob("scConnect/data/**/*.csv", recursive=True)
-csv_files = [path.replace("\\", "/") for path in csv_files]
-csv_files = [path.replace("scConnect/data", "data") for path in csv_files]
+files = glob.glob("scConnect/**/*.*", recursive=True) # add all files under scConnect
+files = [path.replace("\\", "/") for path in files] # Change from windows style to requred style for setuptools
+files = [path.replace("scConnect/data", "data") for path in files]
 
 
 setup(
@@ -14,7 +14,7 @@ setup(
    author_email='jon.jakobsson@neuro.uu.se',
    packages=["scConnect"],
    package_data={
-      "scConnect": csv_files},
+      "scConnect": files},
    
    install_requires=[#external packages as dependencies
       'scanpy',
