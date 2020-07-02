@@ -13,7 +13,9 @@ setup(
    author='Jon Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
    packages=["scConnect"],
-   package_data={"scConnect": csv_files+["assets/*.*"]},
+   package_data={
+      "scConnect": csv_files,
+      "scConnect": ["assets/*.*"]},
    
    install_requires=[#external packages as dependencies
       'scanpy',
