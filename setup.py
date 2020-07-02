@@ -24,5 +24,6 @@ setup(
       'dash',
       'dash-cytoscape',
       'holoviews',
-      'notebook'], 
+      'notebook',
+      'xlrd'], 
 )
