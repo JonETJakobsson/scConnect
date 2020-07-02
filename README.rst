@@ -30,19 +30,26 @@ The quickest and easiest way to try out the tutorial is to run through this bind
 .. _documentation: https://scconnect.readthedocs.io/en/latest/
 
 
- **Note:** Unfortunatly, to run the web application, you will have to install scConnect and run on your local machine.
+ **Note:** To run the web application in the tutorial, you will have to install scConnect and run on your local machine.
 
 
 ????????????
 Installation
 ????????????
 
-To install scConnect, for now, please clone this repository and install using
+To install scConnect, please clone this repository and install using
 
 .. code-block:: bash
 
   cd scConnect/
   pip install .
-
-When the initial version is released we will make the package available at PyPI.
+  
+  
+or
+ 
+.. code-block:: bash
+ 
+   pip install git+https://github.com/JonETJakobsson/scConnect
+    
+This will install all dependencies needed to run the tutorial, and utilize all features of scConnect.
 
