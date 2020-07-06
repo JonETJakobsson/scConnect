@@ -1,5 +1,6 @@
 import scConnect as cn
+import pytest
 
 def test_import():
-    assert type(cn) == module
+    assert isinstance(type(cn), "module")
     
