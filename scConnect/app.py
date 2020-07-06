@@ -6,6 +6,7 @@ def graph(G):
     print("please open: http://127.0.0.1:8050/")
 
     import dash
+    from jupyter_dash import JupyterDash
     import dash_cytoscape as cyto
     from dash.dependencies import Output, Input
     import dash_html_components as html
@@ -22,7 +23,7 @@ def graph(G):
 
     cyto.load_extra_layouts()
 
-    app = dash.Dash(__name__)
+    app = JupyterDash(__name__)
     # Add a modified index string to change the title to scConnect
     app.index_string = '''
         <!DOCTYPE html>

@@ -30,6 +30,7 @@ setup(
       'networkx',
       'dash',
       'dash-cytoscape',
+      'jupyter-dash',
       'holoviews',
       'notebook',
       'xlrd'],
