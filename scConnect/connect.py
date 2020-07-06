@@ -1,6 +1,6 @@
 # Module deals with creation of ligand and receptor scores, and creation of scConnect tables etc.
 import scConnect as cn
-import scanpy.api as sc
+import scanpy as sc
 
 version = cn.database.version
 # Scoring logic for ligands
