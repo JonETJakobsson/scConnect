@@ -7,12 +7,16 @@
   :align: center
   :height: 100px
  
-The end goal of scConnect is to provide information about putative interaction between cell populations 
-in single cell RNA-seq data. 
-To do so gene expression levels are used to asses precence or absence of ligands and receptors. 
-This information is then integrated with ligand receptor interaction data from `Guide to pharmacology`__ 
-to detect putative connections.
-The resulting NetworkX graph can be analysed and browsed using a dash web app.
+scConnect integrate gene expression profiles in scRNA-seq datasets with ligand and receptor interaction information from `Guide to pharmacology`__ to construct a graph containing all putative interaction between cell types in the dataset. scConnect integrate well with Scanpy and can be appended to  any scanpy analysis pipeline.
+
+=========
+Usecases:
+=========
+
+* Identify putative cell-cell communication in a tissue
+* Infer neuronal networks based on ligand receptor compatability
+* Study connectivity changes following treatments
+
 
 __ https://www.guidetopharmacology.org/
 
