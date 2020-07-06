@@ -5,7 +5,7 @@ files = glob.glob("scConnect/**/*.*", recursive=True) # add all files under scCo
 files = [path.replace("\\", "/") for path in files] # Change from windows style to requred style for setuptools
 files = [path.replace("scConnect/", "") for path in files]
 
-with open("README.rts", "r") as fh:
+with open("README.rst", "r") as fh:
     long_description = fh.read()
 
 setup(
