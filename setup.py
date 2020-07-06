@@ -5,14 +5,12 @@ files = glob.glob("scConnect/**/*.*", recursive=True) # add all files under scCo
 files = [path.replace("\\", "/") for path in files] # Change from windows style to requred style for setuptools
 files = [path.replace("scConnect/", "") for path in files]
 
-with open("README.rts", "r") as fh:
-    description = fh.read()
 
 setup(
    name='scConnect',
    version='1.0.0',
    summary='scConnect integrate gene expression profiles in scRNA-seq datasets with ligand and receptor interaction information from Guide to pharmacology to construct a graph containing all putative interaction between cell types in the dataset.'
-   description=description,
+   description='Connects cell types together based on mathing ligand and receptor pairs.',
    author='Jon E.T. Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
    Project-URL='GitHub, https://github.com/JonETJakobsson/scConnect',
