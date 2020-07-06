@@ -1,6 +1,9 @@
 .. image:: https://readthedocs.org/projects/scconnect/badge/?version=latest
     :target: https://scconnect.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
+ 
+.. image:: https://travis-ci.com/JonETJakobsson/scConnect.svg?branch=master
+    :target: https://travis-ci.com/JonETJakobsson/scConnect
 
 .. image:: scConnect/assets/logo.png
   :width: 100px
