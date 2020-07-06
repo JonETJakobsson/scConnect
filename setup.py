@@ -16,9 +16,9 @@ setup(
    author='Jon E.T. Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
    Project-URL='GitHub, https://github.com/JonETJakobsson/scConnect',
-   Project-URL='Documentation, https://scconnect.readthedocs.io/en/latest/'
+   Project-URL='Documentation, https://scconnect.readthedocs.io/en/latest/',
    license='License :: OSI Approved :: MIT License',
-   key-words='scRNA-seq,connectome,ligands,receptors,interactions,sequencing'
+   key-words='scRNA-seq,connectome,ligands,receptors,interactions,sequencing',
    packages=["scConnect"],
    package_data={
       "scConnect": files},
@@ -33,6 +33,6 @@ setup(
       'holoviews',
       'notebook',
       'xlrd'],
-   Requires-Python='>=3.6',
+   Requires-Python='>=3.6', #utilize ordered dictionaries
    
 )
