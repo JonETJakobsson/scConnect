@@ -15,7 +15,7 @@ setup(
    log_description=long_description,
    author='Jon E.T. Jakobsson',
    author_email='jon.jakobsson@neuro.uu.se',
-   Project_URL=["GitHub": "https://github.com/JonETJakobsson/scConnect",
+   Project_URL={"GitHub": "https://github.com/JonETJakobsson/scConnect",
                 "Documentation": "https://scconnect.readthedocs.io/en/latest/"},
    license='License :: OSI Approved :: MIT License',
    key_words=['scRNA-seq, connectome, ligands, receptors, interactions, sequencing'],
