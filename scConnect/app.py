@@ -2,8 +2,11 @@
 # Dash app to investigate graphs
 
 
-def graph(G):
-    print("please open: http://127.0.0.1:8050/")
+def graph(G, mode=None):
+    """
+    G: a multidirectional graph
+    mode: inline to show inside the jupyter nodebook, default is None
+    """
 
     import dash
     from jupyter_dash import JupyterDash
@@ -23,7 +26,11 @@ def graph(G):
 
     cyto.load_extra_layouts()
 
+    JupyterDash.infer_jupyter_proxy_config()
+
     app = JupyterDash(__name__)
+
+    server = app.server
     # Add a modified index string to change the title to scConnect
     app.index_string = '''
         <!DOCTYPE html>
@@ -615,7 +622,7 @@ def graph(G):
     
     
     # Run server
-    app.run_server(debug=False)
+    app.run_server(mode=mode)
 
 
 
