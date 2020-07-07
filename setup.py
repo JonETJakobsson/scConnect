@@ -31,6 +31,7 @@ setup(
       'dash',
       'dash-cytoscape',
       'jupyter-dash',
+      'jupyter-server-proxy',
       'holoviews',
       'notebook',
       'xlrd'],
