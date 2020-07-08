@@ -1,7 +1,9 @@
 
-version="2019-5" #this is currently imported in other modules, so set verions here
+version = "2019-5"  # this is currently imported in other modules, so set verions here
 
 # Clean original GTP tables-----------------------------------------------------------------------------------------
+
+
 def import_GTP_tables():
     """Imports all GTP tables into a dictionary of tables."""
 
@@ -90,20 +92,21 @@ def get_data(data):
 
 
 # Annotation support ------------------------------------------------------------------------------------
-    # Searches for orthogonal genes given an organism for which the gene exist 
+    # Searches for orthogonal genes given an organism for which the gene exist
     # and a target organism for which to search.
 def find_orth_gene(gene, organism, target):
     """Find orthogonal gene via Gprofiler
-    
+
     returns a list of gene(s)"""
     import pandas as pd
     from gprofiler import GProfiler
-    gp = GProfiler(user_agent="scConnect")
+    gp = GProfiler()
 
-    if organism == target: # do not search if original gene is known
-        genes = list(set([gene,]))
+    if organism == target:  # do not search if original gene is known
+        genes = list(set([gene, ]))
     else:
-        results = pd.DataFrame(gp.orth(query=gene, organism=organism, target=target))
+        results = pd.DataFrame(
+            gp.orth(query=gene, organism=organism, target=target))
         results.dropna(subset=["name"], axis=0)
         genes = [gene for gene in results.name if gene != "N/A"]
 
@@ -123,7 +126,6 @@ def get_peptide_ligands(organism="mmusculus", save=True, verbouse=False):
     import numpy as np
     import pkg_resources
     import sys
-
 
     interactions = get_data("interactions")
 
@@ -166,35 +168,35 @@ def get_peptide_ligands(organism="mmusculus", save=True, verbouse=False):
     gene_pivot = gene_ligands_df.pivot(
         index="ligand", columns="ligand_species", values="ligand_gene_symbol")
 
-
-
     inferred_genes = list()
-    
-    # Add organism names. Key should match column names from GTP, 
+
+    # Add organism names. Key should match column names from GTP,
     # and values should match species names from gprofiler.
-    # Note that the order of the dictionary matters (Py3.5>), 
+    # Note that the order of the dictionary matters (Py3.5>),
     # and if one gene is found ,the search complete.
     organism_dict = {
         "Mouse": "mmusculus",
         "Rat": "rnorvegicus",
         "Human": "hsapiens"
-        }
+    }
 
     inferred_genes = list()
     for ligand in gene_pivot.index:
         genes = gene_pivot.loc[ligand]
         for name in organism_dict:
             if str(genes[name]) != "nan":
-                gene = find_orth_gene(gene = genes[name], organism=organism_dict[name], target=organism)
-            else: continue
-            
-            if len(gene)>0:
+                gene = find_orth_gene(
+                    gene=genes[name], organism=organism_dict[name], target=organism)
+            else:
+                continue
+
+            if len(gene) > 0:
                 comment = f"inferred from {name}"
                 break
             else:
                 gene = "nan"
                 comment = "could not find gene"
-        
+
         result = [ligand, gene, comment]
 
         inferred_genes.append(result)
@@ -252,17 +254,17 @@ def get_molecule_ligands(organism="mmusculus", save=True):
         "comment": ["Manually added genes" for molecule in mol]
     })
 
-
-    drop_ligand = [] #detect if a critical gene category is not detected, then remove the ligand
+    drop_ligand = []  # detect if a critical gene category is not detected, then remove the ligand
     if organism != "mmusculus":
-        types = ["synthesis", "transport", "reuptake","excluded"]
+        types = ["synthesis", "transport", "reuptake", "excluded"]
         for ty in types:
             inferred_genes = {}
             for i, genes in enumerate(molecules[ty]):
                 if genes != None:
                     inferred_genes[i] = list()
                     for gene in genes:
-                        inferred_gene = find_orth_gene(gene, organism="mmusculus", target=organism)
+                        inferred_gene = find_orth_gene(
+                            gene, organism="mmusculus", target=organism)
                         for gene in inferred_gene:
                             inferred_genes[i].append(gene)
                     if not len(inferred_genes[i]) > 0:
@@ -271,7 +273,7 @@ def get_molecule_ligands(organism="mmusculus", save=True):
                     inferred_genes[i] = None
             molecules[ty] = inferred_genes.values()
 
-    molecules.drop(index=list(set(drop_ligand)), inplace=True)   
+    molecules.drop(index=list(set(drop_ligand)), inplace=True)
     molecules.reindex()
 
     if save is True:
@@ -333,29 +335,31 @@ def get_receptors(organism="mmusculus", receptor_types=["gpcr", "lgic"], save=Tr
     # Add all receptors to a list with correponding gene.
     # When two genes are found, these are added as a list.
 
-    organism_dict = { # decides in what order to look for orthological genes
+    organism_dict = {  # decides in what order to look for orthological genes
         "HGNC symbol": "hsapiens",
         "MGI symbol": "mmusculus",
         "RGD symbol": "rnorvegicus"
-        }
+    }
 
     receptor_list = list()
     for i, receptor in receptors.iterrows():
-        if receptor["Type"] in receptor_types: # select only receptors of specified types
+        if receptor["Type"] in receptor_types:  # select only receptors of specified types
 
             name = receptor["Target name"]
             family = receptor["Family name"]
-            recepotr_type = receptor["Type"]
+            receptor_type = receptor["Type"]
             for species in organism_dict:
                 if str(receptor[species]) != "nan":
-                    genes = find_orth_gene(gene = receptor[species], organism=organism_dict[species], target=organism)
-                    continue
+                    genes = find_orth_gene(
+                        gene=receptor[species], organism=organism_dict[species], target=organism)
+                    break
                 else:
                     genes = []
-            if len(genes)>0:
-                receptor_list.append((name, family, recepotr_type, genes))
+            if len(genes) > 0:
+                receptor_list.append((name, family, receptor_type, genes))
 
-    receptor_genes = pd.DataFrame(receptor_list, columns=["receptor", "family", "type", "gene"])
+    receptor_genes = pd.DataFrame(receptor_list, columns=[
+                                  "receptor", "family", "type", "gene"])
 
     if save is True:
         receptor_genes.to_csv(pkg_resources.resource_filename(
@@ -366,7 +370,7 @@ def get_receptors(organism="mmusculus", receptor_types=["gpcr", "lgic"], save=Tr
 # build interaction table
 def get_interactions(save=True):
     """build interaction table from GTP interaction df with only relevant data.
-    
+
     Saves updated interaction table to data/Gene_annotation/interactions.csv.
     Returns: pandas DataFrame
     """
@@ -391,7 +395,11 @@ def get_interactions(save=True):
     return interactions
 
 
-def setup_database(organism="mmusculus", receptor_types=["gpcr", "lgic"]):
+def setup_database(
+    organism="mmusculus",
+    receptor_types=[
+        "enzyme", "transporter", "gpcr", "catalytic_receptor",
+        "other_protein", "vgic", "lgic", "other_ic", "nhr"]):
     '''Use this function to recalculate all
      ligands and receptor gene lists based on
      GTP tables located under data/GTP_tables.
@@ -400,10 +408,10 @@ def setup_database(organism="mmusculus", receptor_types=["gpcr", "lgic"]):
 
      i.e. /data/Gene_annotation/mmusculus -- for mouse
 
-     
+
      .. note:: 
         Download new `Guide to phalmacology data`_ and save the tables to data/GTP_tables.
-    
+
     .. _Guide to phalmacology data: https://www.guidetopharmacology.org/download.jsp
 
     Many receptor types are available, defaults to only GPCRs and LGIC:
@@ -427,7 +435,7 @@ def setup_database(organism="mmusculus", receptor_types=["gpcr", "lgic"]):
     print("getting peptide ligands...")
     pep = cn.database.get_peptide_ligands(organism=organism)
     print(f'found {pep.shape[0]} peptide ligands')
-    
+
     print("getting molecule ligands...")
     mol = cn.database.get_molecule_ligands(organism=organism)
     print(f'found {mol.shape[0]} molecular ligands')
@@ -436,8 +444,10 @@ def setup_database(organism="mmusculus", receptor_types=["gpcr", "lgic"]):
     cn.database.merge_ligand_lists(organism=organism)
 
     print("getting receptors...")
-    rec = cn.database.get_receptors(organism=organism, receptor_types=receptor_types)
+    rec = cn.database.get_receptors(
+        organism=organism, receptor_types=receptor_types)
     print(f'found {rec.shape[0]} receptors')
+    print(rec.type.value_counts())
 
     print("getting interactions...")
     cn.database.get_interactions()
