@@ -353,7 +353,7 @@ def get_receptors(organism="mmusculus", receptor_types=["gpcr", "lgic"], save=Tr
                 else:
                     genes = []
             if len(genes)>0:
-                receptor_list.append((name, family, recepotr_type genes))
+                receptor_list.append((name, family, recepotr_type, genes))
 
     receptor_genes = pd.DataFrame(receptor_list, columns=["receptor", "family", "type", "gene"])
 
