@@ -1,563 +1,598 @@
-,receptor,family,gene
-0,CatSper1,CatSper and Two-Pore channels,['CCH1']
-1,TRPV1,Transient Receptor Potential channels,['YVC1']
-2,TRPV2,Transient Receptor Potential channels,['YVC1']
-3,TRPV3,Transient Receptor Potential channels,['YVC1']
-4,TRPV4,Transient Receptor Potential channels,['YVC1']
-5,TRPV5,Transient Receptor Potential channels,['YVC1']
-6,TRPV6,Transient Receptor Potential channels,['YVC1']
-7,K2P1.1,Two P domain potassium channels,['TOK1']
-8,K2P2.1,Two P domain potassium channels,['TOK1']
-9,K2P3.1,Two P domain potassium channels,['TOK1']
-10,K2P4.1,Two P domain potassium channels,['TOK1']
-11,K2P5.1,Two P domain potassium channels,['TOK1']
-12,K2P6.1,Two P domain potassium channels,"['TOK1', 'TOK1']"
-13,K2P7.1,Two P domain potassium channels,['TOK1']
-14,K2P9.1,Two P domain potassium channels,['TOK1']
-15,K2P10.1,Two P domain potassium channels,['TOK1']
-16,K2P12.1,Two P domain potassium channels,['TOK1']
-17,K2P13.1,Two P domain potassium channels,['TOK1']
-18,K2P15.1,Two P domain potassium channels,['TOK1']
-19,K2P16.1,Two P domain potassium channels,['TOK1']
-20,AQP0,Aquaporins,"['AQY3', 'FPS1']"
-21,AQP1,Aquaporins,"['AQY3', 'FPS1']"
-22,AQP2,Aquaporins,"['AQY3', 'FPS1', 'AQY2', 'YLL053C', 'AQY1']"
-23,AQP3,Aquaporins,"['AQY3', 'FPS1']"
-24,AQP4,Aquaporins,"['AQY3', 'FPS1']"
-25,AQP5,Aquaporins,"['AQY3', 'FPS1', 'AQY2', 'YLL053C', 'AQY1']"
-26,AQP6,Aquaporins,"['AQY3', 'FPS1', 'AQY2', 'YLL053C', 'AQY1']"
-27,AQP7,Aquaporins,"['AQY3', 'FPS1']"
-28,AQP8,Aquaporins,"['AQY3', 'FPS1']"
-29,AQP9,Aquaporins,"['AQY3', 'FPS1', 'AQY2', 'YLL053C', 'AQY1']"
-30,DExD/H-box helicase 58,RIG-I-like receptor family,"['YBL111C', 'YBL112C', 'YBL113C', 'YRF1-1', 'YEL075C', 'YEL077C', 'YER189W', 'YRF1-2', 'YFL064C', 'YFL066C', 'YRF1-3', 'YHL049C', 'YHL050C', 'YHR218W', 'YHR218W-A', 'YHR219W', 'YIL177C', 'YJL225C', 'YLL066C', 'YLL067C', 'YLR462W', 'YRF1-4', 'YRF1-5', 'YML133C', 'YRF1-6', 'YRF1-8', 'YRF1-7', 'YPR202W', 'YPR204W']"
-31,interferon induced with helicase C domain 1,RIG-I-like receptor family,"['YBL111C', 'YBL112C', 'YBL113C', 'YRF1-1', 'YEL075C', 'YEL077C', 'YER189W', 'YRF1-2', 'YFL064C', 'YFL066C', 'YRF1-3', 'YHL049C', 'YHL050C', 'YHR218W', 'YHR218W-A', 'YHR219W', 'YIL177C', 'YJL225C', 'YLL066C', 'YLL067C', 'YLR462W', 'YRF1-4', 'YRF1-5', 'YML133C', 'YRF1-6', 'YRF1-8', 'YRF1-7', 'YPR202W', 'YPR204W']"
-32,DExH-box helicase 58,RIG-I-like receptor family,"['YBL111C', 'YBL112C', 'YBL113C', 'YRF1-1', 'YEL075C', 'YEL077C', 'YER189W', 'YRF1-2', 'YFL064C', 'YFL066C', 'YRF1-3', 'YHL049C', 'YHL050C', 'YHR218W', 'YHR218W-A', 'YHR219W', 'YIL177C', 'YJL225C', 'YLL066C', 'YLL067C', 'YLR462W', 'YRF1-4', 'YRF1-5', 'YML133C', 'YRF1-6', 'YRF1-8', 'YRF1-7', 'YPR202W', 'YPR204W']"
-33,isocitrate dehydrogenase (NADP(+)) 1,1.1.1.42 Isocitrate dehydrogenases,"['IDP1', 'IDP2', 'IDP3']"
-34,isocitrate dehydrogenase (NADP(+)) 2,1.1.1.42 Isocitrate dehydrogenases,"['IDP1', 'IDP2', 'IDP3']"
-35,lysine demethylase 4A,1.14.11.- Histone demethylases,['JHD2']
-36,lysine demethylase 4B,1.14.11.- Histone demethylases,['JHD2']
-37,lysine demethylase 4D,1.14.11.- Histone demethylases,"['JHD2', 'JHD2']"
-38,lysine demethylase 5A,1.14.11.- Histone demethylases,['JHD2']
-39,lysine demethylase 5B,1.14.11.- Histone demethylases,['JHD2']
-40,lysine demethylase 5C,1.14.11.- Histone demethylases,['JHD2']
-41,lysine demethylase 6B,1.14.11.- Histone demethylases,['CYC8']
-42,kynurenine 3-monooxygenase,1.14.13.9 Kynurenine 3-monooxygenase,['BNA4']
-43,ribonucleotide reductase catalytic subunit M1,1.17.4.1 Ribonucleoside-diphosphate reductases,"['RNR1', 'RNR3']"
-44,ribonucleotide reductase regulatory subunit M2,1.17.4.1 Ribonucleoside-diphosphate reductases,"['RNR4', 'RNR2']"
-45,ribonucleotide reductase regulatory TP53 inducible subunit M2B,1.17.4.1 Ribonucleoside-diphosphate reductases,"['RNR4', 'RNR2']"
-46,aldehyde dehydrogenase 2 family member,1.-.-.- Oxidoreductases,"['ALD5', 'ALD3', 'ALD2', 'ALD4', 'ALD6']"
-47,aldo-keto reductase family 1 member B,1.-.-.- Oxidoreductases,"['AAD3', 'AAD4', 'YPR1', 'AAD10', 'AAD14', 'AAD15', 'GCY1']"
-48,catalase,1.-.-.- Oxidoreductases,['CTA1']
-49,dihydrofolate reductase,1.-.-.- Oxidoreductases,['DFR1']
-50,glutathione-disulfide reductase,1.-.-.- Oxidoreductases,['GLR1']
-51,steroid 5 alpha-reductase 2,1.-.-.- Oxidoreductases,['TSC13']
-52,"phosphoinositide kinase, FYVE-type zinc finger containing",1-phosphatidylinositol-3-phosphate 5-kinase family,['FAB1']
-53,phosphatidylinositol 4-kinase alpha,1-phosphatidylinositol 4-kinase family,['STT4']
-54,phosphatidylinositol 4-kinase beta,1-phosphatidylinositol 4-kinase family,['PIK1']
-55,DOT1 like histone lysine methyltransferase,2.1.1.43 Histone methyltransferases (HMTs),['DOT1']
-56,lysine methyltransferase 2E,2.1.1.43 Histone methyltransferases (HMTs),"['SET4', 'SET3']"
-57,SET and MYND domain containing 2,2.1.1.43 Histone methyltransferases (HMTs),['SET6']
-58,thymidylate synthetase,2.1.1.- Methyltransferases,['CDC21']
-59,protein arginine methyltransferase 5 ,2.1.1.- Protein arginine N-methyltransferases,['HSL7']
-60,"phosphoribosylglycinamide formyltransferase, phosphoribosylglycinamide synthetase, phosphoribosylaminoimidazole synthetase","2.1.2.- Hydroxymethyl-, formyl- and related transferases","['ADE5,7']"
-61,elongator acetyltransferase complex subunit 3,2.3.1.48 Histone acetyltransferases (HATs),['ELP3']
-62,histone acetyltransferase 1,2.3.1.48 Histone acetyltransferases (HATs),['HAT1']
-63,lysine acetyltransferase 5,2.3.1.48 Histone acetyltransferases (HATs),['ESA1']
-64,lysine acetyltransferase 2A,2.3.1.48 Histone acetyltransferases (HATs),"['BDF2', 'BDF1']"
-65,diacylglycerol O-acyltransferase 1,2.3.1.-  Acyltransferases,"['ARE1', 'ARE2']"
-66,monoacylglycerol O-acyltransferase 2,2.3.1.-  Acyltransferases,['DGA1']
-67,purine nucleoside phosphorylase,2.4.2.1 Purine-nucleoside phosphorylase,['PNP1']
-68,"farnesyltransferase, CAAX box, alpha",2.5.1.58 Protein farnesyltransferase,['RAM2']
-69,"farnesyltransferase, CAAX box, beta",2.5.1.58 Protein farnesyltransferase,['RAM1']
-70,Branched chain amino acid transaminase 2,2.6.1.42 Branched-chain-amino-acid transaminase,"['BAT1', 'BAT2']"
-71,pyruvate kinase M1/2,2.7.1.40 Pyruvate kinases,"['CDC19', 'PYK2']"
-72,pyruvate kinase L/R,2.7.1.40 Pyruvate kinases,"['CDC19', 'PYK2']"
-73,Monoacylglycerol lipase,2-Acylglycerol ester turnover,['YJU3']
-74,αβ-Hydrolase 6,2-Acylglycerol ester turnover,"['LDH1', 'CLD1']"
-75,asparaginase,3.1.1.- Carboxylic Ester Hydrolases,"['PHD1', 'ASP3-1', 'ASP3-2', 'ASP3-3', 'ASP3-4', 'SOK2']"
-76,"lipase, gastric",3.1.1.- Carboxylic Ester Hydrolases,"['YEH1', 'YEH2']"
-77,protein phosphatase methylesterase 1,3.1.1.- Carboxylic Ester Hydrolases,['PPE1']
-78,amylase alpha 2A,3.2.1.- Glycosidases,"['MAL32', 'IMA1', 'MAL12', 'IMA3', 'IMA5', 'IMA4', 'IMA2']"
-79,"glucosidase alpha, acid",3.2.1.- Glycosidases,['ROT2']
-80,maltase-glucoamylase,3.2.1.- Glycosidases,['ROT2']
-81,histone deacetylase 3,3.5.1.- Histone deacetylases (HDACs),['HOS2']
-82,histone deacetylase 6,3.5.1.- Histone deacetylases (HDACs),"['HDA1', 'HDA1']"
-83,histone deacetylase 8,3.5.1.- Histone deacetylases (HDACs),['HOS1']
-84,sirtuin 1,3.5.1.- Histone deacetylases (HDACs),"['SIR2', 'HST1']"
-85,sirtuin 2,3.5.1.- Histone deacetylases (HDACs),['HST2']
-86,ATPase family AAA domain containing 2,3.6.1.3 ATPases,['CDC48']
-87,ATPase family AAA domain containing 2B,3.6.1.3 ATPases,['YTA7']
-88,3-ketodihydrosphingosine reductase,3-ketodihydrosphingosine reductase,['TSC10']
-89,peptidylprolyl isomerase A,5.2.-.- Cis-trans-isomerases,"['CPR1', 'CPR3', 'CPR1', 'CPR3']"
-90,"phosphoribosylglycinamide formyltransferase, phosphoribosylglycinamide synthetase, phosphoribosylaminoimidazole synthetase",6.3.3.- Cyclo-ligases,"['ADE5,7']"
-91,katanin catalytic subunit A1,AAA ATPases,"['SAP1', 'YTA6']"
-92,aarF domain containing kinase 2,ABC1-A subfamily,['YPL109C']
-93,aarF domain containing kinase 1,ABC1-B subfamily,['MCP2']
-94,coenzyme Q8B,ABC1-B subfamily,['COQ8']
-95,Adenosine deaminase,Adenosine turnover,['AAH1']
-96,Adenosine kinase,Adenosine turnover,['ADO1']
-97,Ecto-5'-Nucleotidase,Adenosine turnover,['YHR202W']
-98,S-Adenosylhomocysteine hydrolase,Adenosine turnover,['SAH1']
-99,alkaline ceramidase 1,Alkaline ceramidases,"['YPC1', 'YDC1']"
-100,alkaline ceramidase 2,Alkaline ceramidases,"['YPC1', 'YDC1']"
-101,alkaline ceramidase 3,Alkaline ceramidases,"['YPC1', 'YDC1']"
-102,protein kinase AMP-activated non-catalytic subunit beta 1,AMPK subfamily,"['GAL83', 'SIP2']"
-103,protein kinase AMP-activated non-catalytic subunit beta 2,AMPK subfamily,"['GAL83', 'SIP2']"
-104,protein kinase AMP-activated non-catalytic subunit gamma 2,AMPK subfamily,['SNF4']
-105,protein kinase AMP-activated non-catalytic subunit gamma 3,AMPK subfamily,['SNF4']
-106,Arginase I,Arginase,['CAR1']
-107,Arginase II,Arginase,['CAR1']
-108,bromodomain containing 1,Bromodomain kinase (BRDK) family,['NTO1']
-109,bromodomain containing 2,Bromodomain kinase (BRDK) family,"['BDF2', 'BDF1']"
-110,bromodomain containing 3,Bromodomain kinase (BRDK) family,"['BDF2', 'BDF1']"
-111,bromodomain containing 4,Bromodomain kinase (BRDK) family,"['BDF2', 'GCN5', 'BDF1']"
-112,BUB1 mitotic checkpoint serine/threonine kinase,Bub family,"['BUB1', 'MAD3']"
-113,BUB1 mitotic checkpoint serine/threonine kinase B,Bub family,"['BUB1', 'MAD3']"
-114,TP53 regulating kinase,Bud32 family,['BUD32']
-115,SUMO specific peptidase 6,C48: Ulp1 endopeptidase,['ULP2']
-116,SUMO specific peptidase 7,C48: Ulp1 endopeptidase,['ULP2']
-117,autophagy related 4B cysteine peptidase,C54: Aut2 peptidase,['ATG4']
-118,Pyruvate carboxylase,Carboxylases,"['PYC2', 'PYC1']"
-119,casein kinase 1 alpha 1,Casein kinase 1 (CK1) family,"['YCK3', 'YCK1', 'YCK2']"
-120,casein kinase 1 gamma 1,Casein kinase 1 (CK1) family,"['YCK3', 'YCK1', 'YCK2']"
-121,casein kinase 1 gamma 2,Casein kinase 1 (CK1) family,"['YCK3', 'YCK1', 'YCK2']"
-122,casein kinase 1 gamma 3,Casein kinase 1 (CK1) family,"['YCK3', 'YCK1', 'YCK2']"
-123,casein kinase 1 delta,Casein kinase 1 (CK1) family,"['YCK3', 'YCK1', 'YCK2']"
-124,casein kinase 1 epsilon,Casein kinase 1 (CK1) family,"['YCK3', 'YCK1', 'YCK2']"
-125,"casein kinase 2, alpha 1 polypeptide subunit",Casein kinase 2 (CK2) family,"['CKA1', 'CKA2']"
-126,"casein kinase 2, alpha prime polypeptide subunit",Casein kinase 2 (CK2) family,"['CKA1', 'CKA2']"
-127,"casein kinase 2, beta polypeptide subunit",Casein kinase 2 (CK2) family,['CKB1']
-128,Monoamine oxidase B,Catecholamine turnover,['FMS1']
-129,cell division cycle 7,CDC7 family,['CDC7']
-130,cyclin dependent kinase 1,CDK1 subfamily,['CDC28']
-131,cyclin dependent kinase 7,CDK7 subfamily,['KIN28']
-132,cyclin dependent kinase 9,CDK9 subfamily,['SGV1']
-133,ceramide kinase,Ceramide kinase,"['LCB5', 'LCB4']"
-134,ceramide synthase 1,Ceramide synthase,"['LAG1', 'LAC1']"
-135,ceramide synthase 4,Ceramide synthase,"['LAG1', 'LAC1']"
-136,ceramide synthase 5,Ceramide synthase,"['LAG1', 'LAC1']"
-137,ceramide synthase 6,Ceramide synthase,"['LAG1', 'LAC1']"
-138,checkpoint kinase 2,CHK1 subfamily,['DUN1']
-139,CDC like kinase 3,CLK family,['YAK1']
-140,CDC like kinase 4,CLK family,['YAK1']
-141,CYP51A1,"CYP39, CYP46 and CYP51 families",['ERG11']
-142,death associated protein kinase 1,Death-associated kinase (DAPK) family,"['YML002W', 'TDA1']"
-143,death associated protein kinase 2,Death-associated kinase (DAPK) family,"['YML002W', 'TDA1']"
-144,death associated protein kinase 3,Death-associated kinase (DAPK) family,"['YML002W', 'TDA1']"
-145,L-Arginine decarboxylase ,Decarboxylases,['SPE1']
-146,Ornithine decarboxylase,Decarboxylases,['SPE1']
-147,Phosphatidylserine decarboxylase ,Decarboxylases,"['PSD2', 'PSD1']"
-148,S-Adenosylmethionine decarboxylase ,Decarboxylases,['SPE2']
-149,8-oxoguanine DNA glycosylase,DNA glycosylases,['MAG1']
-150,aldehyde dehydrogenase 9 family member A1,GABA turnover,"['ALD3', 'ALD2', 'ALD4', 'ALD6']"
-151,4-aminobutyrate aminotransferase,GABA turnover,['UGA1']
-152,aldehyde dehydrogenase 5 family member A1,GABA turnover,['UGA2']
-153,DM1 protein kinase,GEK subfamily,"['DBF2', 'DBF20']"
-154,glycine cleavage system protein H,Glycine recycling,['GCV3']
-155,glycogen synthase kinase 3 alpha,GSK subfamily,"['MRK1', 'RIM11']"
-156,glycogen synthase kinase 3 beta,GSK subfamily,"['MRK1', 'RIM11']"
-157,Haem oxygenase 1,Haem oxygenase,['HMX1']
-158,Haem oxygenase 2,Haem oxygenase,['HMX1']
-159,Glucokinase,Hexokinases,"['GLK1', 'EMI2']"
-160,Cystathionine β-synthase,Hydrogen sulphide synthesis,['CYS4']
-161,Cystathionine γ-lyase,Hydrogen sulphide synthesis,['CYS3']
-162,L-Cysteine:2-oxoglutarate aminotransferase,Hydrogen sulphide synthesis,"['ALT2', 'BNA3', 'ALT1']"
-163,3-Mercaptopyruvate sulfurtransferase,Hydrogen sulphide synthesis,['TUM1']
-164,epoxide hydrolase 2,Hydrolases,"['LDH1', 'CLD1']"
-165,Leukotriene A4 hydrolase,Hydrolases,['LAP2']
-166,Monoacylglycerol lipase,Hydrolases,['YJU3']
-167,IP3 kinase A,"Inositol 1,4,5-trisphosphate 3-kinases",['ARG82']
-168,IP3 kinase B,"Inositol 1,4,5-trisphosphate 3-kinases",['ARG82']
-169,IP3 kinase C,"Inositol 1,4,5-trisphosphate 3-kinases",['ARG82']
-170,INPP5B,Inositol polyphosphate phosphatases,['INP54']
-171,INPP5D,Inositol polyphosphate phosphatases,"['INP52', 'INP53']"
-172,INPP5J,Inositol polyphosphate phosphatases,"['INP52', 'INP53']"
-173,INPP5K,Inositol polyphosphate phosphatases,"['INP52', 'INP53']"
-174,INPPL1,Inositol polyphosphate phosphatases,"['INP52', 'INP53']"
-175,OCRL,Inositol polyphosphate phosphatases,"['INP52', 'INP53']"
-176,SYNJ1,Inositol polyphosphate phosphatases,"['INP52', 'INP53']"
-177,SYNJ2,Inositol polyphosphate phosphatases,"['INP52', 'INP53']"
-178,interleukin 1 receptor associated kinase 1,Interleukin-1 receptor-associated kinase (IRAK) family,"['ALK2', 'ALK1']"
-179,interleukin 1 receptor associated kinase 2,Interleukin-1 receptor-associated kinase (IRAK) family,"['ALK2', 'ALK1']"
-180,interleukin 1 receptor associated kinase 3,Interleukin-1 receptor-associated kinase (IRAK) family,"['ALK2', 'ALK1']"
-181,endoplasmic reticulum to nucleus signaling 2,IRE family,['IRE1']
-182,aconitate decarboxylase 1,Itaconate biosynthesis,['PDH1']
-183,acetyl-CoA acetyltransferase 1,Lanosterol biosynthesis pathway,['ERG10']
-184,hydroxymethylglutaryl-CoA synthase 1,Lanosterol biosynthesis pathway,['ERG13']
-185,hydroxymethylglutaryl-CoA synthase 2,Lanosterol biosynthesis pathway,['ERG13']
-186,hydroxymethylglutaryl-CoA reductase,Lanosterol biosynthesis pathway,"['HMG2', 'HMG1']"
-187,mevalonate kinase,Lanosterol biosynthesis pathway,['ERG12']
-188,diphosphomevalonate decarboxylase,Lanosterol biosynthesis pathway,['MVD1']
-189,isopentenyl-diphosphate Δ-isomerase 1,Lanosterol biosynthesis pathway,['IDI1']
-190,isopentenyl-diphosphate Δ-isomerase 2,Lanosterol biosynthesis pathway,['IDI1']
-191,geranylgeranyl diphosphate synthase,Lanosterol biosynthesis pathway,['BTS1']
-192,squalene synthase ,Lanosterol biosynthesis pathway,['ERG9']
-193,squalene monooxygenase,Lanosterol biosynthesis pathway,['ERG1']
-194,lanosterol synthase,Lanosterol biosynthesis pathway,['ERG7']
-195,Leukotriene A4 hydrolase,Leukotriene and lipoxin metabolism,['LAP2']
-196,PPA2A,Lipid phosphate phosphatases,['DPP1']
-197,PPA2B,Lipid phosphate phosphatases,['DPP1']
-198,PPA3A,Lipid phosphate phosphatases,['DPP1']
-199,phosphatase and tensin homolog,Lipid phosphate phosphatases,['TEP1']
-200,autotaxin,LPA synthesis,"['NPP1', 'NPP2']"
-201,Carboxypeptidase A1 (pancreatic),M14: Carboxypeptidase A,['ECM14']
-202,Carboxypeptidase A3 (mast cell),M14: Carboxypeptidase A,['ECM14']
-203,Carboxypeptidase A4,M14: Carboxypeptidase A,['ECM14']
-204,Carboxypeptidase A5,M14: Carboxypeptidase A,['ECM14']
-205,Carboxypeptidase A6,M14: Carboxypeptidase A,['ECM14']
-206,Carboxypeptidase B2 (plasma),M14: Carboxypeptidase A,['ECM14']
-207,insulin degrading enzyme,M16: Pitrilysin,['STE23']
-208,Leukotriene A4 hydrolase,M1: Aminopeptidase N,['LAP2']
-209,Puromycin-sensitive aminopeptidase,M1: Aminopeptidase N,['APE2']
-210,Methionyl aminopeptidase 1,M24: Methionyl aminopeptidase,['MAP1']
-211,X-prolyl aminopeptidase 1,M24: Methionyl aminopeptidase,['FRA1']
-212,X-prolyl aminopeptidase 3,M24: Methionyl aminopeptidase,['ICP55']
-213,Folate hydrolase (prostate-specific membrane antigen) 1,M28: Aminopeptidase Y,"['VPS70', 'TRE2', 'TRE1']"
-214,glutaminyl-peptide cyclotransferase,M28: Aminopeptidase Y,['YFR018C']
-215,N-Acetylated α-linked acidic dipeptidase-like 1,M28: Aminopeptidase Y,"['VPS70', 'TRE2', 'TRE1']"
-216,N-Acetylated α-linked acidic dipeptidase 2,M28: Aminopeptidase Y,"['VPS70', 'TRE2', 'TRE1']"
-217,dipeptidyl peptidase 3,M49: Dipeptidyl-peptidase III,['YOL057W']
-218,"proteasome 26S subunit, non-ATPase 14",M67: PSMD14 peptidase,['RPN11']
-219,Ras converting CAAX endopeptidase 1,M79: Prenyl protease 2,['RCE1']
-220,MAPK activated protein kinase 5,MAPKAPK subfamily,['MEK1']
-221,Microtubule associated serine/threonine kinase 1,MAST family,"['DBF2', 'DBF20']"
-222,Microtubule associated serine/threonine kinase 2,MAST family,"['DBF2', 'DBF20']"
-223,Microtubule associated serine/threonine kinase 3,MAST family,"['DBF2', 'DBF20']"
-224,Microtubule associated serine/threonine kinase 4,MAST family,"['DBF2', 'DBF20', 'DBF2', 'DBF20']"
-225,Microtubule associated serine/threonine kinase-like,MAST family,['RIM15']
-226,maternal embryonic leucine zipper kinase,MELK subfamily,['YPL150W']
-227,calcium/calmodulin dependent protein kinase kinase 2,Meta subfamily,"['SAK1', 'TOS3']"
-228,myosin light chain kinase,Myosin Light Chain Kinase (MLCK) family,"['YML002W', 'TDA1']"
-229,dual oxidase 1,NADPH oxidases,"['FRE7', 'FRE5']"
-230,dual oxidase 2,NADPH oxidases,"['FRE7', 'FRE5']"
-231,NADPH oxidase 1,NADPH oxidases,"['FRE7', 'FRE5']"
-232,cytochrome b-245 beta chain,NADPH oxidases,"['FRE7', 'FRE5']"
-233,NADPH oxidase 3,NADPH oxidases,"['FRE7', 'FRE5']"
-234,NADPH oxidase 4,NADPH oxidases,"['FRE7', 'FRE5']"
-235,AP2 associated kinase 1,NAK family,"['PRK1', 'ARK1']"
-236,serine/threonine kinase 16,NAK family,['ENV7']
-237,large tumor suppressor kinase 1,NDR family,"['DBF2', 'DBF20']"
-238,large tumor suppressor kinase 2,NDR family,"['DBF2', 'DBF20']"
-239,Serine/threonine kinase 38,NDR family,['CBK1']
-240,Serine/threonine kinase 38 like,NDR family,['CBK1']
-241,NIMA related kinase 1,NIMA (never in mitosis gene a)- related kinase (NEK) family,"['MKK1', 'MKK2']"
-242,NIMA related kinase 2,NIMA (never in mitosis gene a)- related kinase (NEK) family,['KIN3']
-243,dihydrofolate reductase,Nucleoside synthesis and metabolism,['DFR1']
-244,"phosphoribosylglycinamide formyltransferase, phosphoribosylglycinamide synthetase, phosphoribosylaminoimidazole synthetase",Nucleoside synthesis and metabolism,"['ADE5,7']"
-245,thymidylate synthetase,Nucleoside synthesis and metabolism,['CDC21']
-246,purine nucleoside phosphorylase,Nucleoside synthesis and metabolism,['PNP1']
-247,ribonucleotide reductase catalytic subunit M1,Nucleoside synthesis and metabolism,"['RNR1', 'RNR3']"
-248,ribonucleotide reductase regulatory subunit M2,Nucleoside synthesis and metabolism,"['RNR4', 'RNR2']"
-249,ribonucleotide reductase regulatory TP53 inducible subunit M2B,Nucleoside synthesis and metabolism,"['RNR4', 'RNR2']"
-250,dihydropyrimidine dehydrogenase,Nucleotide turnover,['URA1']
-251,BMP2 inducible kinase,Numb-associated kinase (NAK) family,"['PRK1', 'ARK1']"
-252,cyclin G associated kinase,Numb-associated kinase (NAK) family,['SWA2']
-253,ribosomal protein S6 kinase B1,p70 subfamily,['YPK3']
-254,PAS domain containing serine/threonine kinase,PASK subfamily,"['PSK1', 'PSK2']"
-255,pyruvate dehydrogenase kinase 1,PDHK family,['PKP1']
-256,pyruvate dehydrogenase kinase 2,PDHK family,['PKP1']
-257,pyruvate dehydrogenase kinase 3,PDHK family,['PKP1']
-258,pyruvate dehydrogenase kinase 4,PDHK family,['PKP1']
-259,3-phosphoinositide dependent protein kinase 1,PDK1 family,"['PKH1', 'PKH2']"
-260,eukaryotic translation initiation factor 2 alpha kinase 3,PEK subfamily,['GCN2']
-261,phosphatidylinositol 3-kinase catalytic subunit type 3,Phosphatidylinositol 3-kinase family,['VPS34']
-262,phosphatidylinositol 4-kinase alpha,Phosphatidylinositol kinases,['STT4']
-263,phosphatidylinositol 4-kinase beta,Phosphatidylinositol kinases,['PIK1']
-264,phosphatidylinositol 4-kinase type 2 alpha,Phosphatidylinositol kinases,['LSB6']
-265,phosphatidylinositol 4-kinase type 2 beta,Phosphatidylinositol kinases,['LSB6']
-266,phosphoinositide-3-kinase regulatory subunit 4,Phosphatidylinositol kinases,['VPS15']
-267,phosphatidylinositol 3-kinase catalytic subunit type 3,Phosphatidylinositol kinases,['VPS34']
-268,cPLA2-4A,Phospholipase A2,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
-269,cPLA2-4B,Phospholipase A2,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
-270,cPLA2-4C,Phospholipase A2,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
-271,cPLA2-4D,Phospholipase A2,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
-272,cPLA2-4E,Phospholipase A2,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
-273,cPLA2-4F,Phospholipase A2,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
-274,polo like kinase 1,Polo-like kinase (PLK) family,['CDC5']
-275,cPGES,Prostaglandin synthases,['SBA1']
-276,AKR1C3,Prostaglandin synthases,"['AAD3', 'AAD4', 'YPR1', 'AAD10', 'ARA2', 'AAD14', 'AAD15', 'GCY1']"
-277,CBR1,Prostaglandin synthases,"['YIR035C', 'IRC24', 'YIR035C', 'IRC24']"
-278,HPGD,Prostaglandin synthases,['AYR1']
-279,branched chain keto acid dehydrogenase kinase,Pyruvate dehydrogenase kinase (PDHK) family,['PKP2']
-280,checkpoint kinase 2,RAD53 family,['DUN1']
-281,RIO kinase 1,RIO1 subfamily,['RIO1']
-282,RIO kinase 2,RIO2 subfamily,['RIO2']
-283,"lipase, gastric",S33: Prolyl aminopeptidase,"['YEH1', 'YEH2']"
-284,protein phosphatase methylesterase 1,S33: Prolyl aminopeptidase,['PPE1']
-285,Monoacylglycerol lipase,S33: Prolyl aminopeptidase,['YJU3']
-286,"furin, paired basic amino acid cleaving enzyme",S8: Subtilisin,"['PRB1', 'YSP3']"
-287,"membrane bound transcription factor peptidase, site 1",S8: Subtilisin,"['PRB1', 'YSP3']"
-288,proprotein convertase subtilisin/kexin type 1,S8: Subtilisin,"['PRB1', 'YSP3']"
-289,proprotein convertase subtilisin/kexin type 2,S8: Subtilisin,"['PRB1', 'YSP3']"
-290,proprotein convertase subtilisin/kexin type 4,S8: Subtilisin,"['PRB1', 'KEX2', 'YSP3']"
-291,proprotein convertase subtilisin/kexin type 5,S8: Subtilisin,"['PRB1', 'YSP3']"
-292,proprotein convertase subtilisin/kexin type 6,S8: Subtilisin,"['PRB1', 'KEX2', 'YSP3']"
-293,proprotein convertase subtilisin/kexin type 7,S8: Subtilisin,"['PRB1', 'YSP3']"
-294,proprotein convertase subtilisin/kexin type 9,S8: Subtilisin,"['PRB1', 'KEX2', 'YSP3']"
-295,tripeptidyl peptidase 2,S8: Subtilisin,"['PRB1', 'YSP3']"
-296,SCY1 like pseudokinase 1,SCY1 family,['CEX1']
-297,SCY1 like pseudokinase 2,SCY1 family,['SCY1']
-298,serine palmitoyltransferase long chain base subunit 1,Serine palmitoyltransferase,['LCB1']
-299,serum/glucocorticoid regulated kinase 1,SGK family,"['DBF2', 'DBF20']"
-300,serum/glucocorticoid regulated kinase 2,SGK family,"['DBF2', 'DBF20']"
-301,serum/glucocorticoid regulated kinase family member 3,SGK family,"['DBF2', 'DBF20']"
-302,sphingomyelin phosphodiesterase 1,Sphingomyelin phosphodiesterase,['PPN1']
-303,sphingomyelin phosphodiesterase 2,Sphingomyelin phosphodiesterase,['ISC1']
-304,sphingomyelin phosphodiesterase acid-like 3A,Sphingomyelin phosphodiesterase,['PPN1']
-305,sphingomyelin phosphodiesterase acid-like 3B,Sphingomyelin phosphodiesterase,['PPN1']
-306,sphingosine-1-phosphate lyase 1,Sphingosine 1-phosphate lyase,['DPL1']
-307,sphingosine-1-phosphate phosphatase 1,Sphingosine 1-phosphate phosphatase,"['LCB3', 'YSR3']"
-308,sphingosine-1-phosphate phosphatase 2,Sphingosine 1-phosphate phosphatase,"['LCB3', 'YSR3']"
-309,sphingosine kinase 1,Sphingosine kinase,"['LCB5', 'LCB4']"
-310,sphingosine kinase 2,Sphingosine kinase,"['LCB5', 'LCB4']"
-311,mitogen-activated protein kinase kinase kinase 2,STE11 family,"['MKK1', 'MKK2']"
-312,mitogen-activated protein kinase kinase kinase 3,STE11 family,"['MKK1', 'MKK2']"
-313,mitogen-activated protein kinase kinase kinase 4,STE11 family,"['MKK1', 'MKK2']"
-314,mitogen-activated protein kinase kinase 1,STE7 family,"['MKK1', 'MKK2']"
-315,mitogen-activated protein kinase kinase 2,STE7 family,"['MKK1', 'MKK2']"
-316,mitogen-activated protein kinase kinase 4,STE7 family,"['MKK1', 'MKK2']"
-317,mitogen-activated protein kinase kinase 5,STE7 family,"['MKK1', 'MKK2']"
-318,mitogen-activated protein kinase kinase 7,STE7 family,['PBS2']
-319,"6-phosphofructo-2-kinase/fructose-2,6-biphosphatase 3",Sugar phosphatases,"['PFK26', 'FBP26', 'YLR345W', 'PFK27']"
-320,proteasome 20S subunit beta 1,T1: Proteasome,['PRE7']
-321,proteasome 20S subunit beta 2,T1: Proteasome,['PRE1']
-322,tau tubulin kinase 1,Tau tubulin kinase (TTBK) family,"['YCK3', 'YCK1', 'YCK2']"
-323,tau tubulin kinase 2,Tau tubulin kinase (TTBK) family,"['YCK3', 'YCK1', 'YCK2']"
-324,tousled like kinase 1,Tousled-like kinase (TLK) family,"['MPS1', 'MPS1']"
-325,tousled like kinase 2,Tousled-like kinase (TLK) family,['MPS1']
-326,TTK protein kinase,TTK family,['MPS1']
-327,twinfilin actin binding protein 1,Twinfilin subfamily,['TWF1']
-328,unc-51 like kinase 3,Unc-51-like kinase (ULK) family,['ATG1']
-329,VRK serine/threonine kinase 1,Vaccina related kinase (VRK) family,"['YCK3', 'YCK1', 'YCK2']"
-330,VRK serine/threonine kinase 2,Vaccina related kinase (VRK) family,"['YCK3', 'YCK1', 'YCK2']"
-331,VRK serine/threonine kinase 3,Vaccina related kinase (VRK) family,"['YCK3', 'YCK1', 'YCK2']"
-332,phosphoinositide-3-kinase regulatory subunit 4,VPS15 family,['VPS15']
-333,"protein kinase, membrane associated tyrosine/threonine 1",WEE family,['SWE1']
-334,serine/threonine kinase 32A,YANK family,"['DBF2', 'DBF20']"
-335,serine/threonine kinase 32B,YANK family,"['DBF2', 'DBF20']"
-336,serine/threonine kinase 32C,YANK family,"['DBF2', 'DBF20']"
-337,ABCB1,ABCB subfamily,"['MDL1', 'MDL2']"
-338,ABCB2,ABCB subfamily,"['MDL1', 'MDL2']"
-339,ABCB3,ABCB subfamily,"['MDL1', 'MDL2', 'MDL1', 'MDL2']"
-340,ABCB4,ABCB subfamily,"['MDL1', 'MDL2']"
-341,ABCB5,ABCB subfamily,"['MDL1', 'MDL2']"
-342,ABCB6,ABCB subfamily,"['MDL1', 'MDL2']"
-343,ABCB7,ABCB subfamily,['ATM1']
-344,ABCB8,ABCB subfamily,"['MDL1', 'MDL2']"
-345,ABCB9,ABCB subfamily,"['MDL1', 'MDL2']"
-346,ABCB10,ABCB subfamily,"['MDL1', 'MDL2']"
-347,ABCB11,ABCB subfamily,"['MDL1', 'MDL2']"
-348,ABCC6,ABCC subfamily,['BPT1']
-349,ABCD1,ABCD subfamily of peroxisomal ABC transporters,['PXA1']
-350,ABCD2,ABCD subfamily of peroxisomal ABC transporters,['PXA1']
-351,ABCD3,ABCD subfamily of peroxisomal ABC transporters,['PXA1']
-352,ABCG1,ABCG subfamily,"['SNQ2', 'PDR15', 'PDR11', 'PDR18', 'AUS1', 'PDR5', 'PDR10', 'PDR12']"
-353,ABCG2,ABCG subfamily,"['SNQ2', 'PDR15', 'PDR11', 'PDR18', 'AUS1', 'PDR5', 'PDR10', 'PDR12']"
-354,ABCG4,ABCG subfamily,"['SNQ2', 'PDR15', 'PDR11', 'PDR18', 'AUS1', 'PDR5', 'PDR10', 'PDR12']"
-355,ABCG5,ABCG subfamily,"['SNQ2', 'PDR15', 'PDR11', 'PDR18', 'AUS1', 'PDR5', 'PDR10', 'PDR12']"
-356,ABCG8,ABCG subfamily,['YOL075C']
-357,SLC26A7,Anion channels,['YGR125W']
-358,Glucose transporter  5,Class II transporters,"['MAL31', 'RGT2', 'SNF3', 'MPH2', 'MAL11', 'MPH3']"
-359,Glucose transporter  7,Class II transporters,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'HXT15', 'MPH2', 'HXT7', 'HXT6', 'HXT3', 'HXT13', 'HXT10', 'VPS73', 'MAL11', 'HXT4', 'HXT1', 'HXT5', 'HXT8', 'HXT9', 'HXT16', 'MPH3', 'GAL2', 'HXT2', 'HXT17', 'HXT11']"
-360,Glucose transporter  9,Class II transporters,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
-361,Glucose transporter  6,Class II transporters,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
-362,Glucose transporter  8,Class II transporters,"['MAL31', 'RGT2', 'SNF3', 'MPH2', 'MAL11', 'MPH3']"
-363,Glucose transporter  10,Class II transporters,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
-364,Glucose transporter  12,Class II transporters,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
-365,Glucose transporter  1,Class I transporters,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
-366,Glucose transporter  2,Class I transporters,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
-367,Glucose transporter  3,Class I transporters,"['MAL31', 'RGT2', 'SNF3', 'MPH2', 'MAL11', 'MPH3', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'MAL11', 'MPH3']"
-368,Glucose transporter  4,Class I transporters,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
-369,F-type ATPase α subunit,F-type ATPase,['ATP1']
-370,F-type ATPase β subunit,F-type ATPase,['ATP2']
-371,F-type ATPase δ subunit,F-type ATPase,['ATP16']
-372,F-type ATPase A subunit,F-type ATPase,['ATP6']
-373,F-type ATPase B subunit,F-type ATPase,"['ATP4', 'ATP4']"
-374,F-type ATPase D subunit,F-type ATPase,['ATP7']
-375,SLC25A38,Mitochondrial amino acid transporter subfamily,['HEM25']
-376,Mitochondrial dicarboxylate transporter,Mitochondrial di- and tri-carboxylic acid transporter subfamily,['DIC1']
-377,Mitochondrial oxodicarboxylate carrier,Mitochondrial di- and tri-carboxylic acid transporter subfamily,"['ODC2', 'ODC1']"
-378,SLC25A35,Mitochondrial di- and tri-carboxylic acid transporter subfamily,['OAC1']
-379,Deoxynucleotide carrier 1,Mitochondrial nucleotide transporter subfamily,['TPC1']
-380,S-Adenosylmethionine carrier,Mitochondrial nucleotide transporter subfamily,['PET8']
-381,MFT,Mitochondrial nucleotide transporter subfamily,['FLX1']
-382,Putative sodium-coupled neutral amino acid transporter 7,Orphan SLC38 transporters,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-383,Putative sodium-coupled neutral amino acid transporter 8,Orphan SLC38 transporters,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-384,Putative sodium-coupled neutral amino acid transporter 11,Orphan SLC38 transporters,['AVT2']
-385,Tat1,Other SLC26 anion exchangers,['YGR125W']
-386,SLC26A10,Other SLC26 anion exchangers,['YGR125W']
-387,KBAT,Other SLC26 anion exchangers,"['SUL1', 'SUL2']"
-388,Proton myo-inositol cotransporter,Proton-coupled inositol transporter,"['CIN10', 'ITR1', 'ITR2']"
-389,Sat-1,Selective sulphate transporters,['YGR125W']
-390,DTDST,Selective sulphate transporters,['YGR125W']
-391,Sialin,Sialic acid transporter,"['YOL162W', 'YOL163W']"
-392,Sodium/bile acid and sulphated solute cotransporter 1,SLC10 family of sodium-bile acid co-transporters,['ARR3']
-393,Sodium/bile acid and sulphated solute cotransporter 2,SLC10 family of sodium-bile acid co-transporters,['ARR3']
-394,Sodium/bile acid and sulphated solute cotransporter 3,SLC10 family of sodium-bile acid co-transporters,['ARR3']
-395,Sodium/bile acid and sulphated solute cotransporter 4,SLC10 family of sodium-bile acid co-transporters,['ARR3']
-396,Sodium/bile acid and sulphated solute cotransporter 5,SLC10 family of sodium-bile acid co-transporters,['ARR3']
-397,Sodium/bile acid and sulphated solute cotransporter 6,SLC10 family of sodium-bile acid co-transporters,['ARR3']
-398,Sodium/bile acid and sulphated solute cotransporter 7,SLC10 family of sodium-bile acid co-transporters,['RCH1']
-399,NRAMP1,SLC11 family of proton-coupled metal ion transporters,['SMF2']
-400,Kidney-specific Na-K-Cl symporter,SLC12 family of cation-coupled chloride transporters,['VHC1']
-401,Basolateral Na-K-Cl symporter,SLC12 family of cation-coupled chloride transporters,['VHC1']
-402,Na-Cl symporter,SLC12 family of cation-coupled chloride transporters,['VHC1']
-403,K-Cl cotransporter 1,SLC12 family of cation-coupled chloride transporters,['VHC1']
-404,K-Cl cotransporter 2,SLC12 family of cation-coupled chloride transporters,['VHC1']
-405,K-Cl cotransporter 3,SLC12 family of cation-coupled chloride transporters,['VHC1']
-406,K-Cl cotransporter 4,SLC12 family of cation-coupled chloride transporters,['VHC1']
-407,Cation-chloride cotransporter 6,SLC12 family of cation-coupled chloride transporters,['VHC1']
-408,Na+/dicarboxylate cotransporter 3,SLC13 family of sodium-dependent sulphate/carboxylate transporters,"['PHO87', 'PHO90', 'PHO91']"
-409,Monocarboxylate transporter 1,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-410,Monocarboxylate transporter 2,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-411,Monocarboxylate transporter 3,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-412,Monocarboxylate transporter 4,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-413,Monocarboxylate transporter 5,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-414,Monocarboxylate transporter 6,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-415,Monocarboxylate transporter 7,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-416,Monocarboxylate transporter 8,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-417,Monocarboxylate transporter 10,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-418,Monocarboxylate transporter 11,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-419,Monocarboxylate transporter 12,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-420,Monocarboxylate transporter 13,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-421,Monocarboxylate transporter 14,SLC16 family of monocarboxylate transporters,"['MCH4', 'MCH5']"
-422,Vesicular monoamine transporter 1,SLC18 family of vesicular amine transporters,"['TPO2', 'TPO3']"
-423,Vesicular monoamine transporter 2,SLC18 family of vesicular amine transporters,"['TPO2', 'TPO3']"
-424,Vesicular acetylcholine transporter,SLC18 family of vesicular amine transporters,"['TPO2', 'TPO3']"
-425,Vesicular polyamine transporter,SLC18 family of vesicular amine transporters,"['TPO2', 'TPO3']"
-426,Sodium-dependent phosphate transporter 1,SLC20 family of sodium-dependent phosphate transporters,['PHO89']
-427,Sodium-dependent phosphate transporter 2,SLC20 family of sodium-dependent phosphate transporters,['PHO89']
-428,Sodium/potassium/calcium exchanger 6,SLC24 family of sodium/potassium/calcium exchangers,"['YDL206W', 'ECM27']"
-429,Fatty acid transport protein 1,SLC27 family of fatty acid transporters,['FAT1']
-430,Fatty acid transport protein 2,SLC27 family of fatty acid transporters,"['FAT1', 'FAA3', 'FAA4', 'FAA1']"
-431,Fatty acid transport protein 3,SLC27 family of fatty acid transporters,['FAT1']
-432,Fatty acid transport protein 4,SLC27 family of fatty acid transporters,['FAT1']
-433,Fatty acid transport protein 5,SLC27 family of fatty acid transporters,"['FAT1', 'FAA3', 'FAA4', 'FAA1']"
-434,Fatty acid transport protein 6,SLC27 family of fatty acid transporters,['FAT1']
-435,Equilibrative nucleoside transporter 1,SLC29 family,['FUN26']
-436,Equilibrative nucleoside transporter 2,SLC29 family,"['FUN26', 'FUN26']"
-437,Equilibrative nucleoside transporter 3,SLC29 family,['FUN26']
-438,Plasma membrane monoamine transporter,SLC29 family,['FUN26']
-439,Zinc transporter 1,SLC30 zinc transporter family,"['MMT1', 'MMT2']"
-440,Zinc transporter 2,SLC30 zinc transporter family,"['MMT1', 'MMT2']"
-441,Zinc transporter 3,SLC30 zinc transporter family,"['MMT1', 'ZRC1', 'COT1', 'MMT2']"
-442,Zinc transporter 4,SLC30 zinc transporter family,"['MMT1', 'MMT2']"
-443,Zinc transporter 5,SLC30 zinc transporter family,"['MMT1', 'MMT2']"
-444,Zinc transporter 6,SLC30 zinc transporter family,"['MMT1', 'MMT2']"
-445,Zinc transporter 7,SLC30 zinc transporter family,['MSC2']
-446,Zinc transporter 8,SLC30 zinc transporter family,"['MMT1', 'ZRC1', 'COT1', 'MMT2']"
-447,Zinc transporter 10,SLC30 zinc transporter family,"['MMT1', 'ZRC1', 'COT1', 'MMT2']"
-448,Vesicular inhibitory amino acid transporter,SLC32 vesicular inhibitory amino acid transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-449,AcetylCoA transporter,SLC33 acetylCoA transporter,"['YBR219C', 'YBR220C']"
-450,UGTREL1,SLC35 family of nucleotide sugar transporters,['HUT1']
-451,YEA,SLC35 family of nucleotide sugar transporters,['YEA4']
-452,OVCOV1,SLC35 family of nucleotide sugar transporters,['YMD8']
-453,solute carrier family 35 member E1,SLC35 family of nucleotide sugar transporters,['SLY41']
-454,solute carrier family 35 member F5,SLC35 family of nucleotide sugar transporters,"['THI74', 'YML018C']"
-455,solute carrier family 35 member G1,SLC35 family of nucleotide sugar transporters,"['YMR253C', 'YPL264C']"
-456,solute carrier family 35 member G2,SLC35 family of nucleotide sugar transporters,"['YMR253C', 'YPL264C']"
-457,solute carrier family 35 member G6,SLC35 family of nucleotide sugar transporters,"['YMR253C', 'YPL264C']"
-458,Proton-coupled Amino acid Transporter 1,SLC36 family of proton-coupled amino acid transporters,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-459,Proton-coupled Amino acid Transporter 2,SLC36 family of proton-coupled amino acid transporters,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-460,Proton-coupled Amino acid Transporter 3,SLC36 family of proton-coupled amino acid transporters,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-461,Proton-coupled Amino acid Transporter 4,SLC36 family of proton-coupled amino acid transporters,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-462,Glycerol-3-phosphate transporter,SLC37 family of phosphosugar/phosphate exchangers,"['YOL162W', 'YOL163W']"
-463,Sugar phosphate exchanger 2,SLC37 family of phosphosugar/phosphate exchangers,"['YOL162W', 'YOL163W']"
-464,Sugar phosphate exchanger 3,SLC37 family of phosphosugar/phosphate exchangers,"['YOL162W', 'YOL163W']"
-465,Glucose-6-phosphate transporter,SLC37 family of phosphosugar/phosphate exchangers,"['YOL162W', 'YOL163W']"
-466,Zinc transporter 11,SLC39 family of metal ion transporters,['ZRT3']
-467,Zinc transporter 13,SLC39 family of metal ion transporters,['YKE4']
-468,rBAT,SLC3 family,"['MAL32', 'IMA1', 'MAL12', 'IMA3', 'IMA5', 'IMA4', 'IMA2']"
-469,4F2hc,SLC3 family,"['MAL32', 'IMA1', 'MAL12', 'IMA3', 'IMA5', 'IMA4', 'IMA2']"
-470,Proton-coupled folate transporter,SLC46 family of folate transporters,['YJL163C']
-471,Thymic stromal co-transporter,SLC46 family of folate transporters,['YJL163C']
-472,SLC46A3,SLC46 family of folate transporters,['YJL163C']
-473,SLC50 sugar exporter,SLC50 sugar transporter,['SSN2']
-474,xenotropic and polytropic retrovirus receptor 1,SLC53 Phosphate carriers,['SYG1']
-475,mitochondrial pyruvate carrier 2,SLC54 Mitochondrial pyruvate carriers,"['MPC3', 'MPC2']"
-476,leucine zipper and EF-hand containing transmembrane protein 1,SLC55 Mitochondrial cation/proton exchangers,"['MDM38', 'YLH47']"
-477,leucine zipper and EF-hand containing transmembrane protein 2,SLC55 Mitochondrial cation/proton exchangers,"['MDM38', 'YLH47']"
-478,LETM1 domain containing 1,SLC55 Mitochondrial cation/proton exchangers,"['MDM38', 'YLH47']"
-479,sideroflexin 1,SLC56 Sideroflexins,['FSF1']
-480,sideroflexin 2,SLC56 Sideroflexins,"['FSF1', 'FSF1']"
-481,sideroflexin 3,SLC56 Sideroflexins,['FSF1']
-482,sideroflexin 5,SLC56 Sideroflexins,['FSF1']
-483,magnesium transporter 1,SLC58 MagT-like magnesium transporter family,"['OST6', 'OST3']"
-484,tumor suppressor candidate 3,SLC58 MagT-like magnesium transporter family,"['OST6', 'OST3']"
-485,major facilitator superfamily domain containing 5,SLC61 Molybdate transporter family,"['VBA3', 'GEX1', 'SIT1', 'AZR1', 'ARN1', 'ARN2', 'QDR1', 'QDR2', 'VBA5', 'GEX2', 'ATR1', 'YMR279C', 'AQR1', 'SGE1']"
-486,transmembrane protein 165,SLC64 Golgi Ca2+/H+ exchangers,['GDT1']
-487,NPC intracellular cholesterol transporter 1,SLC65 NPC-type cholesterol transporters,['NCR1']
-488,High affinity cationic amino acid transporter 1,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-489,Low affinity cationic amino acid transporter 2,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-490,Cationic amino acid transporter 3,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-491,Cationic amino acid transporter 4,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-492,Probable cationic amino acid transporter,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-493,L-type amino acid transporter 1,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-494,L-type amino acid transporter 2,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-495,y+L amino acid transporter 1,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-496,y+L amino acid transporter 2,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-497,"b0,+-type amino acid transporter 1",SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-498,Asc-type amino acid transporter 1,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-499,Cystine/glutamate transporter,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-500,AGT1,SLC7 family,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
-501,Sodium/hydrogen exchanger 1,SLC9 family of sodium/hydrogen exchangers,['NHX1']
-502,Sodium/hydrogen exchanger 2,SLC9 family of sodium/hydrogen exchangers,['NHX1']
-503,Sodium/hydrogen exchanger 3,SLC9 family of sodium/hydrogen exchangers,['NHX1']
-504,Sodium/hydrogen exchanger 4,SLC9 family of sodium/hydrogen exchangers,['NHX1']
-505,Sodium/hydrogen exchanger 5,SLC9 family of sodium/hydrogen exchangers,['NHX1']
-506,Sodium/hydrogen exchanger 9,SLC9 family of sodium/hydrogen exchangers,['NHX1']
-507,Sodium/hydrogen exchanger 10,SLC9 family of sodium/hydrogen exchangers,['NHX1']
-508,sodium-coupled neutral amino acid transporter 1,System A-like transporters,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-509,sodium-coupled neutral amino acid transporter 2,System A-like transporters,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-510,Sodium-coupled neutral amino acid transporter 5,System N-like transporters,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
-511,Sodium/phosphate cotransporter 3,Type I sodium-phosphate co-transporters,"['YOL162W', 'YOL163W']"
-512,Sodium/phosphate cotransporter 4,Type I sodium-phosphate co-transporters,"['YOL162W', 'YOL163W']"
-513,Sodium/phosphate cotransporter homolog,Type I sodium-phosphate co-transporters,"['YOL162W', 'YOL163W']"
-514,Vesicular glutamate transporter 1,Vesicular glutamate transporters (VGLUTs),"['YOL162W', 'YOL163W']"
-515,Vesicular glutamate transporter 2,Vesicular glutamate transporters (VGLUTs),"['YOL162W', 'YOL163W']"
-516,Vesicular glutamate transporter 3,Vesicular glutamate transporters (VGLUTs),"['YOL162W', 'YOL163W']"
-517,Vesicular nucleotide transporter,Vesicular nucleotide transporter,"['YOL162W', 'YOL163W']"
-518,V-type ATPase V1 motor A subunit,V-type ATPase,['VMA1']
-519,V-type ATPase V1 motor C1 subunit,V-type ATPase,['VMA5']
-520,V-type ATPase V1 motor C2 subunit,V-type ATPase,['VMA5']
-521,V-type ATPase V1 motor D subunit,V-type ATPase,['VMA8']
-522,V-type ATPase V1 motor E1 subunit,V-type ATPase,['VMA4']
-523,V-type ATPase V1 motor E2 subunit,V-type ATPase,['VMA4']
-524,V-type ATPase V1 motor F subunit,V-type ATPase,['VMA7']
-525,V-type ATPase V1 motor H subunit,V-type ATPase,['VMA13']
-526,V-type ATPase V0 motor a1 subunit,V-type ATPase,"['STV1', 'VPH1']"
-527,V-type ATPase V0 motor a2 subunit,V-type ATPase,"['STV1', 'VPH1']"
-528,V-type ATPase V0 motor a3 subunit,V-type ATPase,"['STV1', 'VPH1']"
-529,V-type ATPase V0 motor a4 subunit,V-type ATPase,"['STV1', 'VPH1']"
-530,V-type ATPase V0 motor b subunit,V-type ATPase,['VMA16']
-531,V-type ATPase V0 motor c subunit,V-type ATPase,['VMA3']
-532,V-type ATPase V0 motor d1 subunit,V-type ATPase,['VMA6']
-533,V-type ATPase V0 motor d2 subunit,V-type ATPase,['VMA6']
-534,Adipo1 receptor,Adiponectin receptors,"['IZH1', 'IZH2']"
-535,chitinase 3 like 1,Chitinase-like proteins,['CTS2']
-536,nucleobindin 1,EF-hand domain containing proteins,['SSP120']
-537,retinaldehyde binding protein 1,Fatty acid-binding proteins,"['CSR1', 'PDR16', 'PDR17']"
-538,heat shock protein family A (Hsp70) member 1A,Heat shock proteins,"['SSE2', 'SSE1', 'SSE2', 'SSE1']"
-539,heat shock protein family A (Hsp70) member 1B,Heat shock proteins,"['SSE2', 'SSE1', 'SSE2', 'SSE1']"
-540,heat shock protein family A (Hsp70) member 2,Heat shock proteins,"['SSB1', 'SSB2']"
-541,heat shock protein family A (Hsp70) member 8,Heat shock proteins,"['SSE2', 'SSE1']"
-542,heat shock protein family A (Hsp70) member 1 like,Heat shock proteins,"['SSE2', 'SSE1']"
-543,heat shock protein 90 beta family member 1,Heat shock proteins,"['HSC82', 'HSP82']"
-544,heat shock protein 90 alpha family class A member 1,Heat shock proteins,"['HSC82', 'HSP82', 'HSC82', 'HSP82']"
-545,heat shock protein 90 alpha family class B member 1,Heat shock proteins,"['HSC82', 'HSP82']"
-546,TNF receptor associated protein 1,Heat shock proteins,"['HSC82', 'HSP82']"
-547,kinesin-5,Kinesins,['CIN8']
-548,bromodomain adjacent to zinc finger domain 1A,Non-enzymatic BRD containing proteins,"['BDF2', 'BDF1']"
-549,bromodomain adjacent to zinc finger domain 1B,Non-enzymatic BRD containing proteins,"['BDF2', 'BDF1']"
-550,bromodomain adjacent to zinc finger domain 2A,Non-enzymatic BRD containing proteins,"['BDF2', 'GCN5', 'BDF1']"
-551,bromodomain adjacent to zinc finger domain 2B,Non-enzymatic BRD containing proteins,"['BDF2', 'BDF1']"
-552,bromodomain PHD finger transcription factor,Non-enzymatic BRD containing proteins,"['BDF2', 'BDF1']"
-553,bromodomain testis associated,Non-enzymatic BRD containing proteins,"['BDF2', 'GCN5', 'BDF1']"
-554,bromodomain and PHD finger containing 1,Non-enzymatic BRD containing proteins,['NTO1']
-555,bromodomain and PHD finger containing 3,Non-enzymatic BRD containing proteins,['NTO1']
-556,CECR2 histone acetyl-lysine reader,Non-enzymatic BRD containing proteins,"['BDF2', 'GCN5', 'BDF1']"
-557,polybromo 1,Non-enzymatic BRD containing proteins,['RSC4']
-558,exportin 1,Nuclear export proteins,['CRM1']
-559,eukaryotic translation elongation factor 2,Ribosomal factors,"['EFT2', 'EFT1']"
-560,σ2,Sigma receptors,['YLR050C']
-561,tubulin beta 4B class IVb,Tubulins,['TUB2']
+,receptor,family,type,gene
+0,TRPV1,Transient Receptor Potential channels,vgic,['YVC1']
+1,TRPV2,Transient Receptor Potential channels,vgic,['YVC1']
+2,TRPV3,Transient Receptor Potential channels,vgic,['YVC1']
+3,TRPV4,Transient Receptor Potential channels,vgic,['YVC1']
+4,TRPV5,Transient Receptor Potential channels,vgic,['YVC1']
+5,TRPV6,Transient Receptor Potential channels,vgic,['YVC1']
+6,K2P1.1,Two P domain potassium channels,vgic,['TOK1']
+7,K2P2.1,Two P domain potassium channels,vgic,['TOK1']
+8,K2P3.1,Two P domain potassium channels,vgic,['TOK1']
+9,K2P4.1,Two P domain potassium channels,vgic,['TOK1']
+10,K2P5.1,Two P domain potassium channels,vgic,['TOK1']
+11,K2P6.1,Two P domain potassium channels,vgic,['TOK1']
+12,K2P7.1,Two P domain potassium channels,vgic,['TOK1']
+13,K2P9.1,Two P domain potassium channels,vgic,['TOK1']
+14,K2P10.1,Two P domain potassium channels,vgic,['TOK1']
+15,K2P12.1,Two P domain potassium channels,vgic,['TOK1']
+16,K2P13.1,Two P domain potassium channels,vgic,['TOK1']
+17,K2P15.1,Two P domain potassium channels,vgic,['TOK1']
+18,K2P16.1,Two P domain potassium channels,vgic,['TOK1']
+19,K2P17.1,Two P domain potassium channels,vgic,['TOK1']
+20,AQP0,Aquaporins,other_ic,"['AQY3', 'FPS1']"
+21,AQP1,Aquaporins,other_ic,"['AQY3', 'FPS1']"
+22,AQP2,Aquaporins,other_ic,"['AQY3', 'FPS1', 'AQY2', 'YLL053C', 'AQY1']"
+23,AQP3,Aquaporins,other_ic,"['AQY3', 'FPS1']"
+24,AQP4,Aquaporins,other_ic,"['AQY3', 'FPS1']"
+25,AQP5,Aquaporins,other_ic,"['AQY3', 'FPS1', 'AQY2', 'YLL053C', 'AQY1']"
+26,AQP6,Aquaporins,other_ic,"['AQY3', 'FPS1', 'AQY2', 'YLL053C', 'AQY1']"
+27,AQP7,Aquaporins,other_ic,"['AQY3', 'FPS1']"
+28,AQP8,Aquaporins,other_ic,"['AQY3', 'FPS1']"
+29,AQP9,Aquaporins,other_ic,"['AQY3', 'FPS1', 'AQY2', 'YLL053C', 'AQY1']"
+30,AQP10,Aquaporins,other_ic,"['AQY3', 'FPS1', 'AQY2', 'YLL053C', 'AQY1']"
+31,DExD/H-box helicase 58,RIG-I-like receptor family,catalytic_receptor,"['YBL111C', 'YBL112C', 'YBL113C', 'YRF1-1', 'YEL075C', 'YEL077C', 'YER189W', 'YRF1-2', 'YFL064C', 'YFL066C', 'YRF1-3', 'YHL049C', 'YHL050C', 'YHR218W', 'YHR218W-A', 'YHR219W', 'YIL177C', 'YJL225C', 'YLL066C', 'YLL067C', 'YLR462W', 'YRF1-4', 'YRF1-5', 'YML133C', 'YRF1-6', 'YRF1-8', 'YRF1-7', 'YPR202W', 'YPR204W']"
+32,interferon induced with helicase C domain 1,RIG-I-like receptor family,catalytic_receptor,"['YBL111C', 'YBL112C', 'YBL113C', 'YRF1-1', 'YEL075C', 'YEL077C', 'YER189W', 'YRF1-2', 'YFL064C', 'YFL066C', 'YRF1-3', 'YHL049C', 'YHL050C', 'YHR218W', 'YHR218W-A', 'YHR219W', 'YIL177C', 'YJL225C', 'YLL066C', 'YLL067C', 'YLR462W', 'YRF1-4', 'YRF1-5', 'YML133C', 'YRF1-6', 'YRF1-8', 'YRF1-7', 'YPR202W', 'YPR204W']"
+33,DExH-box helicase 58,RIG-I-like receptor family,catalytic_receptor,"['YBL111C', 'YBL112C', 'YBL113C', 'YRF1-1', 'YEL075C', 'YEL077C', 'YER189W', 'YRF1-2', 'YFL064C', 'YFL066C', 'YRF1-3', 'YHL049C', 'YHL050C', 'YHR218W', 'YHR218W-A', 'YHR219W', 'YIL177C', 'YJL225C', 'YLL066C', 'YLL067C', 'YLR462W', 'YRF1-4', 'YRF1-5', 'YML133C', 'YRF1-6', 'YRF1-8', 'YRF1-7', 'YPR202W', 'YPR204W']"
+34,isocitrate dehydrogenase (NADP(+)) 1,1.1.1.42 Isocitrate dehydrogenases,enzyme,"['IDP1', 'IDP2', 'IDP3']"
+35,isocitrate dehydrogenase (NADP(+)) 2,1.1.1.42 Isocitrate dehydrogenases,enzyme,"['IDP1', 'IDP2', 'IDP3']"
+36,lysine demethylase 4A,1.14.11.- Histone demethylases,enzyme,['JHD2']
+37,lysine demethylase 4B,1.14.11.- Histone demethylases,enzyme,['JHD2']
+38,lysine demethylase 4D,1.14.11.- Histone demethylases,enzyme,['JHD2']
+39,lysine demethylase 4E,1.14.11.- Histone demethylases,enzyme,['JHD2']
+40,lysine demethylase 5A,1.14.11.- Histone demethylases,enzyme,['JHD2']
+41,lysine demethylase 5B,1.14.11.- Histone demethylases,enzyme,['JHD2']
+42,lysine demethylase 5C,1.14.11.- Histone demethylases,enzyme,['JHD2']
+43,lysine demethylase 5D,1.14.11.- Histone demethylases,enzyme,['JHD2']
+44,lysine demethylase 6A,1.14.11.- Histone demethylases,enzyme,['CYC8']
+45,lysine demethylase 6B,1.14.11.- Histone demethylases,enzyme,['CYC8']
+46,kynurenine 3-monooxygenase,1.14.13.9 Kynurenine 3-monooxygenase,enzyme,['BNA4']
+47,ribonucleotide reductase catalytic subunit M1,1.17.4.1 Ribonucleoside-diphosphate reductases,enzyme,"['RNR1', 'RNR3']"
+48,ribonucleotide reductase regulatory subunit M2,1.17.4.1 Ribonucleoside-diphosphate reductases,enzyme,"['RNR4', 'RNR2']"
+49,ribonucleotide reductase regulatory TP53 inducible subunit M2B,1.17.4.1 Ribonucleoside-diphosphate reductases,enzyme,"['RNR4', 'RNR2']"
+50,aldehyde dehydrogenase 2 family member,1.-.-.- Oxidoreductases,enzyme,"['ALD5', 'ALD3', 'ALD2', 'ALD4', 'ALD6']"
+51,aldo-keto reductase family 1 member B,1.-.-.- Oxidoreductases,enzyme,"['AAD3', 'AAD4', 'YPR1', 'AAD10', 'AAD14', 'AAD15', 'GCY1']"
+52,catalase,1.-.-.- Oxidoreductases,enzyme,['CTA1']
+53,dihydrofolate reductase,1.-.-.- Oxidoreductases,enzyme,['DFR1']
+54,glutathione-disulfide reductase,1.-.-.- Oxidoreductases,enzyme,['GLR1']
+55,"hydroxy-delta-5-steroid dehydrogenase, 3 beta- and steroid delta-isomerase 2",1.-.-.- Oxidoreductases,enzyme,"['YDR541C', 'YGL039W', 'ARI1', 'GRE2']"
+56,hydroxysteroid 11-beta dehydrogenase 1,1.-.-.- Oxidoreductases,enzyme,"['YIR035C', 'IRC24', 'OAR1', 'YMR226C']"
+57,steroid 5 alpha-reductase 2,1.-.-.- Oxidoreductases,enzyme,['TSC13']
+58,"phosphoinositide kinase, FYVE-type zinc finger containing",1-phosphatidylinositol-3-phosphate 5-kinase family,enzyme,['FAB1']
+59,phosphatidylinositol 4-kinase alpha,1-phosphatidylinositol 4-kinase family,enzyme,['STT4']
+60,phosphatidylinositol 4-kinase beta,1-phosphatidylinositol 4-kinase family,enzyme,['PIK1']
+61,DOT1 like histone lysine methyltransferase,2.1.1.43 Histone methyltransferases (HMTs),enzyme,['DOT1']
+62,lysine methyltransferase 2E,2.1.1.43 Histone methyltransferases (HMTs),enzyme,"['SET4', 'SET3']"
+63,SET and MYND domain containing 2,2.1.1.43 Histone methyltransferases (HMTs),enzyme,['SET6']
+64,thymidylate synthetase,2.1.1.- Methyltransferases,enzyme,['CDC21']
+65,protein arginine methyltransferase 5 ,2.1.1.- Protein arginine N-methyltransferases,enzyme,['HSL7']
+66,"phosphoribosylglycinamide formyltransferase, phosphoribosylglycinamide synthetase, phosphoribosylaminoimidazole synthetase","2.1.2.- Hydroxymethyl-, formyl- and related transferases",enzyme,"['ADE5,7']"
+67,elongator acetyltransferase complex subunit 3,2.3.1.48 Histone acetyltransferases (HATs),enzyme,['ELP3']
+68,histone acetyltransferase 1,2.3.1.48 Histone acetyltransferases (HATs),enzyme,['HAT1']
+69,lysine acetyltransferase 5,2.3.1.48 Histone acetyltransferases (HATs),enzyme,['ESA1']
+70,lysine acetyltransferase 2A,2.3.1.48 Histone acetyltransferases (HATs),enzyme,"['BDF2', 'BDF1']"
+71,lysine acetyltransferase 2B,2.3.1.48 Histone acetyltransferases (HATs),enzyme,"['BDF2', 'BDF1']"
+72,diacylglycerol O-acyltransferase 1,2.3.1.-  Acyltransferases,enzyme,"['ARE1', 'ARE2']"
+73,monoacylglycerol O-acyltransferase 2,2.3.1.-  Acyltransferases,enzyme,['DGA1']
+74,purine nucleoside phosphorylase,2.4.2.1 Purine-nucleoside phosphorylase,enzyme,['PNP1']
+75,"farnesyltransferase, CAAX box, alpha",2.5.1.58 Protein farnesyltransferase,enzyme,['RAM2']
+76,"farnesyltransferase, CAAX box, beta",2.5.1.58 Protein farnesyltransferase,enzyme,['RAM1']
+77,Branched chain amino acid transaminase 2,2.6.1.42 Branched-chain-amino-acid transaminase,enzyme,"['BAT1', 'BAT2']"
+78,pyruvate kinase M1/2,2.7.1.40 Pyruvate kinases,enzyme,"['CDC19', 'PYK2']"
+79,pyruvate kinase L/R,2.7.1.40 Pyruvate kinases,enzyme,"['CDC19', 'PYK2']"
+80,Monoacylglycerol lipase,2-Acylglycerol ester turnover,enzyme,['YJU3']
+81,αβ-Hydrolase 6,2-Acylglycerol ester turnover,enzyme,"['LDH1', 'CLD1']"
+82,asparaginase,3.1.1.- Carboxylic Ester Hydrolases,enzyme,"['PHD1', 'ASP3-1', 'ASP3-2', 'ASP3-3', 'ASP3-4', 'SOK2']"
+83,"lipase, gastric",3.1.1.- Carboxylic Ester Hydrolases,enzyme,"['YEH1', 'YEH2']"
+84,protein phosphatase methylesterase 1,3.1.1.- Carboxylic Ester Hydrolases,enzyme,['PPE1']
+85,amylase alpha 2A,3.2.1.- Glycosidases,enzyme,"['MAL32', 'IMA1', 'MAL12', 'IMA3', 'IMA5', 'IMA4', 'IMA2']"
+86,"glucosidase alpha, acid",3.2.1.- Glycosidases,enzyme,['ROT2']
+87,maltase-glucoamylase,3.2.1.- Glycosidases,enzyme,['ROT2']
+88,histone deacetylase 3,3.5.1.- Histone deacetylases (HDACs),enzyme,['HOS2']
+89,histone deacetylase 6,3.5.1.- Histone deacetylases (HDACs),enzyme,['HDA1']
+90,histone deacetylase 8,3.5.1.- Histone deacetylases (HDACs),enzyme,['HOS1']
+91,sirtuin 1,3.5.1.- Histone deacetylases (HDACs),enzyme,"['SIR2', 'HST1']"
+92,sirtuin 2,3.5.1.- Histone deacetylases (HDACs),enzyme,['HST2']
+93,ATPase family AAA domain containing 2,3.6.1.3 ATPases,enzyme,['YTA7']
+94,ATPase family AAA domain containing 2B,3.6.1.3 ATPases,enzyme,['YTA7']
+95,3-ketodihydrosphingosine reductase,3-ketodihydrosphingosine reductase,enzyme,['TSC10']
+96,peptidylprolyl isomerase A,5.2.-.- Cis-trans-isomerases,enzyme,"['CPR1', 'CPR3']"
+97,"hydroxy-delta-5-steroid dehydrogenase, 3 beta- and steroid delta-isomerase 2",5.-.-.- Isomerases,enzyme,"['YDR541C', 'YGL039W', 'ARI1', 'GRE2']"
+98,"phosphoribosylglycinamide formyltransferase, phosphoribosylglycinamide synthetase, phosphoribosylaminoimidazole synthetase",6.3.3.- Cyclo-ligases,enzyme,"['ADE5,7']"
+99,katanin catalytic subunit A1,AAA ATPases,enzyme,"['SAP1', 'YTA6']"
+100,aarF domain containing kinase 2,ABC1-A subfamily,enzyme,['YPL109C']
+101,aarF domain containing kinase 1,ABC1-B subfamily,enzyme,['MCP2']
+102,coenzyme Q8B,ABC1-B subfamily,enzyme,['COQ8']
+103,Adenosine deaminase,Adenosine turnover,enzyme,['AAH1']
+104,Adenosine kinase,Adenosine turnover,enzyme,['ADO1']
+105,Ecto-5'-Nucleotidase,Adenosine turnover,enzyme,['YHR202W']
+106,S-Adenosylhomocysteine hydrolase,Adenosine turnover,enzyme,['SAH1']
+107,alkaline ceramidase 1,Alkaline ceramidases,enzyme,"['YPC1', 'YDC1']"
+108,alkaline ceramidase 2,Alkaline ceramidases,enzyme,"['YPC1', 'YDC1']"
+109,alkaline ceramidase 3,Alkaline ceramidases,enzyme,"['YPC1', 'YDC1']"
+110,protein kinase AMP-activated non-catalytic subunit beta 1,AMPK subfamily,enzyme,"['GAL83', 'SIP2']"
+111,protein kinase AMP-activated non-catalytic subunit beta 2,AMPK subfamily,enzyme,"['GAL83', 'SIP2']"
+112,protein kinase AMP-activated non-catalytic subunit gamma 1,AMPK subfamily,enzyme,['SNF4']
+113,protein kinase AMP-activated non-catalytic subunit gamma 2,AMPK subfamily,enzyme,['SNF4']
+114,protein kinase AMP-activated non-catalytic subunit gamma 3,AMPK subfamily,enzyme,['SNF4']
+115,Arginase I,Arginase,enzyme,['CAR1']
+116,Arginase II,Arginase,enzyme,['CAR1']
+117,bromodomain containing 1,Bromodomain kinase (BRDK) family,enzyme,['NTO1']
+118,bromodomain containing 2,Bromodomain kinase (BRDK) family,enzyme,"['BDF2', 'BDF1']"
+119,bromodomain containing 3,Bromodomain kinase (BRDK) family,enzyme,"['BDF2', 'BDF1']"
+120,bromodomain containing 4,Bromodomain kinase (BRDK) family,enzyme,"['BDF2', 'GCN5', 'BDF1']"
+121,BUB1 mitotic checkpoint serine/threonine kinase,Bub family,enzyme,"['BUB1', 'MAD3']"
+122,BUB1 mitotic checkpoint serine/threonine kinase B,Bub family,enzyme,"['BUB1', 'MAD3']"
+123,TP53 regulating kinase,Bud32 family,enzyme,['BUD32']
+124,SUMO specific peptidase 6,C48: Ulp1 endopeptidase,enzyme,['ULP2']
+125,SUMO specific peptidase 7,C48: Ulp1 endopeptidase,enzyme,['ULP2']
+126,autophagy related 4B cysteine peptidase,C54: Aut2 peptidase,enzyme,['ATG4']
+127,Pyruvate carboxylase,Carboxylases,enzyme,"['PYC2', 'PYC1']"
+128,casein kinase 1 alpha 1,Casein kinase 1 (CK1) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+129,casein kinase 1 alpha 1 like,Casein kinase 1 (CK1) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+130,casein kinase 1 gamma 1,Casein kinase 1 (CK1) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+131,casein kinase 1 gamma 2,Casein kinase 1 (CK1) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+132,casein kinase 1 gamma 3,Casein kinase 1 (CK1) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+133,casein kinase 1 delta,Casein kinase 1 (CK1) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+134,casein kinase 1 epsilon,Casein kinase 1 (CK1) family,enzyme,"['YCK3', 'YCK1', 'YCK2', 'YCK3', 'YCK1', 'YCK2']"
+135,"casein kinase 2, alpha 1 polypeptide subunit",Casein kinase 2 (CK2) family,enzyme,"['CKA1', 'CKA2']"
+136,"casein kinase 2, alpha prime polypeptide subunit",Casein kinase 2 (CK2) family,enzyme,"['CKA1', 'CKA2']"
+137,"casein kinase 2, beta polypeptide subunit",Casein kinase 2 (CK2) family,enzyme,['CKB1']
+138,Monoamine oxidase B,Catecholamine turnover,enzyme,['FMS1']
+139,cell division cycle 7,CDC7 family,enzyme,['CDC7']
+140,cyclin dependent kinase 1,CDK1 subfamily,enzyme,['CDC28']
+141,cyclin dependent kinase 3,CDK1 subfamily,enzyme,['CDC28']
+142,cyclin dependent kinase 7,CDK7 subfamily,enzyme,['KIN28']
+143,cyclin dependent kinase 9,CDK9 subfamily,enzyme,['SGV1']
+144,ceramide kinase,Ceramide kinase,enzyme,"['LCB5', 'LCB4']"
+145,ceramide synthase 4,Ceramide synthase,enzyme,"['LAG1', 'LAC1']"
+146,ceramide synthase 5,Ceramide synthase,enzyme,"['LAG1', 'LAC1']"
+147,ceramide synthase 6,Ceramide synthase,enzyme,"['LAG1', 'LAC1']"
+148,checkpoint kinase 2,CHK1 subfamily,enzyme,['DUN1']
+149,CDC like kinase 3,CLK family,enzyme,['YAK1']
+150,CDC like kinase 4,CLK family,enzyme,['YAK1']
+151,CYP51A1,"CYP39, CYP46 and CYP51 families",enzyme,['ERG11']
+152,death associated protein kinase 1,Death-associated kinase (DAPK) family,enzyme,"['YML002W', 'TDA1']"
+153,death associated protein kinase 2,Death-associated kinase (DAPK) family,enzyme,"['YML002W', 'TDA1']"
+154,death associated protein kinase 3,Death-associated kinase (DAPK) family,enzyme,"['YML002W', 'TDA1']"
+155,L-Arginine decarboxylase ,Decarboxylases,enzyme,['SPE1']
+156,Ornithine decarboxylase,Decarboxylases,enzyme,['SPE1']
+157,Phosphatidylserine decarboxylase ,Decarboxylases,enzyme,"['PSD2', 'PSD1']"
+158,S-Adenosylmethionine decarboxylase ,Decarboxylases,enzyme,['SPE2']
+159,8-oxoguanine DNA glycosylase,DNA glycosylases,enzyme,['MAG1']
+160,aldehyde dehydrogenase 9 family member A1,GABA turnover,enzyme,"['ALD5', 'ALD3', 'ALD2', 'ALD4', 'ALD6']"
+161,4-aminobutyrate aminotransferase,GABA turnover,enzyme,['UGA1']
+162,aldehyde dehydrogenase 5 family member A1,GABA turnover,enzyme,['UGA2']
+163,DM1 protein kinase,GEK subfamily,enzyme,"['DBF2', 'DBF20']"
+164,glycine cleavage system protein H,Glycine recycling,enzyme,['GCV3']
+165,glycogen synthase kinase 3 alpha,GSK subfamily,enzyme,"['MRK1', 'RIM11']"
+166,glycogen synthase kinase 3 beta,GSK subfamily,enzyme,"['MRK1', 'RIM11']"
+167,Haem oxygenase 1,Haem oxygenase,enzyme,['HMX1']
+168,Haem oxygenase 2,Haem oxygenase,enzyme,['HMX1']
+169,histone H3 associated protein kinase,Haspin family,enzyme,"['ALK2', 'ALK1']"
+170,Glucokinase,Hexokinases,enzyme,"['GLK1', 'EMI2']"
+171,Cystathionine β-synthase,Hydrogen sulphide synthesis,enzyme,['CYS4']
+172,Cystathionine γ-lyase,Hydrogen sulphide synthesis,enzyme,['CYS3']
+173,L-Cysteine:2-oxoglutarate aminotransferase,Hydrogen sulphide synthesis,enzyme,"['ALT2', 'BNA3', 'ALT1', 'ALT2', 'BNA3', 'ALT1']"
+174,3-Mercaptopyruvate sulfurtransferase,Hydrogen sulphide synthesis,enzyme,['TUM1']
+175,epoxide hydrolase 2,Hydrolases,enzyme,"['LDH1', 'CLD1']"
+176,Leukotriene A4 hydrolase,Hydrolases,enzyme,['LAP2']
+177,Monoacylglycerol lipase,Hydrolases,enzyme,['YJU3']
+178,IP3 kinase A,"Inositol 1,4,5-trisphosphate 3-kinases",enzyme,['ARG82']
+179,IP3 kinase B,"Inositol 1,4,5-trisphosphate 3-kinases",enzyme,['ARG82']
+180,IP3 kinase C,"Inositol 1,4,5-trisphosphate 3-kinases",enzyme,['ARG82']
+181,INPP5B,Inositol polyphosphate phosphatases,enzyme,['INP54']
+182,INPP5D,Inositol polyphosphate phosphatases,enzyme,"['INP52', 'INP53']"
+183,INPP5J,Inositol polyphosphate phosphatases,enzyme,"['INP52', 'INP53']"
+184,INPP5K,Inositol polyphosphate phosphatases,enzyme,"['INP52', 'INP53']"
+185,INPPL1,Inositol polyphosphate phosphatases,enzyme,"['INP52', 'INP53']"
+186,OCRL,Inositol polyphosphate phosphatases,enzyme,"['INP52', 'INP53']"
+187,SYNJ1,Inositol polyphosphate phosphatases,enzyme,"['INP52', 'INP53']"
+188,SYNJ2,Inositol polyphosphate phosphatases,enzyme,"['INP52', 'INP53']"
+189,interleukin 1 receptor associated kinase 1,Interleukin-1 receptor-associated kinase (IRAK) family,enzyme,"['ALK2', 'ALK1']"
+190,interleukin 1 receptor associated kinase 2,Interleukin-1 receptor-associated kinase (IRAK) family,enzyme,"['ALK2', 'ALK1']"
+191,interleukin 1 receptor associated kinase 3,Interleukin-1 receptor-associated kinase (IRAK) family,enzyme,"['ALK2', 'ALK1']"
+192,endoplasmic reticulum to nucleus signaling 2,IRE family,enzyme,['IRE1']
+193,aconitate decarboxylase 1,Itaconate biosynthesis,enzyme,['PDH1']
+194,acetyl-CoA acetyltransferase 1,Lanosterol biosynthesis pathway,enzyme,['ERG10']
+195,hydroxymethylglutaryl-CoA synthase 1,Lanosterol biosynthesis pathway,enzyme,['ERG13']
+196,hydroxymethylglutaryl-CoA synthase 2,Lanosterol biosynthesis pathway,enzyme,['ERG13']
+197,hydroxymethylglutaryl-CoA reductase,Lanosterol biosynthesis pathway,enzyme,"['HMG2', 'HMG1']"
+198,mevalonate kinase,Lanosterol biosynthesis pathway,enzyme,['ERG12']
+199,diphosphomevalonate decarboxylase,Lanosterol biosynthesis pathway,enzyme,['MVD1']
+200,isopentenyl-diphosphate Δ-isomerase 1,Lanosterol biosynthesis pathway,enzyme,['IDI1']
+201,isopentenyl-diphosphate Δ-isomerase 2,Lanosterol biosynthesis pathway,enzyme,['IDI1']
+202,geranylgeranyl diphosphate synthase,Lanosterol biosynthesis pathway,enzyme,['BTS1']
+203,farnesyl diphosphate synthase,Lanosterol biosynthesis pathway,enzyme,['ERG20']
+204,squalene synthase ,Lanosterol biosynthesis pathway,enzyme,['ERG9']
+205,squalene monooxygenase,Lanosterol biosynthesis pathway,enzyme,['ERG1']
+206,lanosterol synthase,Lanosterol biosynthesis pathway,enzyme,['ERG7']
+207,Leukotriene A4 hydrolase,Leukotriene and lipoxin metabolism,enzyme,['LAP2']
+208,PPA2A,Lipid phosphate phosphatases,enzyme,['DPP1']
+209,PPA2B,Lipid phosphate phosphatases,enzyme,['DPP1']
+210,PPA3A,Lipid phosphate phosphatases,enzyme,['DPP1']
+211,phosphatase and tensin homolog,Lipid phosphate phosphatases,enzyme,['TEP1']
+212,autotaxin,LPA synthesis,enzyme,"['NPP1', 'NPP2']"
+213,Carboxypeptidase A1 (pancreatic),M14: Carboxypeptidase A,enzyme,['ECM14']
+214,Carboxypeptidase A3 (mast cell),M14: Carboxypeptidase A,enzyme,['ECM14']
+215,Carboxypeptidase A4,M14: Carboxypeptidase A,enzyme,['ECM14']
+216,Carboxypeptidase A5,M14: Carboxypeptidase A,enzyme,['ECM14']
+217,Carboxypeptidase A6,M14: Carboxypeptidase A,enzyme,['ECM14']
+218,Carboxypeptidase B2 (plasma),M14: Carboxypeptidase A,enzyme,['ECM14']
+219,Carboxypeptidase O,M14: Carboxypeptidase A,enzyme,['ECM14']
+220,insulin degrading enzyme,M16: Pitrilysin,enzyme,['STE23']
+221,Leukotriene A4 hydrolase,M1: Aminopeptidase N,enzyme,['LAP2']
+222,Puromycin-sensitive aminopeptidase,M1: Aminopeptidase N,enzyme,['APE2']
+223,Methionyl aminopeptidase 1,M24: Methionyl aminopeptidase,enzyme,['MAP1']
+224,peptidase D,M24: Methionyl aminopeptidase,enzyme,['YFR006W']
+225,X-prolyl aminopeptidase 1,M24: Methionyl aminopeptidase,enzyme,['FRA1']
+226,X-prolyl aminopeptidase 3,M24: Methionyl aminopeptidase,enzyme,['ICP55']
+227,Folate hydrolase (prostate-specific membrane antigen) 1,M28: Aminopeptidase Y,enzyme,"['VPS70', 'TRE2', 'TRE1']"
+228,glutaminyl-peptide cyclotransferase,M28: Aminopeptidase Y,enzyme,['YFR018C']
+229,N-Acetylated α-linked acidic dipeptidase-like 1,M28: Aminopeptidase Y,enzyme,"['VPS70', 'TRE2', 'TRE1']"
+230,N-Acetylated α-linked acidic dipeptidase 2,M28: Aminopeptidase Y,enzyme,"['VPS70', 'TRE2', 'TRE1']"
+231,dipeptidyl peptidase 3,M49: Dipeptidyl-peptidase III,enzyme,['YOL057W']
+232,"proteasome 26S subunit, non-ATPase 14",M67: PSMD14 peptidase,enzyme,['RPN11']
+233,Ras converting CAAX endopeptidase 1,M79: Prenyl protease 2,enzyme,['RCE1']
+234,Microtubule associated serine/threonine kinase 1,MAST family,enzyme,"['DBF2', 'DBF20']"
+235,Microtubule associated serine/threonine kinase 2,MAST family,enzyme,"['DBF2', 'DBF20']"
+236,Microtubule associated serine/threonine kinase 3,MAST family,enzyme,"['DBF2', 'DBF20']"
+237,Microtubule associated serine/threonine kinase 4,MAST family,enzyme,"['DBF2', 'DBF20']"
+238,Microtubule associated serine/threonine kinase-like,MAST family,enzyme,['RIM15']
+239,maternal embryonic leucine zipper kinase,MELK subfamily,enzyme,['YPL150W']
+240,calcium/calmodulin dependent protein kinase kinase 2,Meta subfamily,enzyme,"['SAK1', 'TOS3']"
+241,MAPK interacting serine/threonine kinase 1,MKN subfamily,enzyme,['NNK1']
+242,myosin light chain kinase,Myosin Light Chain Kinase (MLCK) family,enzyme,"['YML002W', 'TDA1']"
+243,dual oxidase 1,NADPH oxidases,enzyme,"['FRE7', 'FRE5']"
+244,dual oxidase 2,NADPH oxidases,enzyme,"['FRE7', 'FRE5']"
+245,NADPH oxidase 1,NADPH oxidases,enzyme,"['FRE7', 'FRE5']"
+246,cytochrome b-245 beta chain,NADPH oxidases,enzyme,"['FRE7', 'FRE5']"
+247,NADPH oxidase 3,NADPH oxidases,enzyme,"['FRE7', 'FRE5']"
+248,NADPH oxidase 4,NADPH oxidases,enzyme,"['FRE7', 'FRE5']"
+249,NADPH oxidase 5,NADPH oxidases,enzyme,"['FRE7', 'FRE5']"
+250,AP2 associated kinase 1,NAK family,enzyme,"['PRK1', 'ARK1']"
+251,serine/threonine kinase 16,NAK family,enzyme,['ENV7']
+252,large tumor suppressor kinase 1,NDR family,enzyme,"['DBF2', 'DBF20']"
+253,large tumor suppressor kinase 2,NDR family,enzyme,"['DBF2', 'DBF20']"
+254,Serine/threonine kinase 38,NDR family,enzyme,['CBK1']
+255,Serine/threonine kinase 38 like,NDR family,enzyme,['CBK1']
+256,NIMA related kinase 1,NIMA (never in mitosis gene a)- related kinase (NEK) family,enzyme,"['MKK1', 'MKK2']"
+257,NIMA related kinase 2,NIMA (never in mitosis gene a)- related kinase (NEK) family,enzyme,['KIN3']
+258,dihydrofolate reductase,Nucleoside synthesis and metabolism,enzyme,['DFR1']
+259,"phosphoribosylglycinamide formyltransferase, phosphoribosylglycinamide synthetase, phosphoribosylaminoimidazole synthetase",Nucleoside synthesis and metabolism,enzyme,"['ADE5,7']"
+260,thymidylate synthetase,Nucleoside synthesis and metabolism,enzyme,['CDC21']
+261,purine nucleoside phosphorylase,Nucleoside synthesis and metabolism,enzyme,['PNP1']
+262,ribonucleotide reductase catalytic subunit M1,Nucleoside synthesis and metabolism,enzyme,"['RNR1', 'RNR3']"
+263,ribonucleotide reductase regulatory subunit M2,Nucleoside synthesis and metabolism,enzyme,"['RNR4', 'RNR2']"
+264,ribonucleotide reductase regulatory TP53 inducible subunit M2B,Nucleoside synthesis and metabolism,enzyme,"['RNR4', 'RNR2']"
+265,dihydropyrimidine dehydrogenase,Nucleotide turnover,enzyme,['URA1']
+266,BMP2 inducible kinase,Numb-associated kinase (NAK) family,enzyme,"['PRK1', 'ARK1']"
+267,cyclin G associated kinase,Numb-associated kinase (NAK) family,enzyme,['SWA2']
+268,ribosomal protein S6 kinase B1,p70 subfamily,enzyme,['YPK3']
+269,PAS domain containing serine/threonine kinase,PASK subfamily,enzyme,"['PSK1', 'PSK2']"
+270,pyruvate dehydrogenase kinase 1,PDHK family,enzyme,['PKP1']
+271,pyruvate dehydrogenase kinase 2,PDHK family,enzyme,['PKP1']
+272,pyruvate dehydrogenase kinase 3,PDHK family,enzyme,['PKP1']
+273,pyruvate dehydrogenase kinase 4,PDHK family,enzyme,['PKP1']
+274,3-phosphoinositide dependent protein kinase 1,PDK1 family,enzyme,"['PKH1', 'PKH2']"
+275,eukaryotic translation initiation factor 2 alpha kinase 3,PEK subfamily,enzyme,['GCN2']
+276,phosphatidylinositol 3-kinase catalytic subunit type 3,Phosphatidylinositol 3-kinase family,enzyme,['VPS34']
+277,phosphatidylinositol 4-kinase alpha,Phosphatidylinositol kinases,enzyme,['STT4']
+278,phosphatidylinositol 4-kinase beta,Phosphatidylinositol kinases,enzyme,['PIK1']
+279,phosphatidylinositol 4-kinase type 2 alpha,Phosphatidylinositol kinases,enzyme,['LSB6']
+280,phosphatidylinositol 4-kinase type 2 beta,Phosphatidylinositol kinases,enzyme,['LSB6']
+281,phosphoinositide-3-kinase regulatory subunit 4,Phosphatidylinositol kinases,enzyme,['VPS15']
+282,phosphatidylinositol 3-kinase catalytic subunit type 3,Phosphatidylinositol kinases,enzyme,['VPS34']
+283,cPLA2-4A,Phospholipase A2,enzyme,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
+284,cPLA2-4B,Phospholipase A2,enzyme,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
+285,cPLA2-4C,Phospholipase A2,enzyme,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
+286,cPLA2-4D,Phospholipase A2,enzyme,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
+287,cPLA2-4E,Phospholipase A2,enzyme,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
+288,cPLA2-4F,Phospholipase A2,enzyme,"['PLB2', 'PLB1', 'SPO1', 'PLB3']"
+289,polo like kinase 1,Polo-like kinase (PLK) family,enzyme,['CDC5']
+290,cPGES,Prostaglandin synthases,enzyme,['SBA1']
+291,AKR1C3,Prostaglandin synthases,enzyme,"['AAD3', 'YDL124W', 'AAD4', 'YPR1', 'AAD10', 'ARA2', 'AAD14', 'AAD15', 'GCY1']"
+292,CBR1,Prostaglandin synthases,enzyme,"['YIR035C', 'IRC24']"
+293,HPGD,Prostaglandin synthases,enzyme,['AYR1']
+294,"protein kinase, cAMP-dependent, catalytic, gamma subunit",Protein kinase A (PKA) family,enzyme,"['TPK1', 'TPK3', 'TPK2']"
+295,branched chain keto acid dehydrogenase kinase,Pyruvate dehydrogenase kinase (PDHK) family,enzyme,['PKP2']
+296,checkpoint kinase 2,RAD53 family,enzyme,['DUN1']
+297,RIO kinase 1,RIO1 subfamily,enzyme,['RIO1']
+298,RIO kinase 2,RIO2 subfamily,enzyme,['RIO2']
+299,"lipase, gastric",S33: Prolyl aminopeptidase,enzyme,"['YEH1', 'YEH2']"
+300,protein phosphatase methylesterase 1,S33: Prolyl aminopeptidase,enzyme,['PPE1']
+301,Monoacylglycerol lipase,S33: Prolyl aminopeptidase,enzyme,['YJU3']
+302,"furin, paired basic amino acid cleaving enzyme",S8: Subtilisin,enzyme,"['PRB1', 'YSP3']"
+303,"membrane bound transcription factor peptidase, site 1",S8: Subtilisin,enzyme,"['PRB1', 'YSP3']"
+304,proprotein convertase subtilisin/kexin type 1,S8: Subtilisin,enzyme,"['PRB1', 'YSP3']"
+305,proprotein convertase subtilisin/kexin type 2,S8: Subtilisin,enzyme,"['PRB1', 'YSP3']"
+306,proprotein convertase subtilisin/kexin type 4,S8: Subtilisin,enzyme,"['PRB1', 'KEX2', 'YSP3']"
+307,proprotein convertase subtilisin/kexin type 5,S8: Subtilisin,enzyme,"['PRB1', 'YSP3']"
+308,proprotein convertase subtilisin/kexin type 6,S8: Subtilisin,enzyme,"['PRB1', 'KEX2', 'YSP3']"
+309,proprotein convertase subtilisin/kexin type 7,S8: Subtilisin,enzyme,"['PRB1', 'YSP3']"
+310,proprotein convertase subtilisin/kexin type 9,S8: Subtilisin,enzyme,"['PRB1', 'KEX2', 'YSP3']"
+311,tripeptidyl peptidase 2,S8: Subtilisin,enzyme,"['PRB1', 'YSP3']"
+312,dipeptidyl peptidase 4,S9: Prolyl oligopeptidase,enzyme,['DAP2']
+313,SCY1 like pseudokinase 1,SCY1 family,enzyme,['CEX1']
+314,SCY1 like pseudokinase 2,SCY1 family,enzyme,['SCY1']
+315,serine palmitoyltransferase long chain base subunit 1,Serine palmitoyltransferase,enzyme,['LCB1']
+316,serum/glucocorticoid regulated kinase 1,SGK family,enzyme,"['DBF2', 'DBF20']"
+317,serum/glucocorticoid regulated kinase 2,SGK family,enzyme,"['DBF2', 'DBF20']"
+318,serum/glucocorticoid regulated kinase family member 3,SGK family,enzyme,"['DBF2', 'DBF20']"
+319,sphingomyelin phosphodiesterase 1,Sphingomyelin phosphodiesterase,enzyme,['PPN1']
+320,sphingomyelin phosphodiesterase 2,Sphingomyelin phosphodiesterase,enzyme,['ISC1']
+321,sphingomyelin phosphodiesterase acid-like 3A,Sphingomyelin phosphodiesterase,enzyme,['PPN1']
+322,sphingomyelin phosphodiesterase acid-like 3B,Sphingomyelin phosphodiesterase,enzyme,['PPN1']
+323,sphingosine-1-phosphate lyase 1,Sphingosine 1-phosphate lyase,enzyme,['DPL1']
+324,sphingosine-1-phosphate phosphatase 1,Sphingosine 1-phosphate phosphatase,enzyme,"['LCB3', 'YSR3']"
+325,sphingosine-1-phosphate phosphatase 2,Sphingosine 1-phosphate phosphatase,enzyme,"['LCB3', 'YSR3']"
+326,sphingosine kinase 1,Sphingosine kinase,enzyme,"['LCB5', 'LCB4']"
+327,sphingosine kinase 2,Sphingosine kinase,enzyme,"['LCB5', 'LCB4']"
+328,mitogen-activated protein kinase kinase kinase 2,STE11 family,enzyme,"['MKK1', 'MKK2']"
+329,mitogen-activated protein kinase kinase kinase 3,STE11 family,enzyme,"['MKK1', 'MKK2']"
+330,mitogen-activated protein kinase kinase kinase 4,STE11 family,enzyme,"['MKK1', 'MKK2']"
+331,mitogen-activated protein kinase kinase kinase 19,STE20 subfamily,enzyme,['STE11']
+332,mitogen-activated protein kinase kinase 1,STE7 family,enzyme,"['MKK1', 'MKK2']"
+333,mitogen-activated protein kinase kinase 2,STE7 family,enzyme,"['MKK1', 'MKK2']"
+334,mitogen-activated protein kinase kinase 4,STE7 family,enzyme,"['MKK1', 'MKK2']"
+335,mitogen-activated protein kinase kinase 5,STE7 family,enzyme,"['MKK1', 'MKK2']"
+336,mitogen-activated protein kinase kinase 7,STE7 family,enzyme,['PBS2']
+337,"6-phosphofructo-2-kinase/fructose-2,6-biphosphatase 3",Sugar phosphatases,enzyme,"['PFK26', 'FBP26', 'YLR345W', 'PFK27']"
+338,proteasome 20S subunit beta 1,T1: Proteasome,enzyme,['PRE7']
+339,proteasome 20S subunit beta 2,T1: Proteasome,enzyme,['PRE1']
+340,TATA-box binding protein associated factor 1,TAF1 family,enzyme,['TAF1']
+341,TATA-box binding protein associated factor 1 like,TAF1 family,enzyme,['TAF1']
+342,tau tubulin kinase 1,Tau tubulin kinase (TTBK) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+343,tau tubulin kinase 2,Tau tubulin kinase (TTBK) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+344,tousled like kinase 1,Tousled-like kinase (TLK) family,enzyme,['MPS1']
+345,tousled like kinase 2,Tousled-like kinase (TLK) family,enzyme,['MPS1']
+346,transformation/transcription domain associated protein,TRRAP subfamily,enzyme,['TRA1']
+347,TTK protein kinase,TTK family,enzyme,['MPS1']
+348,twinfilin actin binding protein 1,Twinfilin subfamily,enzyme,['TWF1']
+349,twinfilin actin binding protein 2,Twinfilin subfamily,enzyme,['TWF1']
+350,unc-51 like kinase 3,Unc-51-like kinase (ULK) family,enzyme,['ATG1']
+351,VRK serine/threonine kinase 1,Vaccina related kinase (VRK) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+352,VRK serine/threonine kinase 2,Vaccina related kinase (VRK) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+353,VRK serine/threonine kinase 3,Vaccina related kinase (VRK) family,enzyme,"['YCK3', 'YCK1', 'YCK2']"
+354,phosphoinositide-3-kinase regulatory subunit 4,VPS15 family,enzyme,['VPS15']
+355,"protein kinase, membrane associated tyrosine/threonine 1",WEE family,enzyme,['SWE1']
+356,serine/threonine kinase 32A,YANK family,enzyme,"['DBF2', 'DBF20']"
+357,serine/threonine kinase 32B,YANK family,enzyme,"['DBF2', 'DBF20']"
+358,serine/threonine kinase 32C,YANK family,enzyme,"['DBF2', 'DBF20']"
+359,ABCB1,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+360,ABCB2,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+361,ABCB3,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+362,ABCB4,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+363,ABCB5,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+364,ABCB6,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+365,ABCB7,ABCB subfamily,transporter,['ATM1']
+366,ABCB8,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+367,ABCB9,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+368,ABCB10,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+369,ABCB11,ABCB subfamily,transporter,"['MDL1', 'MDL2']"
+370,ABCC6,ABCC subfamily,transporter,['BPT1']
+371,ABCD1,ABCD subfamily of peroxisomal ABC transporters,transporter,['PXA1']
+372,ABCD2,ABCD subfamily of peroxisomal ABC transporters,transporter,['PXA1']
+373,ABCD3,ABCD subfamily of peroxisomal ABC transporters,transporter,['PXA1']
+374,ABCG1,ABCG subfamily,transporter,"['SNQ2', 'PDR15', 'PDR11', 'PDR18', 'AUS1', 'PDR5', 'PDR10', 'PDR12']"
+375,ABCG2,ABCG subfamily,transporter,"['SNQ2', 'PDR15', 'PDR11', 'PDR18', 'AUS1', 'PDR5', 'PDR10', 'PDR12']"
+376,ABCG4,ABCG subfamily,transporter,"['SNQ2', 'PDR15', 'PDR11', 'PDR18', 'AUS1', 'PDR5', 'PDR10', 'PDR12']"
+377,ABCG5,ABCG subfamily,transporter,"['SNQ2', 'PDR15', 'PDR11', 'PDR18', 'AUS1', 'PDR5', 'PDR10', 'PDR12']"
+378,ABCG8,ABCG subfamily,transporter,['YOL075C']
+379,SLC26A7,Anion channels,transporter,['YGR125W']
+380,Glucose transporter  5,Class II transporters,transporter,"['MAL31', 'RGT2', 'SNF3', 'MPH2', 'MAL11', 'MPH3']"
+381,Glucose transporter  7,Class II transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'HXT15', 'MPH2', 'HXT7', 'HXT6', 'HXT3', 'HXT13', 'HXT10', 'VPS73', 'MAL11', 'HXT4', 'HXT1', 'HXT5', 'HXT8', 'HXT9', 'HXT16', 'MPH3', 'GAL2', 'HXT2', 'HXT17', 'HXT11']"
+382,Glucose transporter  9,Class II transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
+383,Glucose transporter  11,Class II transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
+384,Glucose transporter  6,Class II transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
+385,Glucose transporter  8,Class II transporters,transporter,"['MAL31', 'RGT2', 'SNF3', 'MPH2', 'MAL11', 'MPH3']"
+386,Glucose transporter  10,Class II transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
+387,Glucose transporter  12,Class II transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
+388,Glucose transporter  1,Class I transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
+389,Glucose transporter  2,Class I transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
+390,Glucose transporter  3,Class I transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'HXT15', 'MPH2', 'HXT7', 'HXT6', 'HXT3', 'HXT13', 'HXT10', 'VPS73', 'MAL11', 'HXT4', 'HXT1', 'HXT5', 'HXT8', 'HXT9', 'HXT16', 'MPH3', 'GAL2', 'HXT2', 'HXT17', 'HXT11']"
+391,Glucose transporter  4,Class I transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'MPH2', 'VPS73', 'MAL11', 'MPH3']"
+392,Glucose transporter  14,Class I transporters,transporter,"['YBR241C', 'MAL31', 'RGT2', 'SNF3', 'HXT15', 'MPH2', 'HXT7', 'HXT6', 'HXT3', 'HXT13', 'HXT10', 'VPS73', 'MAL11', 'HXT4', 'HXT1', 'HXT5', 'HXT8', 'HXT9', 'HXT16', 'MPH3', 'GAL2', 'HXT2', 'HXT17', 'HXT11']"
+393,F-type ATPase α subunit,F-type ATPase,transporter,['ATP1']
+394,F-type ATPase β subunit,F-type ATPase,transporter,['ATP2']
+395,F-type ATPase γ subunit,F-type ATPase,transporter,['ATP3']
+396,F-type ATPase δ subunit,F-type ATPase,transporter,['ATP16']
+397,F-type ATPase A subunit,F-type ATPase,transporter,['ATP6']
+398,F-type ATPase B subunit,F-type ATPase,transporter,['ATP4']
+399,F-type ATPase D subunit,F-type ATPase,transporter,['ATP7']
+400,F-type ATPase G2 subunit,F-type ATPase,transporter,['ATP20']
+401,SLC25A38,Mitochondrial amino acid transporter subfamily,transporter,['HEM25']
+402,Mitochondrial dicarboxylate transporter,Mitochondrial di- and tri-carboxylic acid transporter subfamily,transporter,['DIC1']
+403,Mitochondrial oxodicarboxylate carrier,Mitochondrial di- and tri-carboxylic acid transporter subfamily,transporter,"['ODC2', 'ODC1']"
+404,SLC25A35,Mitochondrial di- and tri-carboxylic acid transporter subfamily,transporter,['OAC1']
+405,Graves disease carrier,Mitochondrial nucleotide transporter subfamily,transporter,['LEU5']
+406,Deoxynucleotide carrier 1,Mitochondrial nucleotide transporter subfamily,transporter,['TPC1']
+407,S-Adenosylmethionine carrier,Mitochondrial nucleotide transporter subfamily,transporter,['PET8']
+408,MFT,Mitochondrial nucleotide transporter subfamily,transporter,['FLX1']
+409,Putative sodium-coupled neutral amino acid transporter 7,Orphan SLC38 transporters,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+410,Putative sodium-coupled neutral amino acid transporter 8,Orphan SLC38 transporters,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+411,Putative sodium-coupled neutral amino acid transporter 11,Orphan SLC38 transporters,transporter,['AVT2']
+412,Tat1,Other SLC26 anion exchangers,transporter,['YGR125W']
+413,SLC26A10,Other SLC26 anion exchangers,transporter,['YGR125W']
+414,KBAT,Other SLC26 anion exchangers,transporter,"['SUL1', 'SUL2']"
+415,Proton myo-inositol cotransporter,Proton-coupled inositol transporter,transporter,"['CIN10', 'ITR1', 'ITR2']"
+416,Sat-1,Selective sulphate transporters,transporter,['YGR125W']
+417,DTDST,Selective sulphate transporters,transporter,['YGR125W']
+418,Sialin,Sialic acid transporter,transporter,"['YOL162W', 'YOL163W']"
+419,Sodium/bile acid and sulphated solute cotransporter 1,SLC10 family of sodium-bile acid co-transporters,transporter,['ARR3']
+420,Sodium/bile acid and sulphated solute cotransporter 2,SLC10 family of sodium-bile acid co-transporters,transporter,['ARR3']
+421,Sodium/bile acid and sulphated solute cotransporter 3,SLC10 family of sodium-bile acid co-transporters,transporter,['ARR3']
+422,Sodium/bile acid and sulphated solute cotransporter 4,SLC10 family of sodium-bile acid co-transporters,transporter,['ARR3']
+423,Sodium/bile acid and sulphated solute cotransporter 5,SLC10 family of sodium-bile acid co-transporters,transporter,['ARR3']
+424,Sodium/bile acid and sulphated solute cotransporter 6,SLC10 family of sodium-bile acid co-transporters,transporter,['ARR3']
+425,Sodium/bile acid and sulphated solute cotransporter 7,SLC10 family of sodium-bile acid co-transporters,transporter,['RCH1']
+426,NRAMP1,SLC11 family of proton-coupled metal ion transporters,transporter,['SMF2']
+427,Kidney-specific Na-K-Cl symporter,SLC12 family of cation-coupled chloride transporters,transporter,['VHC1']
+428,Basolateral Na-K-Cl symporter,SLC12 family of cation-coupled chloride transporters,transporter,['VHC1']
+429,Na-Cl symporter,SLC12 family of cation-coupled chloride transporters,transporter,['VHC1']
+430,K-Cl cotransporter 1,SLC12 family of cation-coupled chloride transporters,transporter,['VHC1']
+431,K-Cl cotransporter 2,SLC12 family of cation-coupled chloride transporters,transporter,['VHC1']
+432,K-Cl cotransporter 3,SLC12 family of cation-coupled chloride transporters,transporter,['VHC1']
+433,K-Cl cotransporter 4,SLC12 family of cation-coupled chloride transporters,transporter,['VHC1']
+434,Cation-chloride cotransporter 6,SLC12 family of cation-coupled chloride transporters,transporter,['VHC1']
+435,Na+/dicarboxylate cotransporter 3,SLC13 family of sodium-dependent sulphate/carboxylate transporters,transporter,"['PHO87', 'PHO90', 'PHO91']"
+436,Monocarboxylate transporter 1,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+437,Monocarboxylate transporter 2,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+438,Monocarboxylate transporter 3,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+439,Monocarboxylate transporter 4,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+440,Monocarboxylate transporter 5,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+441,Monocarboxylate transporter 6,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+442,Monocarboxylate transporter 7,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+443,Monocarboxylate transporter 8,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+444,Monocarboxylate transporter 9,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+445,Monocarboxylate transporter 10,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+446,Monocarboxylate transporter 11,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+447,Monocarboxylate transporter 12,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+448,Monocarboxylate transporter 13,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+449,Monocarboxylate transporter 14,SLC16 family of monocarboxylate transporters,transporter,"['MCH4', 'MCH5']"
+450,Vesicular monoamine transporter 1,SLC18 family of vesicular amine transporters,transporter,"['TPO2', 'TPO3']"
+451,Vesicular monoamine transporter 2,SLC18 family of vesicular amine transporters,transporter,"['TPO2', 'TPO3']"
+452,Vesicular acetylcholine transporter,SLC18 family of vesicular amine transporters,transporter,"['TPO2', 'TPO3']"
+453,Vesicular polyamine transporter,SLC18 family of vesicular amine transporters,transporter,"['TPO2', 'TPO3']"
+454,Sodium-dependent phosphate transporter 1,SLC20 family of sodium-dependent phosphate transporters,transporter,['PHO89']
+455,Sodium-dependent phosphate transporter 2,SLC20 family of sodium-dependent phosphate transporters,transporter,['PHO89']
+456,Sodium/potassium/calcium exchanger 6,SLC24 family of sodium/potassium/calcium exchangers,transporter,"['YDL206W', 'ECM27']"
+457,Fatty acid transport protein 1,SLC27 family of fatty acid transporters,transporter,['FAT1']
+458,Fatty acid transport protein 2,SLC27 family of fatty acid transporters,transporter,"['FAT1', 'FAA3', 'FAA4', 'FAA1']"
+459,Fatty acid transport protein 3,SLC27 family of fatty acid transporters,transporter,['FAT1']
+460,Fatty acid transport protein 4,SLC27 family of fatty acid transporters,transporter,['FAT1']
+461,Fatty acid transport protein 5,SLC27 family of fatty acid transporters,transporter,"['FAT1', 'FAA3', 'FAA4', 'FAA1']"
+462,Fatty acid transport protein 6,SLC27 family of fatty acid transporters,transporter,['FAT1']
+463,Equilibrative nucleoside transporter 1,SLC29 family,transporter,['FUN26']
+464,Equilibrative nucleoside transporter 2,SLC29 family,transporter,['FUN26']
+465,Equilibrative nucleoside transporter 3,SLC29 family,transporter,['FUN26']
+466,Plasma membrane monoamine transporter,SLC29 family,transporter,['FUN26']
+467,Zinc transporter 1,SLC30 zinc transporter family,transporter,"['MMT1', 'MMT2']"
+468,Zinc transporter 2,SLC30 zinc transporter family,transporter,"['MMT1', 'MMT2']"
+469,Zinc transporter 3,SLC30 zinc transporter family,transporter,"['MMT1', 'ZRC1', 'COT1', 'MMT2']"
+470,Zinc transporter 4,SLC30 zinc transporter family,transporter,"['MMT1', 'MMT2']"
+471,Zinc transporter 5,SLC30 zinc transporter family,transporter,"['MMT1', 'MMT2']"
+472,Zinc transporter 6,SLC30 zinc transporter family,transporter,"['MMT1', 'MMT2']"
+473,Zinc transporter 7,SLC30 zinc transporter family,transporter,['MSC2']
+474,Zinc transporter 8,SLC30 zinc transporter family,transporter,"['MMT1', 'ZRC1', 'COT1', 'MMT2']"
+475,Zinc transporter 10,SLC30 zinc transporter family,transporter,"['MMT1', 'ZRC1', 'COT1', 'MMT2']"
+476,Vesicular inhibitory amino acid transporter,SLC32 vesicular inhibitory amino acid transporter,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+477,AcetylCoA transporter,SLC33 acetylCoA transporter,transporter,"['YBR219C', 'YBR220C']"
+478,UDP-N-acetylglucosamine transporter,SLC35 family of nucleotide sugar transporters,transporter,"['VBA3', 'GEX1', 'SIT1', 'AZR1', 'ARN1', 'ARN2', 'QDR1', 'QDR2', 'VBA5', 'GEX2', 'ATR1', 'YMR279C', 'AQR1', 'SGE1']"
+479,UGTREL1,SLC35 family of nucleotide sugar transporters,transporter,['HUT1']
+480,YEA,SLC35 family of nucleotide sugar transporters,transporter,['YEA4']
+481,OVCOV1,SLC35 family of nucleotide sugar transporters,transporter,['YMD8']
+482,solute carrier family 35 member E1,SLC35 family of nucleotide sugar transporters,transporter,['SLY41']
+483,solute carrier family 35 member F5,SLC35 family of nucleotide sugar transporters,transporter,"['THI74', 'YML018C']"
+484,solute carrier family 35 member G1,SLC35 family of nucleotide sugar transporters,transporter,"['YMR253C', 'YPL264C']"
+485,solute carrier family 35 member G2,SLC35 family of nucleotide sugar transporters,transporter,"['YMR253C', 'YPL264C']"
+486,solute carrier family 35 member G3,SLC35 family of nucleotide sugar transporters,transporter,"['YMR253C', 'YPL264C']"
+487,solute carrier family 35 member G4,SLC35 family of nucleotide sugar transporters,transporter,"['YMR253C', 'YPL264C']"
+488,solute carrier family 35 member G5,SLC35 family of nucleotide sugar transporters,transporter,"['YMR253C', 'YPL264C']"
+489,solute carrier family 35 member G6,SLC35 family of nucleotide sugar transporters,transporter,"['YMR253C', 'YPL264C']"
+490,Proton-coupled Amino acid Transporter 1,SLC36 family of proton-coupled amino acid transporters,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+491,Proton-coupled Amino acid Transporter 2,SLC36 family of proton-coupled amino acid transporters,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+492,Proton-coupled Amino acid Transporter 3,SLC36 family of proton-coupled amino acid transporters,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+493,Proton-coupled Amino acid Transporter 4,SLC36 family of proton-coupled amino acid transporters,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+494,Glycerol-3-phosphate transporter,SLC37 family of phosphosugar/phosphate exchangers,transporter,"['YOL162W', 'YOL163W']"
+495,Sugar phosphate exchanger 2,SLC37 family of phosphosugar/phosphate exchangers,transporter,"['YOL162W', 'YOL163W']"
+496,Sugar phosphate exchanger 3,SLC37 family of phosphosugar/phosphate exchangers,transporter,"['YOL162W', 'YOL163W']"
+497,Glucose-6-phosphate transporter,SLC37 family of phosphosugar/phosphate exchangers,transporter,"['YOL162W', 'YOL163W']"
+498,Zinc transporter 11,SLC39 family of metal ion transporters,transporter,['ZRT3']
+499,Zinc transporter 13,SLC39 family of metal ion transporters,transporter,['YKE4']
+500,rBAT,SLC3 family,transporter,"['MAL32', 'IMA1', 'MAL12', 'IMA3', 'IMA5', 'IMA4', 'IMA2']"
+501,4F2hc,SLC3 family,transporter,"['MAL32', 'IMA1', 'MAL12', 'IMA3', 'IMA5', 'IMA4', 'IMA2']"
+502,Proton-coupled folate transporter,SLC46 family of folate transporters,transporter,['YJL163C']
+503,Thymic stromal co-transporter,SLC46 family of folate transporters,transporter,['YJL163C']
+504,SLC46A3,SLC46 family of folate transporters,transporter,['YJL163C']
+505,SLC50 sugar exporter,SLC50 sugar transporter,transporter,['SSN2']
+506,xenotropic and polytropic retrovirus receptor 1,SLC53 Phosphate carriers,transporter,['SYG1']
+507,mitochondrial pyruvate carrier 2,SLC54 Mitochondrial pyruvate carriers,transporter,"['MPC3', 'MPC2']"
+508,leucine zipper and EF-hand containing transmembrane protein 1,SLC55 Mitochondrial cation/proton exchangers,transporter,"['MDM38', 'YLH47']"
+509,leucine zipper and EF-hand containing transmembrane protein 2,SLC55 Mitochondrial cation/proton exchangers,transporter,"['MDM38', 'YLH47']"
+510,LETM1 domain containing 1,SLC55 Mitochondrial cation/proton exchangers,transporter,"['MDM38', 'YLH47']"
+511,sideroflexin 1,SLC56 Sideroflexins,transporter,['FSF1']
+512,sideroflexin 2,SLC56 Sideroflexins,transporter,['FSF1']
+513,sideroflexin 3,SLC56 Sideroflexins,transporter,['FSF1']
+514,sideroflexin 5,SLC56 Sideroflexins,transporter,['FSF1']
+515,magnesium transporter 1,SLC58 MagT-like magnesium transporter family,transporter,"['OST6', 'OST3']"
+516,tumor suppressor candidate 3,SLC58 MagT-like magnesium transporter family,transporter,"['OST6', 'OST3']"
+517,major facilitator superfamily domain containing 5,SLC61 Molybdate transporter family,transporter,"['VBA3', 'GEX1', 'SIT1', 'AZR1', 'ARN1', 'ARN2', 'QDR1', 'QDR2', 'VBA5', 'GEX2', 'ATR1', 'YMR279C', 'AQR1', 'SGE1']"
+518,transmembrane protein 165,SLC64 Golgi Ca2+/H+ exchangers,transporter,['GDT1']
+519,NPC intracellular cholesterol transporter 1,SLC65 NPC-type cholesterol transporters,transporter,['NCR1']
+520,High affinity cationic amino acid transporter 1,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+521,Low affinity cationic amino acid transporter 2,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+522,Cationic amino acid transporter 3,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+523,Cationic amino acid transporter 4,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+524,Probable cationic amino acid transporter,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+525,L-type amino acid transporter 1,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+526,L-type amino acid transporter 2,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+527,y+L amino acid transporter 1,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+528,y+L amino acid transporter 2,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+529,"b0,+-type amino acid transporter 1",SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+530,Asc-type amino acid transporter 1,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+531,Cystine/glutamate transporter,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+532,AGT1,SLC7 family,transporter,"['BAP2', 'AGP1', 'BAP3', 'GNP1', 'CAN1', 'MMP1', 'ALP1', 'SAM3']"
+533,Sodium/hydrogen exchanger 1,SLC9 family of sodium/hydrogen exchangers,transporter,['NHX1']
+534,Sodium/hydrogen exchanger 2,SLC9 family of sodium/hydrogen exchangers,transporter,['NHX1']
+535,Sodium/hydrogen exchanger 3,SLC9 family of sodium/hydrogen exchangers,transporter,['NHX1']
+536,Sodium/hydrogen exchanger 4,SLC9 family of sodium/hydrogen exchangers,transporter,['NHX1']
+537,Sodium/hydrogen exchanger 5,SLC9 family of sodium/hydrogen exchangers,transporter,['NHX1']
+538,Sodium/hydrogen exchanger 9,SLC9 family of sodium/hydrogen exchangers,transporter,['NHX1']
+539,Sodium/hydrogen exchanger 10,SLC9 family of sodium/hydrogen exchangers,transporter,['NHX1']
+540,Sodium/hydrogen exchanger 11,SLC9 family of sodium/hydrogen exchangers,transporter,['NHX1']
+541,sodium-coupled neutral amino acid transporter 1,System A-like transporters,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+542,sodium-coupled neutral amino acid transporter 2,System A-like transporters,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+543,Sodium-coupled neutral amino acid transporter 5,System N-like transporters,transporter,"['AVT5', 'AVT6', 'AVT1', 'AVT4']"
+544,Sodium/phosphate cotransporter 1,Type I sodium-phosphate co-transporters,transporter,"['YOL162W', 'YOL163W']"
+545,Sodium/phosphate cotransporter 3,Type I sodium-phosphate co-transporters,transporter,"['YOL162W', 'YOL163W']"
+546,Sodium/phosphate cotransporter 4,Type I sodium-phosphate co-transporters,transporter,"['YOL162W', 'YOL163W']"
+547,Sodium/phosphate cotransporter homolog,Type I sodium-phosphate co-transporters,transporter,"['YOL162W', 'YOL163W']"
+548,Vesicular glutamate transporter 1,Vesicular glutamate transporters (VGLUTs),transporter,"['YOL162W', 'YOL163W']"
+549,Vesicular glutamate transporter 2,Vesicular glutamate transporters (VGLUTs),transporter,"['YOL162W', 'YOL163W']"
+550,Vesicular glutamate transporter 3,Vesicular glutamate transporters (VGLUTs),transporter,"['YOL162W', 'YOL163W']"
+551,Vesicular nucleotide transporter,Vesicular nucleotide transporter,transporter,"['YOL162W', 'YOL163W']"
+552,V-type ATPase V1 motor A subunit,V-type ATPase,transporter,['VMA1']
+553,V-type ATPase V1 motor C1 subunit,V-type ATPase,transporter,['VMA5']
+554,V-type ATPase V1 motor C2 subunit,V-type ATPase,transporter,['VMA5']
+555,V-type ATPase V1 motor D subunit,V-type ATPase,transporter,['VMA8']
+556,V-type ATPase V1 motor E1 subunit,V-type ATPase,transporter,['VMA4']
+557,V-type ATPase V1 motor E2 subunit,V-type ATPase,transporter,['VMA4']
+558,V-type ATPase V1 motor F subunit,V-type ATPase,transporter,['VMA7']
+559,V-type ATPase V1 motor H subunit,V-type ATPase,transporter,['VMA13']
+560,V-type ATPase V0 motor a1 subunit,V-type ATPase,transporter,"['STV1', 'VPH1']"
+561,V-type ATPase V0 motor a2 subunit,V-type ATPase,transporter,"['STV1', 'VPH1']"
+562,V-type ATPase V0 motor a3 subunit,V-type ATPase,transporter,"['STV1', 'VPH1']"
+563,V-type ATPase V0 motor a4 subunit,V-type ATPase,transporter,"['STV1', 'VPH1']"
+564,V-type ATPase V0 motor b subunit,V-type ATPase,transporter,['VMA16']
+565,V-type ATPase V0 motor c subunit,V-type ATPase,transporter,['VMA3']
+566,V-type ATPase V0 motor d1 subunit,V-type ATPase,transporter,['VMA6']
+567,V-type ATPase V0 motor d2 subunit,V-type ATPase,transporter,['VMA6']
+568,Adipo1 receptor,Adiponectin receptors,other_protein,"['IZH1', 'IZH2']"
+569,chitinase 3 like 1,Chitinase-like proteins,other_protein,['CTS2']
+570,nucleobindin 1,EF-hand domain containing proteins,other_protein,['SSP120']
+571,retinaldehyde binding protein 1,Fatty acid-binding proteins,other_protein,"['CSR1', 'PDR16', 'PDR17']"
+572,heat shock protein family A (Hsp70) member 1A,Heat shock proteins,other_protein,"['SSE2', 'SSE1']"
+573,heat shock protein family A (Hsp70) member 1B,Heat shock proteins,other_protein,"['SSE2', 'SSE1', 'SSE2', 'SSE1']"
+574,heat shock protein family A (Hsp70) member 2,Heat shock proteins,other_protein,"['SSB1', 'SSB2']"
+575,heat shock protein family A (Hsp70) member 6,Heat shock proteins,other_protein,"['SSE2', 'SSE1']"
+576,heat shock protein family A (Hsp70) member 8,Heat shock proteins,other_protein,"['SSE2', 'SSE1']"
+577,heat shock protein family A (Hsp70) member 1 like,Heat shock proteins,other_protein,"['SSE2', 'SSE1']"
+578,heat shock protein 90 beta family member 1,Heat shock proteins,other_protein,"['HSC82', 'HSP82']"
+579,heat shock protein 90 alpha family class A member 1,Heat shock proteins,other_protein,"['HSC82', 'HSP82']"
+580,heat shock protein 90 alpha family class B member 1,Heat shock proteins,other_protein,"['HSC82', 'HSP82']"
+581,TNF receptor associated protein 1,Heat shock proteins,other_protein,"['HSC82', 'HSP82']"
+582,kinesin-5,Kinesins,other_protein,['CIN8']
+583,bromodomain adjacent to zinc finger domain 1A,Non-enzymatic BRD containing proteins,other_protein,"['BDF2', 'BDF1']"
+584,bromodomain adjacent to zinc finger domain 1B,Non-enzymatic BRD containing proteins,other_protein,"['BDF2', 'BDF1']"
+585,bromodomain adjacent to zinc finger domain 2A,Non-enzymatic BRD containing proteins,other_protein,"['BDF2', 'GCN5', 'BDF1']"
+586,bromodomain adjacent to zinc finger domain 2B,Non-enzymatic BRD containing proteins,other_protein,"['BDF2', 'BDF1']"
+587,bromodomain PHD finger transcription factor,Non-enzymatic BRD containing proteins,other_protein,"['BDF2', 'BDF1']"
+588,bromodomain testis associated,Non-enzymatic BRD containing proteins,other_protein,"['BDF2', 'GCN5', 'BDF1']"
+589,bromodomain and PHD finger containing 1,Non-enzymatic BRD containing proteins,other_protein,['NTO1']
+590,bromodomain and PHD finger containing 3,Non-enzymatic BRD containing proteins,other_protein,['NTO1']
+591,CECR2 histone acetyl-lysine reader,Non-enzymatic BRD containing proteins,other_protein,"['BDF2', 'GCN5', 'BDF1']"
+592,polybromo 1,Non-enzymatic BRD containing proteins,other_protein,['RSC4']
+593,exportin 1,Nuclear export proteins,other_protein,['CRM1']
+594,eukaryotic translation elongation factor 2,Ribosomal factors,other_protein,"['EFT2', 'EFT1']"
+595,σ2,Sigma receptors,other_protein,['YLR050C']
+596,tubulin beta 4B class IVb,Tubulins,other_protein,['TUB2']
