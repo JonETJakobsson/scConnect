@@ -345,6 +345,7 @@ def get_receptors(organism="mmusculus", receptor_types=["gpcr", "lgic"], save=Tr
 
             name = receptor["Target name"]
             family = receptor["Family name"]
+            recepotr_type = receptor["Type"]
             for species in organism_dict:
                 if str(receptor[species]) != "nan":
                     genes = find_orth_gene(gene = receptor[species], organism=organism_dict[species], target=organism)
@@ -352,9 +353,9 @@ def get_receptors(organism="mmusculus", receptor_types=["gpcr", "lgic"], save=Tr
                 else:
                     genes = []
             if len(genes)>0:
-                receptor_list.append((name, family, genes))
+                receptor_list.append((name, family, recepotr_type genes))
 
-    receptor_genes = pd.DataFrame(receptor_list, columns=["receptor", "family", "gene"])
+    receptor_genes = pd.DataFrame(receptor_list, columns=["receptor", "family", "type", "gene"])
 
     if save is True:
         receptor_genes.to_csv(pkg_resources.resource_filename(
