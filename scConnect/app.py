@@ -476,10 +476,10 @@ def graph(G, mode=None):
         info = f"Interactions from source: {edge['source']} to target: {edge['target']}. Weight: {edge['weight']}"
 
         columns = [{"name": i, "id": i} for i in [
-            "interaction", "receptorfamily", "score", "log_score", "weighted_score", "pubmed_id", "target_species", "action"]]
+            "interaction", "receptorfamily", "score", "log_score", "weighted_score", "pubmedid", "targetspecies", "action"]]
 
         interactions = pd.DataFrame(edge["interactions"])[
-            ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "pubmed_id", "target_species", "action"]]
+            ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "pubmedid", "targetspecies", "action"]]
 
         interactions.sort_values(by="score", ascending=False, inplace=True)
         records = interactions.to_dict("records")
