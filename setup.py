@@ -24,8 +24,8 @@ setup(
       "scConnect": files},
    
    install_requires=[#external packages as dependencies
-      'scanpy',
-      'pandas',
+      'scanpy>=1.4',
+      'pandas>=1.0',
       'numpy',
       'networkx',
       'dash',
