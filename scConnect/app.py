@@ -622,7 +622,7 @@ def graph(G, mode=None):
     
     
     # Run server
-    app.run_server(mode=mode)
+    app.run_server(mode=mode, debug=False)
 
 
 
