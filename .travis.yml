@@ -11,8 +11,7 @@ deploy:
   - provider: pypi
   - username: __token__
   - password: 
-    - secure: TEST_PYPI_API
+    - secure: PYPI_TOKEN
   - on:
     - tags: true
-  - server: https://test.pypi.org/index
   
