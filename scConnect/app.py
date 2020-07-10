@@ -2,10 +2,13 @@
 # Dash app to investigate graphs
 
 
-def graph(G, mode=None):
+def graph(G, **kwargs):
     """
     G: a multidirectional graph
-    mode: inline to show inside the jupyter nodebook, default is None
+
+    kwargs are passed to the Jupyter_Dash.run_server() function. Some usefull arguments are:
+        mode: "inline" to run app inside the jupyter nodebook, default is None
+        debug: True or False, Usefull to catch errors during development.
     """
 
     import dash
@@ -63,30 +66,28 @@ def graph(G, mode=None):
 
     # Add colors to edges(source node color) for  G
     for u, v, k in G.edges(keys=True):
-        G.edges[u,v,k]["color"] = color_map_nodes[u][0:3]
+        G.edges[u, v, k]["color"] = color_map_nodes[u][0:3]
 
-    #load graph into used formes
+    # load graph into used formes
     G_flat = cn.graph.flatten_graph(G, weight="score", log=True)
-    
-    # Add colors to edges(source node color) for G_flat
-    for u, v,  in G_flat.edges():
-        G_flat.edges[u,v]["color"] = color_map_nodes[u][0:3]
 
+    # Add colors to edges(source node color) for G_flat
+    for u, v, in G_flat.edges():
+        G_flat.edges[u, v]["color"] = color_map_nodes[u][0:3]
 
     G_split = cn.graph.split_graph(G)
-      
+
     # find and sort all found interactions
     interactions = list(G_split.keys())
     interactions.sort()
 
-    
     G_cyto = nx.cytoscape_data(G_flat)
 
     # get min and max weight for all edges for flat and normal graph
     #weights = [d["weight"] for u, v, d in G_flat.edges(data=True)]
-    scores = [d["score"] for u, v, d in G.edges(data=True)] + [d["weighted_score"] for u, v, d in G.edges(data=True)]
+    scores = [d["score"] for u, v, d in G.edges(
+        data=True)] + [d["weighted_score"] for u, v, d in G.edges(data=True)]
     cent = [d["centrality"] for n, d in G.nodes(data=True)]
-
 
     # prepare data for network graph
     nodes = G_cyto["elements"]["nodes"]
@@ -94,7 +95,6 @@ def graph(G, mode=None):
 
     # collect all available genes
     genes = list(nodes[0]["data"]["genes"].keys())
-
 
     # Styling parameters
     font_size = 20
@@ -130,7 +130,7 @@ def graph(G, mode=None):
                 'border-width': "5"
             }
         },
-        
+
         {
             'selector': 'edge',
             'style': {
@@ -159,9 +159,10 @@ def graph(G, mode=None):
 
         html.Div(className="header", children=[  # header
             html.Img(src="assets/logo.png", alt="scConnect logo"),
-            
+
             html.Div(className="graph-info", id="graph-stat", children=[
-                html.H3(f'Loaded graph with {len(G.nodes())} nodes and {len(G.edges())} edges')
+                html.H3(
+                    f'Loaded graph with {len(G.nodes())} nodes and {len(G.edges())} edges')
             ])
         ]),
 
@@ -171,8 +172,9 @@ def graph(G, mode=None):
             html.Label("Interactions"),
             dcc.Dropdown(
                 id="network-interaction",
-                options=[{'label': "all interactions", 'value': "all"}]+
-                [{'label': interaction, 'value': interaction} for interaction in interactions],
+                options=[{'label': "all interactions", 'value': "all"}] +
+                [{'label': interaction, 'value': interaction}
+                    for interaction in interactions],
                 value="all"
             ),
 
@@ -186,8 +188,9 @@ def graph(G, mode=None):
                 value="circle",
                 clearable=False),
 
-            html.Label("Weight Filter", style={"paddingBottom": 500, "paddingTop": 500}),
-            dcc.Slider( # min, max and value are set dynamically via a callback
+            html.Label("Weight Filter", style={
+                       "paddingBottom": 500, "paddingTop": 500}),
+            dcc.Slider(  # min, max and value are set dynamically via a callback
                 id="network-filter",
                 step=0.001,
                 updatemode="drag",
@@ -195,25 +198,25 @@ def graph(G, mode=None):
                     "always_visible": True,
                     "placement": "right"
                 },
-                ),
+            ),
 
             html.Label("Node size"),
             dcc.RangeSlider(
-                id="node-size", 
-                value=[10,50], 
-                min=0, 
+                id="node-size",
+                value=[10, 50],
+                min=0,
                 max=100,
-                updatemode="drag"), 
+                updatemode="drag"),
 
             html.Label("Select gene"),
             dcc.Dropdown(
-                id="gene_dropdown", 
+                id="gene_dropdown",
                 options=[{"label": gene, "value": gene} for gene in genes],
                 clearable=True,
                 placeholder="Color by gene expression",
-                ),
+            ),
 
-            #Store node colors "hidden" for gene expresison
+            # Store node colors "hidden" for gene expresison
             html.Div(id="node-colors", style={"display": "none"}, children=[
                 ""
             ]),
@@ -240,24 +243,24 @@ def graph(G, mode=None):
 
             html.Label("Weight Filter"),
             dcc.Slider(
-                id="sankey-filter", 
+                id="sankey-filter",
                 min=min(scores),
-                max=max(scores), 
-                value=0.75, 
+                max=max(scores),
+                value=0.75,
                 step=0.001,
                 updatemode="drag",
                 tooltip={
                     "always_visible": True,
                     "placement": "right"
                 }),
-            
+
             html.Label("Toggle weighted"),
             dcc.RadioItems(id="sankey-toggle", options=[
                 {"label": "Score", "value": "score"},
                 {"label": "Weighted score", "value": "weighted_score"},
                 {"label": "Log score", "value": "log_score"}
             ], value="score")
-            
+
         ]),  # end network settings
 
         html.Div(className="sankey", id="sankey", children=[  # sankey graph
@@ -270,28 +273,54 @@ def graph(G, mode=None):
 
                 html.H3(id="edge-info"),
 
-                dash_table.DataTable(id="edge-selection",
-                                     style_table={
-                                         "overflowX": "scroll",
-                                         "overflowY": "scroll",
-                                         "height": "50vh",
-                                         "width": "95%"
+                dash_table.DataTable(
+                    id="edge-selection",
+                    page_size=20,
+                    style_table={
+                        "overflowX": "scroll",
+                        "overflowY": "scroll",
+                        "height": "50vh",
+                        "width": "95%"
+                    },
 
-                                     },
-                                     style_cell={
-                                         "minWidth": "0px",
-                                         "overflow": "hidden"
-                                     },
-                                     sort_action="native",
-                                     fixed_rows={'headers': True, 'data': 0}
-                                     )
+                    style_cell_conditional=[
+                        {
+                            "if": {"column_id": "interaction"},
+                            "textAlign": "left"
+                        },
+                        {
+                            "if": {"column_id": "receptorfamily"},
+                            "textAlign": "left"
+                        },
+                        {
+                            "if": {"column_id": "pubmedid"},
+                            "textAlign": "left"
+                        }
+                    ],
+
+                    style_header={
+                        "fontWeight": "bold",
+                        "maxWidth": "200px",
+                        "minWidth": "70px"
+                    },
+
+                    style_data={
+                        "maxWidth": "200px",
+                        "minWidth": "70px",
+                        "textOverflow": "ellipsis"
+                    },
+                    sort_action="native",
+
+                    fixed_rows={'headers': True, 'data': 0}
+                )
             ])
         ]),  # end interaction list
 
-        html.Div(className="L-R-settings", children=[ # ligand and receptor settings (search)
+        html.Div(className="L-R-settings", children=[  # ligand and receptor settings (search)
             html.H2("Ligands and receptors"),
             html.Label("Search for ligands and receptors:"),
-            dcc.Input(id="filter_l_r", type="search", value="", placeholder="Search"),
+            dcc.Input(id="filter_l_r", type="search",
+                      value="", placeholder="Search"),
         ]),
 
         html.Div(className="L-R-scores", children=[  # ligand and receptor lists
@@ -302,7 +331,7 @@ def graph(G, mode=None):
                         config=dict(
                             autosizable=True,
                             responsive=True)
-                        )
+                    )
                 ]),
                 dcc.Tab(label="Receptors", children=[
                     dcc.Graph(
@@ -313,22 +342,21 @@ def graph(G, mode=None):
                     )
                 ])
             ])
-        ]) # end ligand receptor list
+        ])  # end ligand receptor list
     ])  # end wrapper
 
+    # Instantiate the graph and produce the bounderies for filters
 
-
-    #Instantiate the graph and produce the bounderies for filters
     @app.callback([
         Output("cyto-graph", "elements"),
         Output("network-filter", "min"),
         Output("network-filter", "max"),
         Output("network-filter", "value")
-        ],
+    ],
         [Input("network-interaction", "value")])
     def make_graph(interaction):
-        
-        if interaction == "all": # if no interaction is selected, use full graph
+
+        if interaction == "all":  # if no interaction is selected, use full graph
             G_cyto = nx.cytoscape_data(G_flat)
             weights = [d["weight"] for u, v, d in G_flat.edges(data=True)]
 
@@ -339,15 +367,16 @@ def graph(G, mode=None):
 
             return elements, min(weights), max(weights), np.mean(weights)
 
-
-        else: # an interaction is selected, select only that interaction
-            G_split_flat = cn.graph.flatten_graph(G_split[interaction], weight="score", log=True)
+        else:  # an interaction is selected, select only that interaction
+            G_split_flat = cn.graph.flatten_graph(
+                G_split[interaction], weight="score", log=True)
             # Add colors to edges(source node color) for G_split_flat
-            for u, v,  in G_split_flat.edges():
-                G_split_flat.edges[u,v]["color"] = color_map_nodes[u][0:3]
+            for u, v, in G_split_flat.edges():
+                G_split_flat.edges[u, v]["color"] = color_map_nodes[u][0:3]
 
             G_cyto = nx.cytoscape_data(G_split_flat)
-            weights = [d["weight"] for u, v, d in G_split_flat.edges(data=True)]
+            weights = [d["weight"]
+                       for u, v, d in G_split_flat.edges(data=True)]
 
             # prepare data for network graph
             nodes = G_cyto["elements"]["nodes"]
@@ -356,11 +385,8 @@ def graph(G, mode=None):
 
             return elements, min(weights), max(weights), np.mean(weights)
 
-
-
-
-
     # Change layout of network graph
+
     @app.callback(Output("cyto-graph", "layout"),
                   [Input("network-layout", "value")])
     def update_network_layout(layout):
@@ -370,35 +396,35 @@ def graph(G, mode=None):
             "fit": True
         }
 
-
-
     # Choose gene to color nodes by
+
     @app.callback(
         [Output("node-colors", "children"),
-        Output("min-max", "children")],
+         Output("min-max", "children")],
         [
-        Input("gene_dropdown", "value")
+            Input("gene_dropdown", "value")
         ]
     )
     def calculate_colors(gene):
         if gene is None:
             return [None, ""]
-        #get all gene expression values for selected gene
-        gene_data = {celltype["data"]["id"]: celltype["data"]["genes"][gene] for celltype in nodes}
-        
+        # get all gene expression values for selected gene
+        gene_data = {celltype["data"]["id"]: celltype["data"]
+                     ["genes"][gene] for celltype in nodes}
+
         min_value = min(gene_data.values())
         max_value = max(gene_data.values())
 
-        #package min max expression information to a list that will be returned
+        # package min max expression information to a list that will be returned
         expression = html.Ul(children=[
-            html.Li(f"minimum gene expression: {min_value}"), 
+            html.Li(f"minimum gene expression: {min_value}"),
             html.Li(f"maximum gene expression: {max_value}")
-            ]
+        ]
         )
-        
+
         cmap = matplotlib.cm.get_cmap("coolwarm")
-        
-        color_dict= dict()
+
+        color_dict = dict()
         for k, v in gene_data.items():
             color_dict[k] = {"rgb": cmap(v, bytes=True)[0:3], "expression": v}
 
@@ -406,22 +432,22 @@ def graph(G, mode=None):
 
         return color.to_json(), expression
 
-
     # Select visible edges of network graph depending on filter value
     # node color depending on selected gene
     # width of edges
+
     @app.callback(
         Output("cyto-graph", "stylesheet"),
         [
-        Input("network-filter", "value"),
-        Input("network-filter", "min"),
-        Input("network-filter", "max"),
-        Input("node-size", "value"),
-        Input("node-colors", "children")
+            Input("network-filter", "value"),
+            Input("network-filter", "min"),
+            Input("network-filter", "max"),
+            Input("node-size", "value"),
+            Input("node-colors", "children")
         ]
     )
     def style_network_graph(th, min_weight, max_weight, size, colors):
-        
+
         # create a filter for edges
         filter_style = [{
             "selector": f"edge[weight < {th}]",
@@ -429,19 +455,19 @@ def graph(G, mode=None):
                 "display": "none"
             }
         },
-        {
+            {
             "selector": "node",
             "style": {
                 'height': f'mapData(centrality, {min(cent)}, {max(cent)}, {size[0]}, {size[1]})',
                 'width': f'mapData(centrality, {min(cent)}, {max(cent)}, {size[0]}, {size[1]})'
             }
         }]
-        
 
         # create a color style for nodes based on gene expression
         if isinstance(colors, str):
             colors = pd.read_json(colors, typ="series", convert_dates=False)
-            color_style = [{'selector': f'node[id = "{str(index)}"]', 'style': {'background-color': f'rgb{tuple(colors[index]["rgb"])}'}} for index in colors.index]
+            color_style = [{'selector': f'node[id = "{str(index)}"]', 'style': {
+                'background-color': f'rgb{tuple(colors[index]["rgb"])}'}} for index in colors.index]
             filter_style += color_style
         else:
             color_style = {
@@ -449,8 +475,7 @@ def graph(G, mode=None):
                 "style": {'background-color': 'BFD7B5'}
             }
 
-
-        # Map edges width to a set min and max value (scale for visibility)    
+        # Map edges width to a set min and max value (scale for visibility)
         edge_style = [{
             "selector": "edge",
             "style": {
@@ -460,10 +485,8 @@ def graph(G, mode=None):
 
         return default_stylesheet + filter_style + edge_style
 
-
-
-
     # Produce a table of all edge data from tapped edge
+
     @app.callback([
         Output("edge-info", "children"),
         Output("edge-selection", "columns"),
@@ -473,71 +496,108 @@ def graph(G, mode=None):
     def update_data(edge):
         import pandas as pd
 
+        # check if an edge has really been clicked, return default otherwise
+        if edge is None:
+            return ["", None, None]
+
         info = f"Interactions from source: {edge['source']} to target: {edge['target']}. Weight: {edge['weight']}"
 
-        columns = [{"name": i, "id": i} for i in [
-            "interaction", "receptorfamily", "score", "log_score", "weighted_score", "pubmedid"]]
+        # map visible names for columns with columns in edge[interaction]
+        columns = [
+            {
+                "name": "Interaction",
+                "id": "interaction"
+            },
+            {
+                "name": "Receptor Family",
+                "id": "receptorfamily"
+            },
+            {
+                "name": "Score",
+                "id": "score"
+            },
+            {
+                "name": "Log10(score)",
+                "id": "log_score"
+            },
+            {
+                "name": "Weighted score",
+                "id": "weighted_score"
+            },
+            {
+                "name": "PubMed ID",
+                "id": "pubmedid"
+            }
+        ]
 
         interactions = pd.DataFrame(edge["interactions"])[
             ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "pubmedid"]]
 
+        # Sort values based on score
         interactions.sort_values(by="score", ascending=False, inplace=True)
+
+        # round values for scores to two decimals
+        interactions[["score", "log_score", "weighted_score"]] = interactions[[
+            "score", "log_score", "weighted_score"]].round(decimals=2)
+
         records = interactions.to_dict("records")
 
         return [info, columns, records]
 
-
-
-
     # Produce ligand and receptor graphs based on tapped node
+
     @app.callback([
         Output("ligand-graph", "figure"),
         Output("receptor-graph", "figure")
-        ],
+    ],
         [
         Input("cyto-graph", "tapNodeData"),
         Input("filter_l_r", "value")
-        ]
+    ]
     )
     def plot_l_r_expression(node, filter_text):
+        
+        # set output variables to empty figures
+        ligand_fig = go.Figure()
+        receptors_fig = go.Figure()
 
         if isinstance(node, dict):
-            
-            ligands = pd.DataFrame.from_dict(node['ligands'], orient="index", columns=["log_scores"])
+
+            ligands = pd.DataFrame.from_dict(
+                node['ligands'], orient="index", columns=["log_scores"])
             ligands = ligands.sort_values("log_scores", axis=0, ascending=True)
-            ligands = np.log10(ligands + 1) # Turn ligand score into log10 +1
+            ligands = np.log10(ligands + 1)  # Turn ligand score into log10 +1
             if filter_text != "":
-                ligands = ligands.filter(like=filter_text, axis = 0)
+                ligands = ligands.filter(like=filter_text, axis=0)
 
             ligand_fig = go.Figure(
-                data=go.Bar(y=list(ligands.index), x=list(ligands["log_scores"]), orientation="h"),
-                layout=go.Layout(title=f"Ligands: {node['name']}", showlegend=False, xaxis={'title': "log(Ligand Score)"}, autosize=True, height=800)
-                )
+                data=go.Bar(y=list(ligands.index), x=list(
+                    ligands["log_scores"]), orientation="h"),
+                layout=go.Layout(title=f"Ligands: {node['name']}", showlegend=False, xaxis={
+                                 'title': "log(Ligand Score)"}, autosize=True, height=800)
+            )
 
-            
-            receptors = pd.DataFrame.from_dict(node['receptors'], orient="index", columns=["log_scores"])
-            receptors = receptors.sort_values("log_scores", axis=0, ascending=True)
-            receptors = np.log10(receptors +1) # Turn receptor scores into log10 +1
+            receptors = pd.DataFrame.from_dict(
+                node['receptors'], orient="index", columns=["log_scores"])
+            receptors = receptors.sort_values(
+                "log_scores", axis=0, ascending=True)
+            # Turn receptor scores into log10 +1
+            receptors = np.log10(receptors + 1)
             if filter_text != "":
-                receptors = receptors.filter(like=filter_text, axis = 0)
+                receptors = receptors.filter(like=filter_text, axis=0)
 
             receptors_fig = go.Figure(
-                data=go.Bar(y=list(receptors.index), x=list(receptors["log_scores"]), orientation="h"),
-                layout=go.Layout(title=f"Receptors: {node['name']}", showlegend=False, xaxis={'title': "log(Receptor Score)"}, autosize=True, height=800)
-                )
-            
-            
-        else:
-            figure=dict()
-        
-            
+                data=go.Bar(y=list(receptors.index), x=list(
+                    receptors["log_scores"]), orientation="h"),
+                layout=go.Layout(title=f"Receptors: {node['name']}", showlegend=False, xaxis={
+                                 'title': "log(Receptor Score)"}, autosize=True, height=800)
+            )
+
+
         return [ligand_fig, receptors_fig]
 
-
-
-
-
     # Builds a sankey graph based on the tapped node
+
     @app.callback(
         Output("sankey-graph", "figure"),
         [
@@ -547,6 +607,12 @@ def graph(G, mode=None):
         ]
     )
     def build_sankey_graph(node, th, score):
+
+        # If no node has been selected, dont try to build graph
+        if node is None:
+            return go.Figure()
+
+
         node = node["id"]
         # Find all interactions where node is target or source node
         G_s = nx.MultiDiGraph()
@@ -562,7 +628,7 @@ def graph(G, mode=None):
                         if d[score] > th:
                             # append dash before the source node
                             G_s.add_edge("Pre " + n, nbr, **d)
-        
+
         edges = nx.to_pandas_edgelist(G_s)
         if len(edges) < 1:
             fig = dict()
@@ -592,7 +658,8 @@ def graph(G, mode=None):
                     width=0.5
                 ),
                 label=list(nodes),
-                color=[f'rgb{tuple(d["color"][0:3])}' for n, d in G_s.nodes(data=True)]
+                color=[f'rgb{tuple(d["color"][0:3])}' for n,
+                       d in G_s.nodes(data=True)]
 
             ),
             link=dict(
@@ -617,13 +684,8 @@ def graph(G, mode=None):
 
         return fig
 
-    
-    
-    
-    
     # Run server
-    app.run_server(mode=mode, debug=False)
-
+    app.run_server(**kwargs)
 
 
 if __name__ == "__main__":
