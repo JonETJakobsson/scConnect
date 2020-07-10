@@ -9,9 +9,9 @@ install:
 script: pytest
 deploy:
   - provider: pypi
-  - username: "__token__"
+  - username: __token__
   - password: 
-    - secure: "TEST_PYPI_API"
+    - secure: TEST_PYPI_API
   - on:
     - tags: true
   - server: https://test.pypi.org/index
