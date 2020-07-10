@@ -42,7 +42,15 @@ The quickest and easiest way to try out the tutorial is to run through this bind
 Installation
 ????????????
 
-To install scConnect, please clone this repository and install using
+To install the latest stable version install using PYPI
+
+.. code-block:: bash
+
+    pip install scConnect
+    
+This will install all dependencies needed to run the tutorial, and utilize all features of scConnect.
+
+To install the master branch, please clone this repository and install using
 
 .. code-block:: bash
 
@@ -56,5 +64,8 @@ or
  
    pip install git+https://github.com/JonETJakobsson/scConnect
     
-This will install all dependencies needed to run the tutorial, and utilize all features of scConnect.
+
+
+
+  
 
