@@ -4,6 +4,9 @@
  
 .. image:: https://travis-ci.com/JonETJakobsson/scConnect.svg?branch=master
     :target: https://travis-ci.com/JonETJakobsson/scConnect
+    
+.. image:: https://badge.fury.io/py/scConnect.svg
+    :target: https://badge.fury.io/py/scConnect
 
 .. image:: scConnect/assets/logo.png
   :width: 100px
