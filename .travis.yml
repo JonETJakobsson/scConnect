@@ -12,7 +12,8 @@ deploy:
   - username: __token__
   - password: 
     - secure: $PYPI_TOKEN
+  - skip_existing: true
+  - distributions: "sdist bdist_wheel"
   - on:
     - tags: true
-    - all_branches: true
   
