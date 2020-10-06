@@ -1,9 +1,14 @@
 language: python
 python:
-  - "3.6"
-  - "3.7"
-  - "3.8"
+  "3.8"
 install:
-  - pip install .
-  - pip install pytest
+  pip install .
+  pip install pytest
 script: pytest
+deploy:
+  on:
+    all_branches: true
+    tags: true
+  provider: pypi
+  username: __token__
+  password: $PYPI_TOKEN

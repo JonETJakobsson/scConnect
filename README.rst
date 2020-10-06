@@ -4,6 +4,9 @@
  
 .. image:: https://travis-ci.com/JonETJakobsson/scConnect.svg?branch=master
     :target: https://travis-ci.com/JonETJakobsson/scConnect
+    
+.. image:: https://badge.fury.io/py/scConnect.svg
+    :target: https://badge.fury.io/py/scConnect
 
 .. image:: scConnect/assets/logo.png
   :width: 100px
@@ -42,7 +45,15 @@ The quickest and easiest way to try out the tutorial is to run through this bind
 Installation
 ????????????
 
-To install scConnect, please clone this repository and install using
+To install the latest stable version install using PYPI
+
+.. code-block:: bash
+
+    pip install scConnect
+    
+This will install all dependencies needed to run the tutorial, and utilize all features of scConnect.
+
+To install the master branch, please clone this repository and install using
 
 .. code-block:: bash
 
@@ -56,7 +67,10 @@ or
  
    pip install git+https://github.com/JonETJakobsson/scConnect
     
-This will install all dependencies needed to run the tutorial, and utilize all features of scConnect.
+
+
+
+  
 
 ===========
 Change log:
