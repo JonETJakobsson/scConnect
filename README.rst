@@ -58,3 +58,20 @@ or
     
 This will install all dependencies needed to run the tutorial, and utilize all features of scConnect.
 
+===========
+Change log:
+===========
+?????
+1.0.1
+?????
+
+Bugfixes:
+
+* Fixed a bug in connect.py which cased a crash when connecting ligands and receptors.
+
+
+?????
+1.0.0
+?????
+
+Initial release.

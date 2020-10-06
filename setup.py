@@ -10,7 +10,7 @@ with open("README.rst", "r") as fh:
 
 setup(
    name='scConnect',
-   version='1.0.0',
+   version='1.0.1',
    description='scConnect integrate gene expression profiles in scRNA-seq datasets with ligand and receptor interaction information from Guide to pharmacology to construct a graph containing all putative interaction between cell types in the dataset.',
    log_description=long_description,
    author='Jon E.T. Jakobsson',

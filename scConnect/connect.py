@@ -315,8 +315,9 @@ def get_connections(ligands, receptors, interactions, interaction_set, receptor_
     import numpy as np
     # shorten the list of interactions to only contain relevant ligands.
     # This should speed up the algorithm
-   
-    interactions = interactions.loc[ligands.keys()]
+    ligand_filter = [True if ligand in ligands.keys() else False for ligand in interactions.index.get_level_values(0)]
+    interactions = interactions.loc[ligand_filter]
+
     connections = list()
     for ligand, l_score in ligands.iteritems():
         for receptor, r_score in receptors.iteritems():
