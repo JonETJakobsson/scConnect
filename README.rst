@@ -38,7 +38,6 @@ The quickest and easiest way to try out the tutorial is to run through this bind
 .. _documentation: https://scconnect.readthedocs.io/en/latest/
 
 
- **Note:** To run the web application in the tutorial, you will have to install scConnect and run on your local machine.
 
 
 ????????????
