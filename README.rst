@@ -75,6 +75,13 @@ or
 Change log:
 ===========
 ?????
+1.0.2
+?????
+
+* Fixed documentation issues (added .readthedocs.yml)
+* removed requirement.txt, build is constructed entirely from setup.py
+
+?????
 1.0.1
 ?????
 
