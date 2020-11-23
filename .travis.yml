@@ -7,7 +7,6 @@ install:
 script: pytest
 deploy:
   on:
-    all_branches: true
     tags: true
   provider: pypi
   username: __token__
