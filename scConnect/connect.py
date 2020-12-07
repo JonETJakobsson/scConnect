@@ -268,6 +268,12 @@ def interactions(emitter, target, self_reference=True, organism="mmusculus"):
     ligands = pd.DataFrame(emitter.uns["ligands"])
     receptors = pd.DataFrame(target.uns["receptors"])
 
+    # load extra ligand and receptor statistics
+    ligands_zscore = pd.DataFrame(emitter.uns["ligands_score"])
+    receptors_zscore = pd.DataFrame(target.uns["receptors_score"])
+    ligands_pval = pd.DataFrame(emitter.uns["ligands_corr_pval"])
+    receptors_pval = pd.DataFrame(target.uns["receptors_corr_pval"])
+
     # Fetch receptor and ligand information
     receptor_info = pd.read_csv(pkg_resources.resource_filename(
         __name__, (f"data/Gene_annotation/{version}/{organism}/receptors.csv")), index_col=1)
@@ -291,7 +297,19 @@ def interactions(emitter, target, self_reference=True, organism="mmusculus"):
                 target_receptors = receptors[target_cluster][receptors[target_cluster] > 0]
 
                 connections = get_connections(
-                    emitter_ligands, target_receptors, interactions, interaction_set, receptor_info, ligand_info)
+                    emitter_ligands, 
+                    target_receptors, 
+                    interactions, 
+                    interaction_set, 
+                    receptor_info, 
+                    ligand_info,
+                    emitter_cluster,
+                    target_cluster,
+                    ligands_zscore,
+                    ligands_pval,
+                    receptors_zscore,
+                    receptors_pval)
+
                 if len(connections) > 0:
                     for connection in connections:
                         edge_list.append(connection)
@@ -307,9 +325,21 @@ def interactions(emitter, target, self_reference=True, organism="mmusculus"):
 # get all connections based on Ligands and receptors, and provide score for interactions
 # Also provide meta data as a dictionary for interaction
 
-def get_connections(ligands, receptors, interactions, interaction_set, receptor_info, ligand_info):
+def get_connections(
+    ligands,
+    receptors, 
+    interactions, 
+    interaction_set, 
+    receptor_info, 
+    ligand_info,
+    emitter_cluster,
+    target_cluster, 
+    ligands_zscore,
+    ligands_pval,
+    receptors_zscore,
+    receptors_pval):
     """finds connections between ligands and receptors 
-    and return a score for each interaction"""
+    and return a score and metadata for each interaction"""
 
     from scipy.stats.mstats import gmean
     import numpy as np
@@ -328,7 +358,11 @@ def get_connections(ligands, receptors, interactions, interaction_set, receptor_
                     "score": score,
                     "log_score": np.log10(score + 1), # From here on, all values are +1ed and logaritmized with base of 10. # From here on, all values are +1ed and logaritmized with base of 10.
                     "ligand": ligand,
+                    "ligand_zscore": ligands_zscore[emitter_cluster][ligand],
+                    "ligand_pval": ligands_pval[emitter_cluster][ligand],
                     "receptor": receptor,
+                    "receptor_zscore": receptors_zscore[target_cluster][receptor],
+                    "receptor_pval": receptors_pval[target_cluster][receptor],
                     "interaction": f"{ligand} --> {receptor}",
                     "endogenous": f"{list(interaction.endogenous)}",
                     "action": f"{list(interaction.action)}",
@@ -373,3 +407,166 @@ def nodes(adatas):
             nodes.append(node)
 
     return nodes
+
+# Statistic inference of ligand and receptor scores
+# Here we shuffel the group annotations many times, calculate ligand and receptor scores
+# and find the mean and standard deviation for each ligand/receptor score for each gorup.
+# We can then calculate the z-score of the true ligand/receptor score, p-values and corrected p-values
+# Data an be used to detect group specific expression of ligands and receptors.
+
+def _ligand_receptor_call(adata, groupby, organism):
+    import pandas as pd
+    adata = cn.genecall.meanExpression(adata, groupby=groupby, normalization=False, use_raw=False)
+    adata = cn.connect.ligands(adata, organism=organism)
+    adata = cn.connect.receptors(adata, organism=organism)
+    
+    ligands = pd.DataFrame(adata.uns["ligands"])
+    receptors = pd.DataFrame(adata.uns["receptors"])
+    return ligands, receptors
+
+def _values_df(dfs):
+    values_df = dfs[0].copy()
+    
+    for i in range(values_df.shape[0]):
+        for j in range(values_df.shape[1]):
+            values = list()
+            for df in range(len(dfs)):
+                values.append(dfs[df].iloc[i,j])
+            values_df.iloc[i,j] = str(values)
+    return values_df
+
+            
+def _mean_df(df):
+    import numpy as np
+    mean_df = df.copy()
+    for i in range(df.shape[0]):
+        for j in range(df.shape[1]):
+            mean_df.iloc[i,j] = np.mean(eval(df.iloc[i,j]))
+    return mean_df
+        
+def _std_df(df):
+    import numpy as np
+    std_df = df.copy()
+    for i in range(df.shape[0]):
+        for j in range(df.shape[1]):
+            std_df.iloc[i,j] = np.mean(eval(df.iloc[i,j]))
+    return std_df
+        
+
+def _score_pv_df(mean, std, value):
+    """Calculate z-scores and p-values for ligand and receptor 
+    calls compared to random group designation
+    
+    returns: score_df and pval_df"""
+    import numpy as np
+    from scipy import stats
+    
+    score_df = mean.copy()
+    pval_df = mean.copy()
+    warning = False # warning flag for if mean or std is 0 (mening no values were ever sampled to that group)
+    faults = 0
+    for i in range(score_df.shape[0]):
+        for j in range(score_df.shape[1]):
+            
+            s = std.iloc[i,j]
+            m = mean.iloc[i,j]
+            v = value.iloc[i,j]
+            if s == 0 and m == 0: # sampeling never managed to include this ligand or receptor for this group
+                z_score = 0.0
+                warning = True
+                faults += 1
+            else:
+                z_score = (v-m)/s
+            
+            pval =  stats.norm.sf(abs(z_score))*2
+    
+            score_df.iloc[i,j] = z_score
+            pval_df.iloc[i,j] = pval
+            
+    if warning:
+        total = score_df.shape[0] * score_df.shape[1]
+        print(f"{faults/total*100} % of group metrices were 0. increase n to reduce this number")
+        
+    return score_df, pval_df
+
+def _corrected_pvalue(pvalues, method="fdr_bh"):
+    """correct a dataframe of p-values to a dataframe of corrected p-values.
+    
+    Supports many different methods:
+    bonferroni : one-step correction
+    sidak : one-step correctio
+    holm-sidak : step down method using Sidak adjustment
+    holm : step-down method using Bonferroni adjustment
+    simes-hochberg : step-up method (independent
+    hommel : closed method based on Simes tests (non-negative)
+    fdr_bh : Benjamini/Hochberg (non-negative)
+    fdr_by : Benjamini/Yekutieli (negative)
+    fdr_tsbh : two stage fdr correction (non-negative)
+    fdr_tsbky : two stage fdr correction (non-negative)
+    
+    defaults to fdr_bh
+    
+    returns a pandas dataframe
+    """
+    import statsmodels.stats.multitest as mt
+    import pandas as pd
+    
+    p_flat = pvalues.to_numpy().flatten()
+    corr_p = mt.multipletests(p_flat, method=method)[1]
+    
+    corr_p = corr_p.reshape(pvalues.shape)
+    corr_pval = pd.DataFrame(corr_p, columns=pvalues.columns, index=pvalues.index)
+    
+    return corr_pval
+    
+def significance(adata, n, groupby, organism="hsapiens"):
+    """calculate statistics for the ligands and receptor scores.
+    
+    Compare the group ligand and receptor scores to the mean score of 
+    that group after n number of random group assignment"""
+    from random import shuffle
+    import pandas as pd
+    _adata = adata.copy()
+    groups = list(_adata.obs[groupby])
+    
+    ligand_dfs = list()
+    receptor_dfs = list()
+    
+    # shuffel group annotations n times and fetch ligand and receptor dataframes
+    for i in range(n):
+        print(f"shuffeling {i+1} out of {n} times")
+        shuffle(groups)
+        _adata.obs[groupby] = groups
+        ligand, receptor = _ligand_receptor_call(_adata, groupby, organism)
+        ligand_dfs.append(ligand)
+        receptor_dfs.append(receptor)
+    
+    # Merge all dataframes to one datafram (with list of values for each element)
+    ligand_values = _values_df(ligand_dfs)
+    receptor_values = _values_df(receptor_dfs)
+    
+    # Calculate the mean values of the list in each element
+    ligand_mean = _mean_df(ligand_values)
+    receptor_mean = _mean_df(receptor_values)
+    
+    # Calculate the standard deviation of the list in each element
+    ligand_std = _std_df(ligand_values)
+    receptor_std = _std_df(receptor_values)
+    
+    # Calculate Z-scores, p-values and corrected p-values 
+    ligand_value = pd.DataFrame(adata.uns["ligands"])
+    ligand_score , ligand_pval = _score_pv_df(ligand_mean, ligand_std, ligand_value)
+    ligand_corr_pval = _corrected_pvalue(ligand_pval)
+    
+    receptor_value = pd.DataFrame(adata.uns["receptors"])
+    receptor_score , receptor_pval = _score_pv_df(receptor_mean, receptor_std, receptor_value)
+    receptor_corr_pval = _corrected_pvalue(receptor_pval)
+    
+    adata.uns["ligands_score"] = ligand_score.to_dict()
+    adata.uns["receptors_score"] = receptor_score.to_dict()
+    adata.uns["ligands_pval"] = ligand_pval.to_dict()
+    adata.uns["receptors_pval"] = receptor_pval.to_dict()
+    adata.uns["ligands_corr_pval"] = ligand_corr_pval.to_dict()
+    adata.uns["receptors_corr_pval"] = receptor_corr_pval.to_dict()
+            
+    return adata

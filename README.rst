@@ -74,6 +74,16 @@ or
 ===========
 Change log:
 ===========
+
+?????
+1.0.3
+?????
+
+* Added scConnect.connect.significance(). Calculates z-score, p-values and adjusted p-values for ligand and receptor scores based on
+  the distribution of these scores when randomly assigning group lables. Must be run in order to filter the graph based on these metrices.
+* Added z-score and p-value (adjusted using fales discovery rate benjamini/hochberg) to interaction list in interactive webapp.
+
+
 ?????
 1.0.2
 ?????

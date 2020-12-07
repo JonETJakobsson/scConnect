@@ -2,12 +2,12 @@
 # Dash app to investigate graphs
 
 
-def graph(G, **kwargs):
+def graph(G, mode="external",**kwargs):
     """
     G: a multidirectional graph
 
     kwargs are passed to the Jupyter_Dash.run_server() function. Some usefull arguments are:
-        mode: "inline" to run app inside the jupyter nodebook, default is None
+        mode: "inline" to run app inside the jupyter nodebook, default is external 
         debug: True or False, Usefull to catch errors during development.
     """
 
@@ -525,21 +525,49 @@ def graph(G, **kwargs):
                 "id": "weighted_score"
             },
             {
+                "name": "Ligand z-score",
+                "id": "ligand_zscore"
+            },
+            {
+                "name": "Ligand p-value",
+                "id": "ligand_pval"
+            },
+            {
+                "name": "Receptor z-score",
+                "id": "receptor_zscore"
+            },
+            {
+                "name": "Receptor p-value",
+                "id": "receptor_pval"
+            },
+            {
                 "name": "PubMed ID",
                 "id": "pubmedid"
             }
         ]
 
         interactions = pd.DataFrame(edge["interactions"])[
-            ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "pubmedid"]]
+            ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "ligand_zscore", 
+            "ligand_pval", "receptor_zscore", "receptor_pval", "pubmedid"]]
 
         # Sort values based on score
         interactions.sort_values(by="score", ascending=False, inplace=True)
 
         # round values for scores to two decimals
-        interactions[["score", "log_score", "weighted_score"]] = interactions[[
-            "score", "log_score", "weighted_score"]].round(decimals=2)
+        interactions[[
+            "score", 
+            "log_score", 
+            "weighted_score", 
+            "ligand_zscore",
+            "receptor_zscore"]] = interactions[[
+            "score", 
+            "log_score", 
+            "weighted_score", 
+            "ligand_zscore", 
+            "receptor_zscore"]].round(decimals=2)
 
+        interactions[["ligand_pval", "receptor_pval"]] = interactions[["ligand_pval", "receptor_pval"]].round(decimals=4)
+       
         records = interactions.to_dict("records")
 
         return [info, columns, records]

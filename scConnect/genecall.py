@@ -477,4 +477,3 @@ def optimize_segregation(adata, groupby, method="meanTH", start=0, stop=1, steps
         fs = f.get_figure()
         fs.savefig(filename)
     return f
-
