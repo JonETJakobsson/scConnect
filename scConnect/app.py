@@ -2,7 +2,7 @@
 # Dash app to investigate graphs
 
 
-def graph(G, mode="external",**kwargs):
+def graph(G, mode="external", **kwargs):
     """
     G: a multidirectional graph
 
@@ -69,12 +69,16 @@ def graph(G, mode="external",**kwargs):
         G.edges[u, v, k]["color"] = color_map_nodes[u][0:3]
 
     # load graph into used formes
-    G_flat = cn.graph.flatten_graph(G, weight="score", log=True)
+    def G_to_flat(G):
+        G_flat = cn.graph.flatten_graph(G, weight="score", log=True)
 
-    # Add colors to edges(source node color) for G_flat
-    for u, v, in G_flat.edges():
-        G_flat.edges[u, v]["color"] = color_map_nodes[u][0:3]
+        # Add colors to edges(source node color) for G_flat
+        for u, v, in G_flat.edges():
+            G_flat.edges[u, v]["color"] = color_map_nodes[u][0:3]
+        return G_flat
 
+    # produce full graph variante to extract metadata
+    G_flat =G_to_flat(G)
     G_split = cn.graph.split_graph(G)
 
     # find and sort all found interactions
@@ -177,6 +181,19 @@ def graph(G, mode="external",**kwargs):
                     for interaction in interactions],
                 value="all"
             ),
+            # select if only significant ligands and receptors should be shown
+            html.Label("Ligands and receptors"),
+            dcc.RadioItems(id="significant_toggle", 
+                options=[
+                    {"label": "All", "value": "all"},
+                    {"label": "Significant", "value": "significant"}],
+                value="all",
+                labelStyle={
+                    'display': 'inline-block',
+                    "margin-left": "50px"
+                },
+                style={"padding": "10px", "margin": "auto"}
+            ),
 
             html.Label("Graph Layout"),
             dcc.Dropdown(
@@ -215,7 +232,7 @@ def graph(G, mode="external",**kwargs):
                 clearable=True,
                 placeholder="Color by gene expression",
             ),
-
+            
             # Store node colors "hidden" for gene expresison
             html.Div(id="node-colors", style={"display": "none"}, children=[
                 ""
@@ -346,15 +363,25 @@ def graph(G, mode="external",**kwargs):
     ])  # end wrapper
 
     # Instantiate the graph and produce the bounderies for filters
-
+    _G = nx.MultiDiGraph() # commonly accessable source graph
     @app.callback([
         Output("cyto-graph", "elements"),
         Output("network-filter", "min"),
         Output("network-filter", "max"),
         Output("network-filter", "value")
-    ],
-        [Input("network-interaction", "value")])
-    def make_graph(interaction):
+        ],
+        [
+        Input("network-interaction", "value"),
+        Input("significant_toggle", "value")])
+    def make_graph(interaction, sig_toggle):
+        nonlocal _G
+        if sig_toggle == "significant":
+            _G = cn.graph.significant_interactions(G)
+            G_flat = G_to_flat(_G)
+        else:
+            _G = G
+            G_flat = G_to_flat(_G)
+            
 
         if interaction == "all":  # if no interaction is selected, use full graph
             G_cyto = nx.cytoscape_data(G_flat)
@@ -368,12 +395,8 @@ def graph(G, mode="external",**kwargs):
             return elements, min(weights), max(weights), np.mean(weights)
 
         else:  # an interaction is selected, select only that interaction
-            G_split_flat = cn.graph.flatten_graph(
-                G_split[interaction], weight="score", log=True)
-            # Add colors to edges(source node color) for G_split_flat
-            for u, v, in G_split_flat.edges():
-                G_split_flat.edges[u, v]["color"] = color_map_nodes[u][0:3]
-
+            G_split = cn.graph.split_graph(_G)
+            G_split_flat = G_to_flat(G_split[interaction])
             G_cyto = nx.cytoscape_data(G_split_flat)
             weights = [d["weight"]
                        for u, v, d in G_split_flat.edges(data=True)]
@@ -547,27 +570,28 @@ def graph(G, mode="external",**kwargs):
         ]
 
         interactions = pd.DataFrame(edge["interactions"])[
-            ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "ligand_zscore", 
-            "ligand_pval", "receptor_zscore", "receptor_pval", "pubmedid"]]
+            ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "ligand_zscore",
+             "ligand_pval", "receptor_zscore", "receptor_pval", "pubmedid"]]
 
         # Sort values based on score
         interactions.sort_values(by="score", ascending=False, inplace=True)
 
         # round values for scores to two decimals
         interactions[[
-            "score", 
-            "log_score", 
-            "weighted_score", 
+            "score",
+            "log_score",
+            "weighted_score",
             "ligand_zscore",
             "receptor_zscore"]] = interactions[[
-            "score", 
-            "log_score", 
-            "weighted_score", 
-            "ligand_zscore", 
-            "receptor_zscore"]].round(decimals=2)
+                "score",
+                "log_score",
+                "weighted_score",
+                "ligand_zscore",
+                "receptor_zscore"]].round(decimals=2)
 
-        interactions[["ligand_pval", "receptor_pval"]] = interactions[["ligand_pval", "receptor_pval"]].round(decimals=4)
-       
+        interactions[["ligand_pval", "receptor_pval"]] = interactions[[
+            "ligand_pval", "receptor_pval"]].round(decimals=4)
+
         records = interactions.to_dict("records")
 
         return [info, columns, records]
@@ -584,85 +608,114 @@ def graph(G, mode="external",**kwargs):
     ]
     )
     def plot_l_r_expression(node, filter_text):
-        
+
         # set output variables to empty figures
         ligand_fig = go.Figure()
-        receptors_fig = go.Figure()
+        receptor_fig = go.Figure()
 
         if isinstance(node, dict):
-
-            ligands = pd.DataFrame.from_dict(
-                node['ligands'], orient="index", columns=["log_scores"])
-            ligands = ligands.sort_values("log_scores", axis=0, ascending=True)
-            ligands = np.log10(ligands + 1)  # Turn ligand score into log10 +1
+            import plotly.express as px
+            ligands_score = pd.DataFrame.from_dict(node["ligands_score"], orient="index", columns=["Score"])
+            ligands_zscore = np.log2(pd.DataFrame.from_dict(node["ligands_zscore"], orient="index", columns=["Z-score"]))
+            ligands_corr_pval = pd.DataFrame.from_dict(node["ligands_corr_pval"], orient="index", columns=["p-value"])
+            ligands_merge = ligands_score.merge(ligands_zscore, how="left", left_index=True, right_index=True)
+            ligands_merge = ligands_merge.merge(ligands_corr_pval, how="left", left_index=True, right_index=True)
+            ligands_merge["log(score + 1)"] = np.log10(ligands_merge["Score"]+1)
+            ligands_merge["Significant"] = [True if p_val < 0.05 else False for p_val in ligands_merge["p-value"]]
+            ligands_merge["-log(p-value)"] = -np.log10(ligands_merge["p-value"])
+            
             if filter_text != "":
-                ligands = ligands.filter(like=filter_text, axis=0)
+                ligands_merge = ligands_merge.filter(like=filter_text, axis=0)
 
-            ligand_fig = go.Figure(
-                data=go.Bar(y=list(ligands.index), x=list(
-                    ligands["log_scores"]), orientation="h"),
-                layout=go.Layout(title=f"Ligands: {node['name']}", showlegend=False, xaxis={
-                                 'title': "log(Ligand Score)"}, autosize=True, height=800)
-            )
+            ligand_fig = px.scatter(
+                ligands_merge, 
+                x="log(score + 1)", 
+                y="-log(p-value)",
+                color="Significant",
+                hover_name=ligands_merge.index,
+                hover_data=["Score", "Z-score", "p-value"])
 
-            receptors = pd.DataFrame.from_dict(
-                node['receptors'], orient="index", columns=["log_scores"])
-            receptors = receptors.sort_values(
-                "log_scores", axis=0, ascending=True)
-            # Turn receptor scores into log10 +1
-            receptors = np.log10(receptors + 1)
+            receptors_score = pd.DataFrame.from_dict(node["receptors_score"], orient="index", columns=["Score"])
+            receptors_zscore = np.log2(pd.DataFrame.from_dict(node["receptors_zscore"], orient="index", columns=["Z-score"]))
+            receptors_corr_pval = pd.DataFrame.from_dict(node["receptors_corr_pval"], orient="index", columns=["p-value"])
+            receptors_merge = receptors_score.merge(receptors_zscore, how="left", left_index=True, right_index=True)
+            receptors_merge = receptors_merge.merge(receptors_corr_pval, how="left", left_index=True, right_index=True)
+            receptors_merge["log(score + 1)"] = np.log10(receptors_merge["Score"]+1)
+            receptors_merge["Significant"] = [True if p_val < 0.05 else False for p_val in receptors_merge["p-value"]]
+            receptors_merge["-log(p-value)"] = -np.log10(receptors_merge["p-value"])
+            
             if filter_text != "":
-                receptors = receptors.filter(like=filter_text, axis=0)
+                receptors_merge = receptors_merge.filter(like=filter_text, axis=0)
 
-            receptors_fig = go.Figure(
-                data=go.Bar(y=list(receptors.index), x=list(
-                    receptors["log_scores"]), orientation="h"),
-                layout=go.Layout(title=f"Receptors: {node['name']}", showlegend=False, xaxis={
-                                 'title': "log(Receptor Score)"}, autosize=True, height=800)
-            )
+            receptor_fig = px.scatter(
+                receptors_merge, 
+                x="log(score + 1)", 
+                y="-log(p-value)",
+                color="Significant",
+                hover_name=receptors_merge.index,
+                hover_data=["Score", "Z-score", "p-value"])
+       
+        return [ligand_fig, receptor_fig]
 
-
-        return [ligand_fig, receptors_fig]
-
-    # Builds a sankey graph based on the tapped node
-
-    @app.callback(
-        Output("sankey-graph", "figure"),
+    # Builds a sankey graph based on the tapped node (store in global G_s)
+    G_s = nx.MultiDiGraph() #variable holding sankey graph
+    @app.callback([
+        Output("sankey-filter", "min"),
+        Output("sankey-filter", "max"),
+        Output("sankey-filter", "value")
+        ],
         [
-            Input("cyto-graph", "tapNodeData"),
-            Input("sankey-filter", "value"),
-            Input("sankey-toggle", "value")
-        ]
-    )
-    def build_sankey_graph(node, th, score):
-
+        Input("cyto-graph", "tapNodeData"),
+        Input("sankey-toggle", "value")])
+    def build_sankey_graph(node, score):
+        import numpy as np
         # If no node has been selected, dont try to build graph
         if node is None:
-            return go.Figure()
-
+            return (0 ,0 ,0)
 
         node = node["id"]
         # Find all interactions where node is target or source node
-        G_s = nx.MultiDiGraph()
-        for n, nbrs in G.adj.items():
+        nonlocal G_s
+        G_s = nx.MultiDiGraph() # reset content
+        weight = list() # list to store all weights (used to set min and max for the filter)
+        for n, nbrs in _G.adj.items(): # graph has been modified by network graph before
             for nbr, edict in nbrs.items():
                 if n == node:
                     for e, d in edict.items():
-                        if d[score] > th:
-                            # append dash after the target node
-                            G_s.add_edge(n, " Post " + nbr, **d)
+                        G_s.add_edge(n, " Post " + nbr, **d)
+                        weight.append(d[score])
                 if nbr == node:
                     for e, d in edict.items():
-                        if d[score] > th:
-                            # append dash before the source node
-                            G_s.add_edge("Pre " + n, nbr, **d)
+                        G_s.add_edge("Pre " + n, nbr, **d)
+                        weight.append(d[score])
 
-        edges = nx.to_pandas_edgelist(G_s)
+        if len(weight) == 0:
+            weight = [0,1]
+        return (min(weight), max(weight), np.mean(weight))
+    
+    @app.callback(
+        Output("sankey-graph", "figure"),
+        [Input("sankey-filter", "value"),
+        Input("sankey-toggle", "value"),
+        Input("cyto-graph", "tapNodeData")])
+      
+    def filter_sankey_graph(th, score, node):
+
+        if node:
+            node = node["id"]
+
+        _G_s = nx.MultiDiGraph()
+        for u, v, n, d in G_s.edges(data=True, keys=True):
+            if d[score] > th:
+                _G_s.add_edge(u, v, n, **d)
+        _G_s.add_nodes_from(G_s.nodes(data=True))
+        
+        edges = nx.to_pandas_edgelist(_G_s)
         if len(edges) < 1:
             fig = dict()
             return fig
         # add same color scheme as network graph
-        for node_s in G_s.nodes():
+        for node_s in _G_s.nodes():
             if " Post" in node_s:
                 original_node = str(node_s).split(sep=" Post")[1]
             elif "Pre " in node_s:

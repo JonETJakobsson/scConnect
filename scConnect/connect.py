@@ -147,9 +147,7 @@ def ligands(adata, organism="mmusculus", select_ligands=None):
         ligands = ligands[select]
     ligand_df = pd.DataFrame(index=ligands.ligand)
     
-    for cluster_data in adata.uns["gene_call"].iteritems():
-        cluster = cluster_data[0]
-        genes = cluster_data[1]
+    for cluster, genes in adata.uns["gene_call"].items():
         cluster_scores = list()
         for ligand_data in ligands.iterrows():
             ligand = ligand_data[1]
@@ -199,9 +197,7 @@ def receptors(adata, organism="mmusculus"):
         __name__, (f"data/Gene_annotation/{version}/{organism}/receptors.csv")))
     receptor_df = pd.DataFrame(index=receptors.receptor)
 
-    for cluster_data in adata.uns["gene_call"].iteritems():
-        cluster = cluster_data[0]
-        genes = cluster_data[1]
+    for cluster, genes in adata.uns["gene_call"].items():
         cluster_scores = list()
         for receptor_data in receptors.iterrows():
             receptor = receptor_data[1]
@@ -269,10 +265,10 @@ def interactions(emitter, target, self_reference=True, organism="mmusculus"):
     receptors = pd.DataFrame(target.uns["receptors"])
 
     # load extra ligand and receptor statistics
-    ligands_zscore = pd.DataFrame(emitter.uns["ligands_score"])
-    receptors_zscore = pd.DataFrame(target.uns["receptors_score"])
-    ligands_pval = pd.DataFrame(emitter.uns["ligands_corr_pval"])
-    receptors_pval = pd.DataFrame(target.uns["receptors_corr_pval"])
+    ligands_zscore = pd.DataFrame(emitter.uns["ligands_zscore"])
+    receptors_zscore = pd.DataFrame(target.uns["receptors_zscore"])
+    ligands_corr_pval = pd.DataFrame(emitter.uns["ligands_corr_pval"])
+    receptors_corr_pval = pd.DataFrame(target.uns["receptors_corr_pval"])
 
     # Fetch receptor and ligand information
     receptor_info = pd.read_csv(pkg_resources.resource_filename(
@@ -306,9 +302,9 @@ def interactions(emitter, target, self_reference=True, organism="mmusculus"):
                     emitter_cluster,
                     target_cluster,
                     ligands_zscore,
-                    ligands_pval,
+                    ligands_corr_pval,
                     receptors_zscore,
-                    receptors_pval)
+                    receptors_corr_pval)
 
                 if len(connections) > 0:
                     for connection in connections:
@@ -335,9 +331,9 @@ def get_connections(
     emitter_cluster,
     target_cluster, 
     ligands_zscore,
-    ligands_pval,
+    ligands_corr_pval,
     receptors_zscore,
-    receptors_pval):
+    receptors_corr_pval):
     """finds connections between ligands and receptors 
     and return a score and metadata for each interaction"""
 
@@ -359,10 +355,10 @@ def get_connections(
                     "log_score": np.log10(score + 1), # From here on, all values are +1ed and logaritmized with base of 10. # From here on, all values are +1ed and logaritmized with base of 10.
                     "ligand": ligand,
                     "ligand_zscore": ligands_zscore[emitter_cluster][ligand],
-                    "ligand_pval": ligands_pval[emitter_cluster][ligand],
+                    "ligand_pval": ligands_corr_pval[emitter_cluster][ligand],
                     "receptor": receptor,
                     "receptor_zscore": receptors_zscore[target_cluster][receptor],
-                    "receptor_pval": receptors_pval[target_cluster][receptor],
+                    "receptor_pval": receptors_corr_pval[target_cluster][receptor],
                     "interaction": f"{ligand} --> {receptor}",
                     "endogenous": f"{list(interaction.endogenous)}",
                     "action": f"{list(interaction.action)}",
@@ -390,20 +386,32 @@ def nodes(adatas):
 
     for i, adata in enumerate(adatas):
         print(f"precessing adata #{i+1}")
-        ligands = adata.uns["ligands"]
-        receptors = adata.uns["receptors"]
+        ligands_score = adata.uns["ligands"]
+        ligands_zscore = adata.uns["ligands_zscore"]
+        ligands_corr_pval = adata.uns["ligands_corr_pval"]
+        receptors_score = adata.uns["receptors"]
+        receptors_zscore = adata.uns["receptors_zscore"]
+        receptors_corr_pval = adata.uns["receptors_corr_pval"]
         genes = adata.uns["gene_call"]
-        clusters = ligands.keys()
+        clusters = ligands_score.keys()
 
+        # Filter out ligands with positive score (remove non expressing ligands and receptors)
         for cluster in clusters:
             print(f"processing cluster {cluster}")
-            cluster_ligands = {k: v for k,
-                               v in ligands[cluster].items() if v > 0}
-            cluster_receptors = {k: v for k,
-                                 v in receptors[cluster].items() if v > 0}
-            node = (cluster, {"ligands": cluster_ligands,
-                              "receptors": cluster_receptors,
-                              "genes": genes[cluster].to_dict()},)
+            cluster_ligands_score = {k: v for k,
+                               v in ligands_score[cluster].items() if v > 0}
+            cluster_receptors_score = {k: v for k,
+                                 v in receptors_score[cluster].items() if v > 0}
+
+            # Add all information to the node dicionary
+            node = (cluster, {
+                "ligands_score": cluster_ligands_score,
+                "ligands_zscore": ligands_zscore[cluster],
+                "ligands_corr_pval": ligands_corr_pval[cluster],
+                "receptors_score": cluster_receptors_score,
+                "receptors_zscore": receptors_zscore[cluster],
+                "receptors_corr_pval": receptors_corr_pval[cluster],
+                "genes": genes[cluster]})
             nodes.append(node)
 
     return nodes
@@ -562,11 +570,11 @@ def significance(adata, n, groupby, organism="hsapiens"):
     receptor_score , receptor_pval = _score_pv_df(receptor_mean, receptor_std, receptor_value)
     receptor_corr_pval = _corrected_pvalue(receptor_pval)
     
-    adata.uns["ligands_score"] = ligand_score.to_dict()
-    adata.uns["receptors_score"] = receptor_score.to_dict()
-    adata.uns["ligands_pval"] = ligand_pval.to_dict()
-    adata.uns["receptors_pval"] = receptor_pval.to_dict()
-    adata.uns["ligands_corr_pval"] = ligand_corr_pval.to_dict()
-    adata.uns["receptors_corr_pval"] = receptor_corr_pval.to_dict()
-            
+    adata.uns.update({"ligands_zscore": ligand_score.to_dict()})
+    adata.uns.update({"receptors_zscore": receptor_score.to_dict()})
+    adata.uns.update({"ligands_corr_pval": ligand_pval.to_dict()})
+    adata.uns.update({"receptors_corr_pval": receptor_pval.to_dict()})
+    adata.uns.update({"ligands_corr_pval": ligand_corr_pval.to_dict()})
+    adata.uns.update({"receptors_corr_pval": receptor_corr_pval.to_dict()})
+
     return adata

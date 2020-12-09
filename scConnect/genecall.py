@@ -120,7 +120,7 @@ def meanExpression(adata, groupby, return_df=False, layer=None, use_raw=False, n
     if return_df is True:
         return result
     else:
-        adata.uns.update({"gene_call": result})
+        adata.uns.update({"gene_call": result.to_dict()})
         return adata
 
 

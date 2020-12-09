@@ -164,6 +164,27 @@ def score(G):
 # The flatten graph aproach has been depreceated.
 # Use conversion to adjacency matrix on filtered graphs insted
 
+# filter the graph based on interactions containing ligands and receptors under a threshold p-value
+def significant_interactions(G, a=0.05):
+    """Return a filtered graph containing only sigificanly differentiated ligands and receptor interaction.
+    
+    a: alpha, selects scores with a pvalue under alpha.
+    Return a MultiDiGraph
+    """
+
+    import networkx as nx
+    G_filtered = nx.MultiDiGraph()
+    for u, v, n, d in G.edges(data=True, keys=True):
+        # Find interactions with significant p-values (pval < a)
+        # Must be significantly upregulated (zscore > 0)
+        if d["ligand_pval"] < a and d["receptor_pval"] < a and d["ligand_zscore"] > 0 and d["receptor_zscore"] > 0:
+            G_filtered.add_edge(u, v , key=n ,**d)
+            
+    G_filtered.add_nodes_from(G.nodes(data=True))
+    
+    return G_filtered
+    
+
 
 def flatten_graph(G, weight="score", log=True):
     """
