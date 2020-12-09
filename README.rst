@@ -81,14 +81,16 @@ Change log:
 
 * Added scConnect.connect.significance(). Calculates z-score, p-values and adjusted p-values for ligand and receptor scores based on
   the distribution of these scores when randomly assigning group lables. Must be run in order to filter the graph based on these metrices.
-* Added z-score and p-value (adjusted using fales discovery rate benjamini/hochberg) to interaction list in interactive webapp.
+
 * Integrated significance information in the web app:
 
-   * Filter the full graph on ligands and receptors that are significanly upregulated in specific cell types
+   * Filter the full graph on ligands and receptors that are significanly upregulated in specific cell types (p values are adjusted using fales discovery rate benjamini/hochberg)
 
-   * Filtering is propagated to the sankey graph
-   
-   * New ligand and receptor graph visulize score vs p-values. This makes it easier to find wither specific or highly expressed ligands and receptors.
+   * Filtering is now propagated to the sankey graph decluttering this view when investigating significant ligand and receptors.
+
+   * Added z-score and p-value to interaction list in interactive web app.
+
+   * New ligand and receptor graph visulize log(score + 1) vs -log(p-values). This makes it easier to find specific and highly expressed ligands and receptors simultaneously.
 
 ?????
 1.0.2
