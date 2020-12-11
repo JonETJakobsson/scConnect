@@ -171,7 +171,7 @@ def graph(G, mode="external", **kwargs):
         ]),
 
         html.Div(className="network-settings", children=[  # network settings
-            html.H2("Network settings"),
+            html.H2("Network settings", style={"text-align": "center"}),
 
             html.Label("Interactions"),
             dcc.Dropdown(
@@ -244,6 +244,7 @@ def graph(G, mode="external", **kwargs):
 
         ]),  # end network settings
         html.Div(id="network-graph", className="network-graph", children=[  # network graph
+            html.H2("Network graph", style={"text-align": "center"}),
             cyto.Cytoscape(
                 id="cyto-graph",
                 style={
@@ -256,7 +257,7 @@ def graph(G, mode="external", **kwargs):
         ]),  # end network graph
 
         html.Div(className="sankey-settings", children=[  # network settings
-            html.H2("Connectivity Settings"),
+            html.H2("Sankey Settings", style={"text-align": "center"}),
 
             html.Label("Weight Filter"),
             dcc.Slider(
@@ -281,14 +282,21 @@ def graph(G, mode="external", **kwargs):
         ]),  # end network settings
 
         html.Div(className="sankey", id="sankey", children=[  # sankey graph
+            html.H2("Sankey graph", style={"text-align": "center"}),
             dcc.Graph(id="sankey-graph")
         ]),  # end sankey graph
 
         html.Div(className="interaction-list", children=[  # interaction list
 
             html.Div(id="selection", children=[
+                html.H2("Interactions", style={"text-align": "center"}),
+                html.H3(id="edge-info", style={"text-align": "center"}),
+            
+                dcc.Graph(id="interaction-scatter"),
 
-                html.H3(id="edge-info"),
+                html.Div(id="interaction-selection", style={"display": "none"}, children=[
+                ""
+                ]),
 
                 dash_table.DataTable(
                     id="edge-selection",
@@ -334,7 +342,7 @@ def graph(G, mode="external", **kwargs):
         ]),  # end interaction list
 
         html.Div(className="L-R-settings", children=[  # ligand and receptor settings (search)
-            html.H2("Ligands and receptors"),
+            html.H2("Ligands and receptors", style={"text-align": "center"}),
             html.Label("Search for ligands and receptors:"),
             dcc.Input(id="filter_l_r", type="search",
                       value="", placeholder="Search"),
@@ -515,15 +523,17 @@ def graph(G, mode="external", **kwargs):
         Output("edge-selection", "columns"),
         Output("edge-selection", "data")
     ],
-        [Input("cyto-graph", "tapEdgeData")])
-    def update_data(edge):
+        [Input("cyto-graph", "tapEdgeData"),
+        Input("interaction-selection", "children")])
+    def update_data(edge, selection):
         import pandas as pd
+        import json
 
         # check if an edge has really been clicked, return default otherwise
         if edge is None:
             return ["", None, None]
 
-        info = f"Interactions from source: {edge['source']} to target: {edge['target']}. Weight: {edge['weight']}"
+        info = f"Interactions from {edge['source']} to {edge['target']}."
 
         # map visible names for columns with columns in edge[interaction]
         columns = [
@@ -592,9 +602,83 @@ def graph(G, mode="external", **kwargs):
         interactions[["ligand_pval", "receptor_pval"]] = interactions[[
             "ligand_pval", "receptor_pval"]].round(decimals=4)
 
+        # if selection from interaction graph, filter dataframe
+        if selection != "":
+            selection = json.loads(selection)
+            interactions = interactions.loc[interactions["interaction"].isin(selection)]
+
         records = interactions.to_dict("records")
 
         return [info, columns, records]
+
+
+    @app.callback([
+        Output("interaction-scatter", "figure")
+    ],
+        [Input("cyto-graph", "tapEdgeData")])
+    def interaction_scatter_plot(edge):
+        import plotly.express as px
+
+        fig = px.scatter()
+        if not isinstance(edge, dict):
+            return [fig, ]
+
+        interactions = pd.DataFrame(edge["interactions"])[
+                    ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "ligand_zscore",
+                    "ligand_pval", "receptor_zscore", "receptor_pval", "pubmedid"]]
+        
+        # Scale p values to a minimum of 10E-230, as 0 is invalid
+        def scale_pval(pvals, min=10E-230, max=0.999999999):
+            for i, pval in enumerate(pvals):
+                if pval == 0:
+                    pval= min
+                if pval == 1:
+                    pval = max
+                pvals[i] = pval
+            
+            return pvals
+
+        interactions["ligand_pval"] = scale_pval(interactions["ligand_pval"])
+        interactions["receptor_pval"] = scale_pval(interactions["receptor_pval"])
+        # Calculate a integrated significance value of ligand and receptor p-values (adding 10E-10 to not return inf.)
+        # significance = Sqrt(-log(ligand pval)* -log(receptor pval))
+        interactions["Significance"] = [np.sqrt(-np.log10(r)*-np.log10(l)) for r, l in zip(interactions["receptor_pval"], interactions["ligand_pval"])]
+        fig = px.scatter(interactions, 
+                x="ligand_zscore", 
+                y="receptor_zscore", 
+                color="Significance",
+                size="log_score",
+                hover_name="interaction",
+                hover_data=["score", "receptorfamily", "pubmedid", "ligand_pval", "receptor_pval"],
+                color_continuous_scale=px.colors.sequential.Viridis_r,
+                labels={
+                    "ligand_zscore": "Ligand Z-score",
+                    "receptor_zscore": "Receptor Z-score",
+                    "log_score": "log(Interaction score)",
+                    "score": "Interaction score",
+                    "receptorfamily": "Receptor family",
+                    "pubmedid": "PubMed ID",
+                    "ligand_pval": "Ligand p-value",
+                    "receptor_pval": "Receptor p-value"
+                    }
+                )
+        return [fig,]
+
+    @app.callback(
+        Output("interaction-selection", "children"),
+        [
+        Input("interaction-scatter", "selectedData")
+        ]
+        )
+    def interaction_select(selected_data):
+        import json
+        if isinstance(selected_data, dict):
+            interactions = [point["hovertext"] for point in selected_data["points"]]
+        else:
+            return ""
+        return json.dumps(interactions)
+
+
 
     # Produce ligand and receptor graphs based on tapped node
 
