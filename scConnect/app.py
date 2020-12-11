@@ -357,7 +357,38 @@ def graph(G, mode="external", **kwargs):
                         config=dict(
                             autosizable=True,
                             responsive=True)
-                    )
+                    ),
+                    dash_table.DataTable(
+                    id="ligand-table",
+                    page_size=20,
+                    style_table={
+                        "overflowX": "scroll",
+                        "overflowY": "scroll",
+                        "height": "50vh",
+                        "width": "95%"
+                    },
+
+                    style_cell_conditional=[
+                        {
+                            "if": {"column_id": "Ligand"},
+                            "textAlign": "left"
+                        }
+                    ],
+
+                    style_header={
+                        "fontWeight": "bold",
+                        "maxWidth": "200px",
+                        "minWidth": "70px"
+                    },
+
+                    style_data={
+                        "maxWidth": "200px",
+                        "minWidth": "70px",
+                        "textOverflow": "ellipsis"
+                    },
+                    sort_action="native",
+
+                    fixed_rows={'headers': True, 'data': 0})
                 ]),
                 dcc.Tab(label="Receptors", children=[
                     dcc.Graph(
@@ -365,7 +396,38 @@ def graph(G, mode="external", **kwargs):
                         config=dict(
                             autosizable=True,
                             responsive=True)
-                    )
+                    ),
+                    dash_table.DataTable(
+                    id="receptor-table",
+                    page_size=20,
+                    style_table={
+                        "overflowX": "scroll",
+                        "overflowY": "scroll",
+                        "height": "50vh",
+                        "width": "95%"
+                    },
+
+                    style_cell_conditional=[
+                        {
+                            "if": {"column_id": "Receptor"},
+                            "textAlign": "left"
+                        }
+                    ],
+
+                    style_header={
+                        "fontWeight": "bold",
+                        "maxWidth": "200px",
+                        "minWidth": "70px"
+                    },
+
+                    style_data={
+                        "maxWidth": "200px",
+                        "minWidth": "70px",
+                        "textOverflow": "ellipsis"
+                    },
+                    sort_action="native",
+
+                    fixed_rows={'headers': True, 'data': 0})
                 ])
             ])
         ])  # end ligand receptor list
@@ -854,6 +916,87 @@ def graph(G, mode="external", **kwargs):
         fig = go.Figure(data=data, layout=layout)
 
         return fig
+
+    @app.callback([Output("ligand-table", "columns"), Output("ligand-table", "data")], [Input("ligand-graph", "figure"), Input("ligand-graph", "selectedData")])
+    def select_ligands(figure, selected):
+        import json
+        ligands = []
+        score= []
+        zscore = []
+        pval = []
+        
+        
+
+        for group in figure["data"]:
+            for ligand in group["hovertext"]:
+                ligands.append(ligand)
+            for data in group["customdata"]:
+                score.append(data[0])
+                zscore.append(data[1])
+                pval.append(data[2])
+
+        
+        df = pd.DataFrame({"Ligand": ligands, "Score": score, "Z-score": zscore, "P-value": pval})
+        df.index = df["Ligand"]
+        df.sort_values(by="Score", ascending=False, inplace=True)
+
+        if isinstance(selected, dict):
+            filt=[]
+            for point in selected["points"]:
+                filt.append(point["hovertext"])
+            df = df.loc[filt]
+
+        
+        columns = [
+            {"name": "Ligand", "id": "Ligand"},
+            {"name": "Score", "id": "Score"},
+            {"name": "Z-score", "id": "Z-score"},
+            {"name": "P-value", "id": "P-value"}]
+
+        data = df.to_dict("records")
+
+        return columns, data
+
+    @app.callback([Output("receptor-table", "columns"), Output("receptor-table", "data")], [Input("receptor-graph", "figure"), Input("receptor-graph", "selectedData")])
+    def select_ligands(figure, selected):
+        import json
+        receptors = []
+        score= []
+        zscore = []
+        pval = []
+        
+        
+
+        for group in figure["data"]:
+            for receptor in group["hovertext"]:
+                receptors.append(receptor)
+            for data in group["customdata"]:
+                score.append(data[0])
+                zscore.append(data[1])
+                pval.append(data[2])
+
+        
+        df = pd.DataFrame({"Receptor": receptors, "Score": score, "Z-score": zscore, "P-value": pval})
+        df.index = df["Receptor"]
+        df.sort_values(by="Score", ascending=False, inplace=True)
+
+
+        if isinstance(selected, dict):
+            filt=[]
+            for point in selected["points"]:
+                filt.append(point["hovertext"])
+            df = df.loc[filt]
+
+        
+        columns = [
+            {"name": "Receptor", "id": "Receptor"},
+            {"name": "Score", "id": "Score"},
+            {"name": "Z-score", "id": "Z-score"},
+            {"name": "P-value", "id": "P-value"}]
+
+        data = df.to_dict("records")
+
+        return columns, data
 
     # Run server
     app.run_server(**kwargs)
