@@ -91,6 +91,8 @@ Change log:
    * Added z-score and p-value to interaction list in interactive web app.
 
    * New ligand and receptor graph visulize log(score + 1) vs -log(p-values). This makes it easier to find specific and highly expressed ligands and receptors simultaneously.
+   
+   * New interaction graph visualizing ligand and receptor z-score. Selection of interactions in this graph filters the interaction table.
 
 ?????
 1.0.2
