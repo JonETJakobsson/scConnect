@@ -341,14 +341,15 @@ def graph(G, mode="external", **kwargs):
             ])
         ]),  # end interaction list
 
-        html.Div(className="L-R-settings", children=[  # ligand and receptor settings (search)
-            html.H2("Ligands and receptors", style={"text-align": "center"}),
-            html.Label("Search for ligands and receptors:"),
-            dcc.Input(id="filter_l_r", type="search",
-                      value="", placeholder="Search"),
-        ]),
 
         html.Div(className="L-R-scores", children=[  # ligand and receptor lists
+            html.H2("Ligand and receptors", style={"text-align": "center"}),
+            html.Div(children=[
+                html.H3(id="selected-node", style={"text-align": "center"}, children=["Select a node in the notwork graph"]),
+                html.Label("Search for ligands and receptors:", style={"margin-right": "10px"}),
+                dcc.Input(id="filter_l_r", type="search", value="", placeholder="Search")
+            ]),
+           
             dcc.Tabs([
                 dcc.Tab(label="Ligands", children=[
                     dcc.Graph(
@@ -619,7 +620,7 @@ def graph(G, mode="external", **kwargs):
     def interaction_scatter_plot(edge):
         import plotly.express as px
 
-        fig = px.scatter()
+        fig = go.Figure()
         if not isinstance(edge, dict):
             return [fig, ]
 
@@ -684,7 +685,8 @@ def graph(G, mode="external", **kwargs):
 
     @app.callback([
         Output("ligand-graph", "figure"),
-        Output("receptor-graph", "figure")
+        Output("receptor-graph", "figure"),
+        Output("selected-node", "children")
     ],
         [
         Input("cyto-graph", "tapNodeData"),
@@ -696,9 +698,13 @@ def graph(G, mode="external", **kwargs):
         # set output variables to empty figures
         ligand_fig = go.Figure()
         receptor_fig = go.Figure()
+        node_id = "Select a node in the network graph"
 
         if isinstance(node, dict):
             import plotly.express as px
+
+            node_id = node["id"]
+            
             ligands_score = pd.DataFrame.from_dict(node["ligands_score"], orient="index", columns=["Score"])
             ligands_zscore = np.log2(pd.DataFrame.from_dict(node["ligands_zscore"], orient="index", columns=["Z-score"]))
             ligands_corr_pval = pd.DataFrame.from_dict(node["ligands_corr_pval"], orient="index", columns=["p-value"])
@@ -739,7 +745,7 @@ def graph(G, mode="external", **kwargs):
                 hover_name=receptors_merge.index,
                 hover_data=["Score", "Z-score", "p-value"])
        
-        return [ligand_fig, receptor_fig]
+        return [ligand_fig, receptor_fig, node_id]
 
     # Builds a sankey graph based on the tapped node (store in global G_s)
     G_s = nx.MultiDiGraph() #variable holding sankey graph

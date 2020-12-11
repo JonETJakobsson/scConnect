@@ -8,8 +8,8 @@
         "head network"
         "network-setting network"
         "sankey-settings sankey"
-        ". interactions"
-        "L-R-settings L-R-scores";
+        "interactions interactions"
+        "L-R-scores L-R-scores";
 }
 
 .wrapper > div{
