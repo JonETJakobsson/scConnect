@@ -69,8 +69,8 @@ def graph(G, mode="external", **kwargs):
         G.edges[u, v, k]["color"] = color_map_nodes[u][0:3]
 
     # load graph into used formes
-    def G_to_flat(G):
-        G_flat = cn.graph.flatten_graph(G, weight="score", log=True)
+    def G_to_flat(G, weight):
+        G_flat = cn.graph.flatten_graph(G, weight=weight, log=True)
 
         # Add colors to edges(source node color) for G_flat
         for u, v, in G_flat.edges():
@@ -78,7 +78,7 @@ def graph(G, mode="external", **kwargs):
         return G_flat
 
     # produce full graph variante to extract metadata
-    G_flat =G_to_flat(G)
+    G_flat =G_to_flat(G, weight="score")
     G_split = cn.graph.split_graph(G)
 
     # find and sort all found interactions
@@ -182,14 +182,15 @@ def graph(G, mode="external", **kwargs):
                 value="all"
             ),
             # select if only significant ligands and receptors should be shown
-            html.Label("Ligands and receptors"),
-            dcc.RadioItems(id="significant_toggle", 
+            html.Label("Graph weight:"),
+            dcc.RadioItems(id="weight-select", 
                 options=[
-                    {"label": "All", "value": "all"},
-                    {"label": "Significant", "value": "significant"}],
-                value="all",
+                    {"label": "Score", "value": "score"},
+                    {"label": "Log score", "value": "log_score"},
+                    {"label": "Significance", "value": "significance"}],
+                value="significance",
                 labelStyle={
-                    'display': 'inline-block',
+                    'display': 'block',
                     "margin-left": "50px"
                 },
                 style={"padding": "10px", "margin": "auto"}
@@ -278,7 +279,7 @@ def graph(G, mode="external", **kwargs):
                 {"label": "Weighted score", "value": "weighted_score"},
                 {"label": "Log score", "value": "log_score"},
                 {"label": "Significance", "value": "significance"}
-            ], value="score",
+            ], value="significance",
             labelStyle={"display": "block"})
 
         ]),  # end network settings
@@ -436,7 +437,6 @@ def graph(G, mode="external", **kwargs):
     ])  # end wrapper
 
     # Instantiate the graph and produce the bounderies for filters
-    _G = nx.MultiDiGraph() # commonly accessable source graph
     @app.callback([
         Output("cyto-graph", "elements"),
         Output("network-filter", "min"),
@@ -445,15 +445,9 @@ def graph(G, mode="external", **kwargs):
         ],
         [
         Input("network-interaction", "value"),
-        Input("significant_toggle", "value")])
-    def make_graph(interaction, sig_toggle):
-        nonlocal _G
-        if sig_toggle == "significant":
-            _G = cn.graph.significant_interactions(G)
-            G_flat = G_to_flat(_G)
-        else:
-            _G = G
-            G_flat = G_to_flat(_G)
+        Input("weight-select", "value")])
+    def make_graph(interaction, score):
+        G_flat = G_to_flat(G, score)
             
 
         if interaction == "all":  # if no interaction is selected, use full graph
@@ -468,8 +462,8 @@ def graph(G, mode="external", **kwargs):
             return elements, min(weights), max(weights), np.mean(weights)
 
         else:  # an interaction is selected, select only that interaction
-            G_split = cn.graph.split_graph(_G)
-            G_split_flat = G_to_flat(G_split[interaction])
+            G_split = cn.graph.split_graph(G)
+            G_split_flat = G_to_flat(G_split[interaction], score)
             G_cyto = nx.cytoscape_data(G_split_flat)
             weights = [d["weight"]
                        for u, v, d in G_split_flat.edges(data=True)]
@@ -818,7 +812,7 @@ def graph(G, mode="external", **kwargs):
         nonlocal G_s
         G_s = nx.MultiDiGraph() # reset content
         weight = list() # list to store all weights (used to set min and max for the filter)
-        for n, nbrs in _G.adj.items(): # graph has been modified by network graph before
+        for n, nbrs in G.adj.items(): # graph has been modified by network graph before
             for nbr, edict in nbrs.items():
                 if n == node:
                     for e, d in edict.items():
