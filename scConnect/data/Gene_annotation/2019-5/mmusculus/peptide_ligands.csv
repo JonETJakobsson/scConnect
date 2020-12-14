@@ -16,8 +16,8 @@
 16,BMP-9,peptide,['Gdf2'],,,,,inferred from Human
 17,C-type natriuretic peptide,peptide,['Nppc'],,,,,inferred from Human
 18,C3a,peptide,['C3'],,,,,inferred from Human
-19,C5a,peptide,"['Hc', 'AI182371']",,,,,inferred from Human
-20,C5a des-Arg,peptide,"['Hc', 'AI182371']",,,,,inferred from Human
+19,C5a,peptide,['Hc'],,,,,inferred from Human
+20,C5a des-Arg,peptide,['Hc'],,,,,inferred from Human
 21,CCK-33,peptide,['Cck'],,,,,inferred from Human
 22,CCK-39,peptide,['Cck'],,,,,inferred from Human
 23,CCK-4,peptide,['Cck'],,,,,inferred from Human
@@ -30,11 +30,11 @@
 34,CCL19,peptide,['Ccl19'],,,,,inferred from Mouse
 35,CCL2,peptide,['Ccl2'],,,,,inferred from Human
 36,CCL20,peptide,['Ccl20'],,,,,inferred from Human
-37,CCL21,peptide,"['Gm13304', 'Gm21541', 'Ccl21c', 'Ccl21a', 'Ccl21a', 'Ccl21b', 'Ccl21b', 'Gm10591', 'Ccl21b']",,,,,inferred from Human
+37,CCL21,peptide,"['Gm13304', 'Ccl21d', 'Ccl21c', 'Ccl21a', 'Ccl21a', 'Ccl21b', 'Ccl21b', 'Gm10591', 'Ccl21b']",,,,,inferred from Human
 38,CCL22,peptide,['Ccl22'],,,,,inferred from Human
 39,CCL23,peptide,"['Ccl6', 'Ccl9']",,,,,inferred from Human
 40,CCL24,peptide,['Ccl24'],,,,,inferred from Human
-43,CCL27,peptide,"['Gm13306', 'Ccl27a', 'Ccl27', 'Ccl27', 'Ccl27b']",,,,,inferred from Human
+43,CCL27,peptide,"['Gm13306', 'Ccl27a', 'Ccl27a', 'Ccl27a']",,,,,inferred from Human
 44,CCL28,peptide,['Ccl28'],,,,,inferred from Human
 45,CCL3,peptide,['Ccl3'],,,,,inferred from Human
 46,CCL4,peptide,['Ccl4'],,,,,inferred from Human
@@ -158,6 +158,7 @@
 185,R-spondin-4,peptide,['Rspo4'],,,,,inferred from Mouse
 186,RANK ligand,peptide,['Tnfsf11'],,,,,inferred from Human
 187,RFRP-3,peptide,['Npvf'],,,,,inferred from Human
+188,SPAG11B (61-103),peptide,['Spag11b'],,,,,inferred from Human
 189,SRIF-14,peptide,['Sst'],,,,,inferred from Mouse
 190,SRIF-28,peptide,['Sst'],,,,,inferred from Mouse
 191,T-kinin,peptide,"['Kng1', 'Kng2']",,,,,inferred from Rat
@@ -328,7 +329,7 @@
 367,prokineticin-1,peptide,['Prok1'],,,,,inferred from Human
 368,prokineticin-2,peptide,['Prok2'],,,,,inferred from Human
 369,prokineticin-2β,peptide,['Prok2'],,,,,inferred from Human
-370,prolactin,peptide,"['Prl4a1', 'Prl7a1', 'Prl8a9', 'Prl5a1', 'Prl3c1', 'Prl8a2', 'Prl8a1', 'Prl', 'Prl8a6', 'Prl8a8', 'Prl7b1', 'Prl7d1', 'Prl2a1', 'Prl3a1', 'Prl3b1', 'Prl7a2', 'Prl2c5', 'Prl2c3', 'Prl3d1', 'Prl7c1', 'Prl3d3', 'Prl2c1', 'Prl3d2', 'Prl2b1', 'Prl6a1', 'Prl2c2']",,,,,inferred from Human
+370,prolactin,peptide,['Prl'],,,,,inferred from Human
 371,prosaptide,peptide,['Psap'],,,,,inferred from Human
 372,protein S,peptide,['Pros1'],,,,,inferred from Human
 373,relaxin,peptide,['Rln1'],,,,,inferred from Rat
@@ -337,7 +338,6 @@
 376,relaxin-3 (B chain),peptide,['Rln3'],,,,,inferred from Human
 377,ribosomal protein S19,peptide,['Rps19'],,,,,inferred from Human
 378,secretin,peptide,['Sct'],,,,,inferred from Rat
-379,serum amyloid A,peptide,"['Saa2', 'Saa1']",,,,,inferred from Human
 380,stem cell factor,peptide,['Kitl'],,,,,inferred from Human
 381,substance P,peptide,['Tac1'],,,,,inferred from Mouse
 382,thrombopoietin,peptide,['Thpo'],,,,,inferred from Human

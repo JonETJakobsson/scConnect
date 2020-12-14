@@ -276,8 +276,10 @@ def graph(G, mode="external", **kwargs):
             dcc.RadioItems(id="sankey-toggle", options=[
                 {"label": "Score", "value": "score"},
                 {"label": "Weighted score", "value": "weighted_score"},
-                {"label": "Log score", "value": "log_score"}
-            ], value="score")
+                {"label": "Log score", "value": "log_score"},
+                {"label": "Significance", "value": "significance"}
+            ], value="score",
+            labelStyle={"display": "block"})
 
         ]),  # end network settings
 
@@ -688,31 +690,17 @@ def graph(G, mode="external", **kwargs):
 
         interactions = pd.DataFrame(edge["interactions"])[
                     ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "ligand_zscore",
-                    "ligand_pval", "receptor_zscore", "receptor_pval", "pubmedid"]]
-        
-        # Scale p values to a minimum of 10E-230, as 0 is invalid
-        def scale_pval(pvals, min=10E-230, max=0.999999999):
-            for i, pval in enumerate(pvals):
-                if pval == 0:
-                    pval= min
-                if pval == 1:
-                    pval = max
-                pvals[i] = pval
-            
-            return pvals
+                    "ligand_pval", "receptor_zscore", "receptor_pval", "significance", "pubmedid"]]
 
-        interactions["ligand_pval"] = scale_pval(interactions["ligand_pval"])
-        interactions["receptor_pval"] = scale_pval(interactions["receptor_pval"])
-        # Calculate a integrated significance value of ligand and receptor p-values (adding 10E-10 to not return inf.)
-        # significance = Sqrt(-log(ligand pval)* -log(receptor pval))
-        interactions["Significance"] = [np.sqrt(-np.log10(r)*-np.log10(l)) for r, l in zip(interactions["receptor_pval"], interactions["ligand_pval"])]
+        #interactions["significance"] = np.log10( interactions["significance"])
+
         fig = px.scatter(interactions, 
                 x="ligand_zscore", 
                 y="receptor_zscore", 
-                color="Significance",
+                color="significance",
                 size="log_score",
                 hover_name="interaction",
-                hover_data=["score", "receptorfamily", "pubmedid", "ligand_pval", "receptor_pval"],
+                hover_data=["ligand_pval", "receptor_pval", "score"],
                 color_continuous_scale=px.colors.sequential.Viridis_r,
                 labels={
                     "ligand_zscore": "Ligand Z-score",
@@ -843,6 +831,10 @@ def graph(G, mode="external", **kwargs):
 
         if len(weight) == 0:
             weight = [0,1]
+        if score == "significance": 
+            # set default start value to significance value for ligand and receptor 
+            # p-value of .05 and 0.05 = 2.99
+            return (min(weight), max(weight), 2.99)
         return (min(weight), max(weight), np.mean(weight))
     
     @app.callback(

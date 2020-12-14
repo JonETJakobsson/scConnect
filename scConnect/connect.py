@@ -253,6 +253,7 @@ def interactions(emitter, target, self_reference=True, organism="mmusculus"):
     except KeyError:
         print(
             f"Please run connect.ligands() and connect.receptors() on your datasets first")
+        return
 
     # Calculate total number of cluster combinations for the progress bar
     if self_reference is True:
@@ -344,31 +345,40 @@ def get_connections(
     ligand_filter = [True if ligand in ligands.keys() else False for ligand in interactions.index.get_level_values(0)]
     interactions = interactions.loc[ligand_filter]
 
+    def scale(value, from_range=(0, 1), to_range=(10E-100, 1)): # mitagatelog with 0
+        value = float(to_range[0] + (to_range[1] - to_range[0]) * (value -from_range[0]) / (to_range[1] - to_range[0]))
+        return value
+  
     connections = list()
     for ligand, l_score in ligands.iteritems():
         for receptor, r_score in receptors.iteritems():
             if (ligand, receptor) in interaction_set:
                 interaction = interactions.loc[ligand, receptor]
                 score = float(gmean((l_score, r_score)))
+                ligand_pval = float(ligands_corr_pval[emitter_cluster][ligand])
+                receptor_pval = float(receptors_corr_pval[target_cluster][receptor])
+                significance = float(-np.log10(np.sqrt((scale(ligand_pval)**2+scale(receptor_pval)**2)/2)))
+
                 connections.append((ligands.name, receptors.name, {
-                    "score": score,
-                    "log_score": np.log10(score + 1), # From here on, all values are +1ed and logaritmized with base of 10. # From here on, all values are +1ed and logaritmized with base of 10.
-                    "ligand": ligand,
-                    "ligand_zscore": ligands_zscore[emitter_cluster][ligand],
-                    "ligand_pval": ligands_corr_pval[emitter_cluster][ligand],
-                    "receptor": receptor,
-                    "receptor_zscore": receptors_zscore[target_cluster][receptor],
-                    "receptor_pval": receptors_corr_pval[target_cluster][receptor],
+                    "score": float(score),
+                    "log_score": float(np.log10(score + 1)), # From here on, all values are +1ed and logaritmized with base of 10. # From here on, all values are +1ed and logaritmized with base of 10.
+                    "ligand": str(ligand),
+                    "ligand_zscore": float(ligands_zscore[emitter_cluster][ligand]),
+                    "ligand_pval": ligand_pval,
+                    "receptor": str(receptor),
+                    "receptor_zscore": float(receptors_zscore[target_cluster][receptor]),
+                    "receptor_pval": receptor_pval,
                     "interaction": f"{ligand} --> {receptor}",
+                    "significance": significance,
                     "endogenous": f"{list(interaction.endogenous)}",
                     "action": f"{list(interaction.action)}",
                     "ligandspecies": f"{list(interaction.ligand_species)}",
                     "receptorspecies": f"{list(interaction.target_species)}",
-                    "pubmedid": f"{list(interaction.pubmed_id)}",
-                    "receptorfamily": receptor_info.loc[receptor]["family"],
-                    "receptorgene": receptor_info.loc[receptor]["gene"],
-                    "ligandtype": ligand_info.loc[ligand]["ligand_type"],
-                    "ligandcomment": ligand_info.loc[ligand]["comment"]}))
+                    "pubmedid": f"{list(interaction.pubmed_id)[:5]}",
+                    "receptorfamily": str(receptor_info.loc[receptor]["family"]),
+                    "receptorgene": str(receptor_info.loc[receptor]["gene"]),
+                    "ligandtype": str(ligand_info.loc[ligand]["ligand_type"]),
+                    "ligandcomment": str(ligand_info.loc[ligand]["comment"])}))
     return connections
 
 
@@ -479,14 +489,14 @@ def _score_pv_df(mean, std, value):
             s = std.iloc[i,j]
             m = mean.iloc[i,j]
             v = value.iloc[i,j]
-            if s == 0 and m == 0: # sampeling never managed to include this ligand or receptor for this group
+            if s == 0: # sampeling never managed to include this ligand or receptor for this group
                 z_score = 0.0
+                pval = 1
                 warning = True
                 faults += 1
             else:
                 z_score = (v-m)/s
-            
-            pval =  stats.norm.sf(abs(z_score))*2
+                pval =  float(stats.norm.sf(abs(z_score))*2)
     
             score_df.iloc[i,j] = z_score
             pval_df.iloc[i,j] = pval
@@ -534,6 +544,7 @@ def significance(adata, n, groupby, organism="hsapiens"):
     that group after n number of random group assignment"""
     from random import shuffle
     import pandas as pd
+    from scConnect.tools import printProgressBar
     _adata = adata.copy()
     groups = list(_adata.obs[groupby])
     
@@ -542,7 +553,7 @@ def significance(adata, n, groupby, organism="hsapiens"):
     
     # shuffel group annotations n times and fetch ligand and receptor dataframes
     for i in range(n):
-        print(f"shuffeling {i+1} out of {n} times")
+        printProgressBar(i, n, prefix=f"Shuffeling dataframe {i+1} out of {n}")
         shuffle(groups)
         _adata.obs[groupby] = groups
         ligand, receptor = _ligand_receptor_call(_adata, groupby, organism)
@@ -554,14 +565,17 @@ def significance(adata, n, groupby, organism="hsapiens"):
     receptor_values = _values_df(receptor_dfs)
     
     # Calculate the mean values of the list in each element
+    print("Calculating means...")
     ligand_mean = _mean_df(ligand_values)
     receptor_mean = _mean_df(receptor_values)
     
     # Calculate the standard deviation of the list in each element
+    print("Calculating standard deviations...")
     ligand_std = _std_df(ligand_values)
     receptor_std = _std_df(receptor_values)
     
-    # Calculate Z-scores, p-values and corrected p-values 
+    # Calculate Z-scores, p-values and corrected p-values
+    print("Calculating Z-score, p-values and corrected p-values...")
     ligand_value = pd.DataFrame(adata.uns["ligands"])
     ligand_score , ligand_pval = _score_pv_df(ligand_mean, ligand_std, ligand_value)
     ligand_corr_pval = _corrected_pvalue(ligand_pval)
