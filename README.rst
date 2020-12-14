@@ -79,20 +79,25 @@ Change log:
 1.0.3
 ?????
 
-* Added scConnect.connect.significance(). Calculates z-score, p-values and adjusted p-values for ligand and receptor scores based on
-  the distribution of these scores when randomly assigning group lables. Must be run in order to filter the graph based on these metrices.
 
-* Integrated significance information in the web app:
+Major changes:
 
-   * Filter the full graph on ligands and receptors that are significanly upregulated in specific cell types (p values are adjusted using fales discovery rate benjamini/hochberg)
+* Added a method that calulates z-scores and p-values for each ligand and receptor score (:code:`connect.significance()`):
+   * Utilize bootstapping to assess the random distribution of ligand and recepto score for each cell type.
+   * Calculates a Z-score for each ligand and receptor score given this random distribution.
+   * Calculates multiple test corrected p-values using Benjamini/Hochberg (false discovery rate) correction.
+   * Estimate interaction significance by wieghting both ligand and receptor p-values :math:`sqrt(-log(p_receptor)*-log(p_ligand))`.
+   * Specify specific interactions where corrected p-value for both ligand and receptor are under 0.05.
 
-   * Filtering is now propagated to the sankey graph decluttering this view when investigating significant ligand and receptors.
+* Updates to the web app:
+   * Filter for significant interactions (where both ligand and receptor p-value are under 0.05) in the network graph.
+   * Network graph filtering is propagated to the sankey graph.
+   * Added a scatter plot for interaction of selected edge, where x axis is ligand z-score, y axis is receptor z-score size is log(interaction score) and color is interaction significance
+   * Selection of interactions in the graph also filters the interaction table.
+   * Added a scatter plot for ligands and receptors where the x axis is log(score) and y axis -log(p-value)
+   * Selected ligands or receptors filters the table under the graph.
 
-   * Added z-score and p-value to interaction list in interactive web app.
 
-   * New ligand and receptor graph visulize log(score + 1) vs -log(p-values). This makes it easier to find specific and highly expressed ligands and receptors simultaneously.
-   
-   * New interaction graph visualizing ligand and receptor z-score. Selection of interactions in this graph filters the interaction table.
 
 ?????
 1.0.2
