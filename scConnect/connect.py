@@ -553,7 +553,7 @@ def significance(adata, n, groupby, organism="hsapiens"):
     
     # shuffel group annotations n times and fetch ligand and receptor dataframes
     for i in range(n):
-        printProgressBar(i, n, prefix=f"Shuffeling dataframe {i+1} out of {n}")
+        printProgressBar(i+1, n, prefix=f"Shuffeling dataframe {i+1} out of {n}")
         shuffle(groups)
         _adata.obs[groupby] = groups
         ligand, receptor = _ligand_receptor_call(_adata, groupby, organism)

@@ -305,7 +305,7 @@
 303,growth/differentiation factor-7,peptide,['GDF7'],,,,,inferred from Human
 304,growth/differentiation factor-9,peptide,['GDF9'],,,,,inferred from Human
 305,guanylin,peptide,['GUCA2A'],,,,,inferred from Human
-306,guanylyl cyclase-activating protein 1,peptide,"['GUCA1A', 'GUCA1A']",,,,,inferred from Mouse
+306,guanylyl cyclase-activating protein 1,peptide,['GUCA1A'],,,,,inferred from Mouse
 307,hCG,peptide,['CGA|CGB3'],,,,,inferred from Human
 308,hemokinin 1,peptide,['TAC4'],,,,,inferred from Mouse
 309,hepatocyte growth factor,peptide,['HGF'],,,,,inferred from Human
@@ -372,7 +372,7 @@
 370,prolactin,peptide,['PRL'],,,,,inferred from Human
 371,prosaptide,peptide,['PSAP'],,,,,inferred from Human
 372,protein S,peptide,['PROS1'],,,,,inferred from Human
-373,relaxin,peptide,"['RLN2', 'RLN1', 'INSL4']",,,,,inferred from Rat
+373,relaxin,peptide,"['RLN2', 'RLN1']",,,,,inferred from Rat
 374,relaxin-1,peptide,['RLN1'],,,,,inferred from Human
 375,relaxin-3,peptide,['RLN3'],,,,,inferred from Human
 376,relaxin-3 (B chain),peptide,['RLN3'],,,,,inferred from Human

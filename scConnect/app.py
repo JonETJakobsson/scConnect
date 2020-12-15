@@ -617,6 +617,10 @@ def graph(G, mode="external", **kwargs):
                 "id": "weighted_score"
             },
             {
+                "name": "Significance",
+                "id": "significance"
+            },
+            {
                 "name": "Ligand z-score",
                 "id": "ligand_zscore"
             },
@@ -639,7 +643,7 @@ def graph(G, mode="external", **kwargs):
         ]
 
         interactions = pd.DataFrame(edge["interactions"])[
-            ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "ligand_zscore",
+            ["interaction", "receptorfamily", "score", "log_score", "weighted_score", "significance", "ligand_zscore",
              "ligand_pval", "receptor_zscore", "receptor_pval", "pubmedid"]]
 
         # Sort values based on score
@@ -649,11 +653,13 @@ def graph(G, mode="external", **kwargs):
         interactions[[
             "score",
             "log_score",
+            "significance",
             "weighted_score",
             "ligand_zscore",
             "receptor_zscore"]] = interactions[[
                 "score",
                 "log_score",
+                "significance",
                 "weighted_score",
                 "ligand_zscore",
                 "receptor_zscore"]].round(decimals=2)
