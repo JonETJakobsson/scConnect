@@ -355,9 +355,9 @@ def get_connections(
             if (ligand, receptor) in interaction_set:
                 interaction = interactions.loc[ligand, receptor]
                 score = float(gmean((l_score, r_score)))
-                ligand_pval = float(ligands_corr_pval[emitter_cluster][ligand])
-                receptor_pval = float(receptors_corr_pval[target_cluster][receptor])
-                significance = float(-np.log10(np.sqrt((scale(ligand_pval)**2+scale(receptor_pval)**2)/2)))
+                ligand_pval = float(scale(ligands_corr_pval[emitter_cluster][ligand]))
+                receptor_pval = float(scale(receptors_corr_pval[target_cluster][receptor]))
+                significance = float(-np.log10(np.sqrt((ligand_pval**2+receptor_pval**2)/2)))
 
                 connections.append((ligands.name, receptors.name, {
                     "score": float(score),
