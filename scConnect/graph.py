@@ -561,7 +561,13 @@ def compare_interactions_df(G, node_a=str, node_b=str, method="ratio"):
                 a = df[node_a][node]
                 b = df[node_b][node]
                 ratio = a - b  # Calulate the difference in interaction score
-                
+
+            if method == "significance":
+                df = nx.to_pandas_adjacency(Gs[interaction], weight="significance")
+                a = df[node_a][node]
+                b = df[node_b][node]
+                ratio = a - b  # Calulate the difference in significance
+
             ratio_dict[interaction] = ratio
         interaction_dict_i[node] = ratio_dict
     df_i = pd.DataFrame(interaction_dict_i)
@@ -607,7 +613,7 @@ def compare_interactions_plot(G, node_a=str, node_b=str, th=float, figsize_i=(5,
     import scConnect as cn
     import matplotlib.pyplot as plt
     
-    df_i, df_o = compare_interactions_df(G, node_a, node_b)
+    df_i, df_o = compare_interactions_df(G, node_a, node_b, method)
 
     if method == "ratio": # convert a ratio th to the corresponding log values
         th = np.log10(th)
@@ -633,36 +639,38 @@ def compare_interactions_plot(G, node_a=str, node_b=str, th=float, figsize_i=(5,
     unique_families = set(families_dict.values())
     lut = dict(zip(unique_families, sns.color_palette(colormap, len(unique_families))))
 
-    # Make color mapping for incomming interactions
-    row_colors_i = list()
-    for receptor in receptors_i:
-        family = families_dict[receptor]
-        color = lut[family]
-        row_colors_i.append(color)
+    if df_i.shape[0] > 1:
+        # Make color mapping for incomming interactions
+        row_colors_i = list()
+        for receptor in receptors_i:
+            family = families_dict[receptor]
+            color = lut[family]
+            row_colors_i.append(color)
 
-    # plot a clustered heatmap with receptor families as cluster row color for incomming interactions
-    print("incomming interactions")
-
+        # plot a clustered heatmap with receptor families as cluster row color for incomming interactions
+        print("incomming interactions")
 
     
-    sns.clustermap(df_i, center=0, cmap="bwr", figsize=figsize_i, row_colors=row_colors_i)
-    if save != None:
-        path_i = f"{save}{node_a}_to_{node_b}_incomming.pdf"
-        plt.savefig(path_i)
+    
+        sns.clustermap(df_i, center=0, cmap="bwr", figsize=figsize_i, row_colors=row_colors_i)
+        if save != None:
+            path_i = f"{save}{node_a}_to_{node_b}_incomming.pdf"
+            plt.savefig(path_i)
 
-     # Make color mapping for outgoing interactions
-    row_colors_o = list()
-    for receptor in receptors_o:
-        family = families_dict[receptor]
-        color = lut[family]
-        row_colors_o.append(color)
+    if df_o.shape[0] > 1:
+        # Make color mapping for outgoing interactions
+        row_colors_o = list()
+        for receptor in receptors_o:
+            family = families_dict[receptor]
+            color = lut[family]
+            row_colors_o.append(color)
 
-    # plot a clustered heatmap with receptor families as cluster row color
-    print("Outgoing interactions")
-    sns.clustermap(df_o, center=0, cmap="bwr", figsize=figsize_o, row_colors=row_colors_o)
-    if save != None:
-        path_o = f"{save}{node_a}_to_{node_b}_outgoing.pdf"
-        plt.savefig(path_o)
+        # plot a clustered heatmap with receptor families as cluster row color
+        print("Outgoing interactions")
+        sns.clustermap(df_o, center=0, cmap="bwr", figsize=figsize_o, row_colors=row_colors_o)
+        if save != None:
+            path_o = f"{save}{node_a}_to_{node_b}_outgoing.pdf"
+            plt.savefig(path_o)
 
     print(f"receptor families in order: {list(lut.keys())}")
     sns.palplot(lut.values())
