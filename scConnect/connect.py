@@ -538,7 +538,7 @@ def _corrected_pvalue(pvalues, method="fdr_bh"):
     
     return corr_pval
     
-def significance(adata, n, groupby, organism="hsapiens"):
+def significance(adata, n, groupby, organism="hsapiens", return_values=False):
     """calculate statistics for the ligands and receptor scores.
     
     Compare the group ligand and receptor scores to the mean score of 
@@ -592,4 +592,7 @@ def significance(adata, n, groupby, organism="hsapiens"):
     adata.uns.update({"ligands_corr_pval": ligand_corr_pval.to_dict()})
     adata.uns.update({"receptors_corr_pval": receptor_corr_pval.to_dict()})
 
+    if return_values:
+        return adata, ligand_values, receptor_values
+        
     return adata
