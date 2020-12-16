@@ -496,7 +496,8 @@ def _score_pv_df(mean, std, value):
                 faults += 1
             else:
                 z_score = (v-m)/s
-                pval =  float(stats.norm.sf(abs(z_score))*2)
+                #pval =  float(stats.norm.sf(abs(z_score))*2) # Two tailed p-value
+                pval =  float(stats.norm.sf(z_score)) # one tailed p-value
     
             score_df.iloc[i,j] = z_score
             pval_df.iloc[i,j] = pval
