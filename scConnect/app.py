@@ -834,7 +834,7 @@ def graph(G, mode="external", **kwargs):
         if score == "significance": 
             # set default start value to significance value for ligand and receptor 
             # p-value of .05 and 0.05 = 2.99
-            return (min(weight), max(weight), 2.99)
+            return (min(weight), max(weight), 1.30)
         return (min(weight), max(weight), np.mean(weight))
     
     @app.callback(

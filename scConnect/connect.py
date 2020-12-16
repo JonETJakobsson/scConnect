@@ -348,7 +348,11 @@ def get_connections(
     def scale(value, from_range=(0, 1), to_range=(10E-100, 1)): # mitagatelog with 0
         value = float(to_range[0] + (to_range[1] - to_range[0]) * (value -from_range[0]) / (to_range[1] - to_range[0]))
         return value
-  
+
+    def interaction_significance(l, r): # used to calculate interaction significance score
+        sig = -np.log10((l+r)/2)
+        return sig
+
     connections = list()
     for ligand, l_score in ligands.iteritems():
         for receptor, r_score in receptors.iteritems():
@@ -357,7 +361,7 @@ def get_connections(
                 score = float(gmean((l_score, r_score)))
                 ligand_pval = float(scale(ligands_corr_pval[emitter_cluster][ligand]))
                 receptor_pval = float(scale(receptors_corr_pval[target_cluster][receptor]))
-                significance = float(-np.log10(np.sqrt((ligand_pval**2+receptor_pval**2)/2)))
+                significance = float(interaction_significance(ligand_pval, receptor_pval))
 
                 connections.append((ligands.name, receptors.name, {
                     "score": float(score),
@@ -594,5 +598,5 @@ def significance(adata, n, groupby, organism="hsapiens", return_values=False):
 
     if return_values:
         return adata, ligand_values, receptor_values
-        
+
     return adata
