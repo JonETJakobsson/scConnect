@@ -86,7 +86,10 @@ Major changes:
    * Utilize bootstapping to assess the random distribution of ligand and recepto score for each cell type.
    * Calculates a Z-score for each ligand and receptor score given this random distribution.
    * Calculates multiple test corrected p-values using Benjamini/Hochberg (false discovery rate) correction.
-   * Estimate interaction significance by wieghting both ligand and receptor p-values :math:`-\log_{10}(receptor_p+ligand_p)/2)`.
+   * Estimate interaction significance by wieghting both ligand and receptor p-values 
+   * :math:`I_{LR_{significance}} = -\log_{10} \frac{R_{p-value} + L_{p-value}}{2}`
+
+
    * Specify specific interactions where corrected p-value for both ligand and receptor are under 0.05.
 
 * Updates to the web app:
