@@ -87,19 +87,16 @@ Major changes:
    * Calculates a Z-score for each ligand and receptor score given this random distribution.
    * Calculates multiple test corrected p-values using Benjamini/Hochberg (false discovery rate) correction.
    * Estimate interaction significance by wieghting both ligand and receptor p-values 
-   * :math:`I_{LR_{significance}} = -\log_{10} \frac{R_{p-value} + L_{p-value}}{2}`
-
-
-   * Specify specific interactions where corrected p-value for both ligand and receptor are under 0.05.
+   * :math:`I_{LR_{significance}} = -\log_{10}(R_{p-value} + L_{p-value})`
 
 * Updates to the web app:
-   * Filter for significant interactions (where both ligand and receptor p-value are under 0.05) in the network graph.
-   * Network graph filtering is propagated to the sankey graph.
+   * Summmize and filter edges based on significance in the network graph.
+   * Added possibility to download current network graph view as a svg file.
+   * Filter based on significance in sankey graph.
    * Added a scatter plot for interaction of selected edge, where x axis is ligand z-score, y axis is receptor z-score size is log(interaction score) and color is interaction significance
    * Selection of interactions in the graph also filters the interaction table.
    * Added a scatter plot for ligands and receptors where the x axis is log(score) and y axis -log(p-value)
    * Selected ligands or receptors filters the table under the graph.
-
 
 
 ?????
