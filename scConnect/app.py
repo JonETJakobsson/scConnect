@@ -21,11 +21,13 @@ def graph(G, mode="external", **kwargs):
     import networkx as nx
     import scConnect as cn
     import plotly.graph_objs as go
+    import plotly.io as pio
     import pandas as pd
     import numpy as np
     import json
     import matplotlib
     import matplotlib.pyplot as plt
+    pio.templates.default = "plotly_white"
 
     cyto.load_extra_layouts()
 
@@ -302,8 +304,9 @@ def graph(G, mode="external", **kwargs):
 
                 html.Div(id="interaction-selection", style={"display": "none"}, children=[
                 ""
-                ]),
-
+                ])
+            ]),
+            html.Div(children=[
                 dash_table.DataTable(
                     id="edge-selection",
                     page_size=20,
@@ -708,14 +711,18 @@ def graph(G, mode="external", **kwargs):
         interactions = pd.DataFrame(edge["interactions"])[
                     ["interaction", "receptorfamily", "score", "log_score", "ligand_zscore",
                     "ligand_pval", "receptor_zscore", "receptor_pval", "significance", "importance", "pubmedid"]]
-
+        
+        # add 10% to the min and max value to not clip the datapoint
+        range_x = (-max(interactions["log_score"])*0.1, max(interactions["log_score"])*1.1)
+        range_y = (-max(interactions["significance"])*0.1, max(interactions["significance"])*1.1)
         #interactions["significance"] = np.log10( interactions["significance"])
 
         fig = px.scatter(interactions, 
-                x="log_score", 
-                y="significance", 
+                x="log_score",
+                range_x=range_x,
+                y="significance",
+                range_y=range_y,
                 color="importance",
-                size="log_score",
                 hover_name="interaction",
                 hover_data=["ligand_pval", "receptor_pval", "score","significance", "receptorfamily"],
                 color_continuous_scale=px.colors.sequential.Viridis_r,
