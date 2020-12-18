@@ -241,8 +241,10 @@ def graph(G, mode="external", **kwargs):
 
             html.Div(id="min-max", children=[
 
-            ])
-
+            ]),
+            # Click to download image of network graph
+            html.Button(children="Download current view",  id="download-network-graph", style={"margin":"10px"}) 
+            
         ]),  # end network settings
         html.Div(id="network-graph", className="network-graph", children=[  # network graph
             html.H2("Network graph", style={"text-align": "center"}),
@@ -575,8 +577,22 @@ def graph(G, mode="external", **kwargs):
 
         return default_stylesheet + filter_style + edge_style
 
-    # Produce a table of all edge data from tapped edge
+    # download an image of current network graph view
+    @app.callback(
+        Output("cyto-graph", "generateImage"), 
+        Input("download-network-graph", "n_clicks"))
+    def download_networkgraph_image(get_request):
+        
+        if get_request == None:
+            return dict()
 
+        return {
+            "type": "svg",
+            "action": "download"
+        }
+
+
+    # Produce a table of all edge data from tapped edge
     @app.callback([
         Output("edge-info", "children"),
         Output("edge-selection", "columns"),
@@ -833,8 +849,8 @@ def graph(G, mode="external", **kwargs):
             weight = [0,1]
         if score == "significance": 
             # set default start value to significance value for ligand and receptor 
-            # p-value of .05 and 0.05 = 2.99
-            return (min(weight), max(weight), 1.30)
+            # p-value of 0.05 and 0.05 = 1.0
+            return (min(weight), max(weight), 1.0)
         return (min(weight), max(weight), np.mean(weight))
     
     @app.callback(
