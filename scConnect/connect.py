@@ -362,10 +362,12 @@ def get_connections(
                 ligand_pval = float(scale(ligands_corr_pval[emitter_cluster][ligand]))
                 receptor_pval = float(scale(receptors_corr_pval[target_cluster][receptor]))
                 significance = float(interaction_significance(ligand_pval, receptor_pval))
+                log_score = float(np.log10(score + 1))
+                importance = significance * log_score
 
                 connections.append((ligands.name, receptors.name, {
                     "score": float(score),
-                    "log_score": float(np.log10(score + 1)), # From here on, all values are +1ed and logaritmized with base of 10. # From here on, all values are +1ed and logaritmized with base of 10.
+                    "log_score": log_score, # From here on, all values are +1ed and logaritmized with base of 10. # From here on, all values are +1ed and logaritmized with base of 10.
                     "ligand": str(ligand),
                     "ligand_zscore": float(ligands_zscore[emitter_cluster][ligand]),
                     "ligand_pval": ligand_pval,
@@ -374,6 +376,7 @@ def get_connections(
                     "receptor_pval": receptor_pval,
                     "interaction": f"{ligand} --> {receptor}",
                     "significance": significance,
+                    "importance": importance,
                     "endogenous": f"{list(interaction.endogenous)}",
                     "action": f"{list(interaction.action)}",
                     "ligandspecies": f"{list(interaction.ligand_species)}",
