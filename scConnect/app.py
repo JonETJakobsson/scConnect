@@ -358,6 +358,7 @@ def graph(G, mode="external", **kwargs):
                 dcc.Input(id="filter_l_r", type="search", value="", placeholder="Search")
             ]),
            
+           
             dcc.Tabs([
                 dcc.Tab(label="Ligands", children=[
                     dcc.Graph(
