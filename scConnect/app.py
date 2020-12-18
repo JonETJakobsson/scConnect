@@ -350,7 +350,6 @@ def graph(G, mode="external", **kwargs):
             ])
         ]),  # end interaction list
 
-
         html.Div(className="L-R-scores", children=[  # ligand and receptor lists
             html.H2("Ligand and receptors", style={"text-align": "center"}),
             html.Div(children=[
