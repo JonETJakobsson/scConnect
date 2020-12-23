@@ -562,11 +562,11 @@ def compare_interactions_df(G, node_a=str, node_b=str, method="ratio"):
                 b = df[node_b][node]
                 ratio = a - b  # Calulate the difference in interaction score
 
-            if method == "significance":
-                df = nx.to_pandas_adjacency(Gs[interaction], weight="significance")
+            if method == "specificity":
+                df = nx.to_pandas_adjacency(Gs[interaction], weight="specificity")
                 a = df[node_a][node]
                 b = df[node_b][node]
-                ratio = a - b  # Calulate the difference in significance
+                ratio = a - b  # Calulate the difference in specificity
 
             ratio_dict[interaction] = ratio
         interaction_dict_i[node] = ratio_dict

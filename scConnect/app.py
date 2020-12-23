@@ -189,7 +189,7 @@ def graph(G, mode="external", **kwargs):
                 options=[
                     {"label": "Score", "value": "score"},
                     {"label": "Log score", "value": "log_score"},
-                    {"label": "Significance", "value": "significance"},
+                    {"label": "Specificity", "value": "specificity"},
                     {"label": "Importance", "value": "importance"}],
                 value="importance",
                 labelStyle={
@@ -282,7 +282,7 @@ def graph(G, mode="external", **kwargs):
             dcc.RadioItems(id="sankey-toggle", options=[
                 {"label": "Score", "value": "score"},
                 {"label": "Log score", "value": "log_score"},
-                {"label": "Significance", "value": "significance"},
+                {"label": "Specificity", "value": "specificity"},
                 {"label": "Importance", "value": "importance"}
             ], value="importance",
             labelStyle={"display": "block"})
@@ -633,8 +633,8 @@ def graph(G, mode="external", **kwargs):
                 "id": "log_score"
             },
             {
-                "name": "Significance",
-                "id": "significance"
+                "name": "Specificity",
+                "id": "specificity"
             },
             {
                 "name": "Importance",
@@ -663,7 +663,7 @@ def graph(G, mode="external", **kwargs):
         ]
 
         interactions = pd.DataFrame(edge["interactions"])[
-            ["interaction", "receptorfamily", "score", "log_score", "significance", "importance", "ligand_zscore",
+            ["interaction", "receptorfamily", "score", "log_score", "specificity", "importance", "ligand_zscore",
              "ligand_pval", "receptor_zscore", "receptor_pval", "pubmedid"]]
 
         # Sort values based on score
@@ -673,13 +673,13 @@ def graph(G, mode="external", **kwargs):
         interactions[[
             "score",
             "log_score",
-            "significance",
+            "specificity",
             "importance",
             "ligand_zscore",
             "receptor_zscore"]] = interactions[[
                 "score",
                 "log_score",
-                "significance",
+                "specificity",
                 "importance",
                 "ligand_zscore",
                 "receptor_zscore"]].round(decimals=2)
@@ -710,28 +710,28 @@ def graph(G, mode="external", **kwargs):
 
         interactions = pd.DataFrame(edge["interactions"])[
                     ["interaction", "receptorfamily", "score", "log_score", "ligand_zscore",
-                    "ligand_pval", "receptor_zscore", "receptor_pval", "significance", "importance", "pubmedid"]]
+                    "ligand_pval", "receptor_zscore", "receptor_pval", "specificity", "importance", "pubmedid"]]
         
         # add 10% to the min and max value to not clip the datapoint
         range_x = (-max(interactions["log_score"])*0.1, max(interactions["log_score"])*1.1)
-        range_y = (-max(interactions["significance"])*0.1, max(interactions["significance"])*1.1)
-        #interactions["significance"] = np.log10( interactions["significance"])
+        range_y = (-max(interactions["specificity"])*0.1, max(interactions["specificity"])*1.1)
+        #interactions["specificity"] = np.log10( interactions["specificity"])
 
         fig = px.scatter(interactions, 
                 x="log_score",
                 range_x=range_x,
-                y="significance",
+                y="specificity",
                 range_y=range_y,
                 color="importance",
                 hover_name="interaction",
-                hover_data=["ligand_pval", "receptor_pval", "score","significance", "receptorfamily"],
+                hover_data=["ligand_pval", "receptor_pval", "score","specificity", "receptorfamily"],
                 color_continuous_scale=px.colors.sequential.Viridis_r,
                 labels={
                     "ligand_zscore": "Ligand Z-score",
                     "receptor_zscore": "Receptor Z-score",
                     "log_score": "log(Interaction score)",
                     "score": "Interaction score",
-                    "significance": "Significance",
+                    "specificity": "Specificity",
                     "importance": "Importance",
                     "receptorfamily": "Receptor family",
                     "pubmedid": "PubMed ID",
@@ -857,8 +857,8 @@ def graph(G, mode="external", **kwargs):
 
         if len(weight) == 0:
             weight = [0,1]
-        if score == "significance": 
-            # set default start value to significance value for ligand and receptor 
+        if score == "specificity": 
+            # set default start value to specificity value for ligand and receptor 
             # p-value of 0.05 and 0.05 = 1.0
             return (min(weight), max(weight), 1.0)
         return (min(weight), max(weight), np.mean(weight))

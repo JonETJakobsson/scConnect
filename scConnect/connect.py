@@ -349,7 +349,7 @@ def get_connections(
         value = float(to_range[0] + (to_range[1] - to_range[0]) * (value -from_range[0]) / (to_range[1] - to_range[0]))
         return value
 
-    def interaction_significance(l, r): # used to calculate interaction significance score
+    def interaction_specificity(l, r): # used to calculate interaction specificity score
         sig = -np.log10((l+r)/2)
         return sig
 
@@ -361,9 +361,9 @@ def get_connections(
                 score = float(gmean((l_score, r_score)))
                 ligand_pval = float(scale(ligands_corr_pval[emitter_cluster][ligand]))
                 receptor_pval = float(scale(receptors_corr_pval[target_cluster][receptor]))
-                significance = float(interaction_significance(ligand_pval, receptor_pval))
+                specificity = float(interaction_specificity(ligand_pval, receptor_pval))
                 log_score = float(np.log10(score + 1))
-                importance = significance * log_score
+                importance = specificity * log_score
 
                 connections.append((ligands.name, receptors.name, {
                     "score": float(score),
@@ -375,7 +375,7 @@ def get_connections(
                     "receptor_zscore": float(receptors_zscore[target_cluster][receptor]),
                     "receptor_pval": receptor_pval,
                     "interaction": f"{ligand} --> {receptor}",
-                    "significance": significance,
+                    "specificity": specificity,
                     "importance": importance,
                     "endogenous": f"{list(interaction.endogenous)}",
                     "action": f"{list(interaction.action)}",
@@ -439,9 +439,9 @@ def nodes(adatas):
 # We can then calculate the z-score of the true ligand/receptor score, p-values and corrected p-values
 # Data an be used to detect group specific expression of ligands and receptors.
 
-def _ligand_receptor_call(adata, groupby, organism):
+def _ligand_receptor_call(adata, groupby, organism, transformation):
     import pandas as pd
-    adata = cn.genecall.meanExpression(adata, groupby=groupby, normalization=False, use_raw=False)
+    adata = cn.genecall.meanExpression(adata, groupby=groupby, normalization=False, use_raw=False, transformation=transformation)
     adata = cn.connect.ligands(adata, organism=organism)
     adata = cn.connect.receptors(adata, organism=organism)
     
@@ -545,7 +545,7 @@ def _corrected_pvalue(pvalues, method="fdr_bh"):
     
     return corr_pval
     
-def significance(adata, n, groupby, organism="hsapiens", return_values=False):
+def specificity(adata, n, groupby, organism="hsapiens", return_values=False, transformation="log1p"):
     """calculate statistics for the ligands and receptor scores.
     
     Compare the group ligand and receptor scores to the mean score of 
@@ -564,7 +564,7 @@ def significance(adata, n, groupby, organism="hsapiens", return_values=False):
         printProgressBar(i+1, n, prefix=f"Shuffeling dataframe {i+1} out of {n}")
         shuffle(groups)
         _adata.obs[groupby] = groups
-        ligand, receptor = _ligand_receptor_call(_adata, groupby, organism)
+        ligand, receptor = _ligand_receptor_call(_adata, groupby=groupby, organism=organism, transformation=transformation)
         ligand_dfs.append(ligand)
         receptor_dfs.append(receptor)
     
