@@ -99,10 +99,10 @@ Major changes:
    * :math:`I_{LR_{specificity}} = -\log_{10}(R_{p-value} + L_{p-value})`
 
 * Updates to the web app:
-   * Summmize and filter edges based on significance in the network graph.
+   * Summmize and filter edges based on specificity in the network graph.
    * Added possibility to download current network graph view as a svg file.
-   * Filter based on significance in sankey graph.
-   * Added a scatter plot for interaction of selected edge, where x axis is ligand z-score, y axis is receptor z-score size is log(interaction score) and color is interaction significance
+   * Filter based on specificity in sankey graph.
+   * Added a scatter plot for interaction of selected edge, where x axis is log(interaction score), y axis is specificity and color is interaction importance.
    * Selection of interactions in the graph also filters the interaction table.
    * Added a scatter plot for ligands and receptors where the x axis is log(score) and y axis -log(p-value)
    * Selected ligands or receptors filters the table under the graph.
