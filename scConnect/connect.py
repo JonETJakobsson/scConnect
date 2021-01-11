@@ -474,7 +474,7 @@ def _std_df(df):
     std_df = df.copy()
     for i in range(df.shape[0]):
         for j in range(df.shape[1]):
-            std_df.iloc[i,j] = np.mean(eval(df.iloc[i,j]))
+            std_df.iloc[i,j] = np.std(eval(df.iloc[i,j]))
     return std_df
         
 
