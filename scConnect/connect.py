@@ -100,23 +100,18 @@ def ligandScore(ligand, genes):
             excluded = max(excluded_expression)
 
         # return geometric mean of synthesis, transport and reuptake multipled exclusion
-        utility = gmean(([x for x in [synthesis, transport, reuptake] if str(x) != "nan"])) # genes driving ligand production, remove nan values
+        promoting_factor = gmean(([x for x in [synthesis, transport, reuptake] if str(x) != "nan"])) # genes driving ligand production, remove nan values
         
-        if str(utility) == "nan": # capture cases where no utility genes were present
-            print(f"no utility genes detected for {ligand.ligand}")
-            return 0.0  # exit before running exclusion calculation (division with 0)
+        if str(promoting_factor) == "nan": # capture cases where no promoting genes were present
+            print(f"no promoting genes detected for {ligand.ligand}")
+            return 0.0  # exit before running exclusion calculation
             
-        if utility == 0:  # if no utility genes are expressed, ligand score is 0
-            return 0.0 # exit before running exclusion calculation (division with 0)
-
-        exclusion_factor = ((utility - excluded) / utility) # correction factor for exclusion gene
-        if exclusion_factor < 0: # exclusion should be 0 or positive
-            exclusion_factor = 0.0
-       
-        ligand_score = utility * exclusion_factor # correct ligand expression based on the exclusion factor
+        ligand_score = promoting_factor - excluded # correct ligand expression based on the exclusion factor
+        if ligand_score < 0: # ligand score should be 0 or positive
+                ligand_score = 0.0
         return ligand_score
 
-    # If genes are missing from ligand gene list (TODO:this should not be the case!)
+    # If genes are missing from ligand gene list
     else:
         print("Big error! ligand type is not defined!")
         return 0.0
