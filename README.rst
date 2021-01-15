@@ -86,7 +86,7 @@ Major changes:
    * Utilize bootstapping to assess the random distribution of ligand and recepto score for each cell type.
    * Calculates a Z-score for each ligand and receptor score given this random distribution.
    * Calculates multiple test corrected p-values using Benjamini/Hochberg (false discovery rate) correction.
-   * Estimate interaction significance by wieghting both ligand and receptor p-values 
+   * Estimate interaction specificity by wieghting both ligand and receptor p-values 
    * :math:`I_{LR_{specificity}} = -\log_{10}(R_{p-value} + L_{p-value})`
 
 * Updates to the web app:
@@ -98,7 +98,7 @@ Major changes:
    * Added a scatter plot for ligands and receptors where the x axis is log(score) and y axis -log(p-value)
    * Selected ligands or receptors filters the table under the graph.
 
-* retrieving data from graph
+* retrieving data from graph:
   * Retrieve interaction data using :code:`graph.edge_list()` and plot a dotplot using :code:`graph.dotplot()`
   * Retrieve information about ligands and receptors using :code:`graph.get_ligand_df()` and :code:`graph.get_receptor_df()`
 
