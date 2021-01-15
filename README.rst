@@ -99,8 +99,8 @@ Major changes:
    * Selected ligands or receptors filters the table under the graph.
 
 * retrieving data from graph:
-  * Retrieve interaction data using :code:`graph.edge_list()` and plot a dotplot using :code:`graph.dotplot()`
-  * Retrieve information about ligands and receptors using :code:`graph.get_ligand_df()` and :code:`graph.get_receptor_df()`
+   * Retrieve interaction data using :code:`graph.edge_list()` and plot a dotplot using :code:`graph.dotplot()`
+   * Retrieve information about ligands and receptors using :code:`graph.get_ligand_df()` and :code:`graph.get_receptor_df()`
 
 
 ?????
