@@ -731,3 +731,184 @@ def plot_interaction_heatmap(G, th=0.5, method='ward', metric='euclidean', z_sco
     f.savefig(save)
     
     return f
+
+
+# Fetch edge list dataframe for plotting functions
+def edge_list(
+    G, 
+    filter_by="specificity", 
+    th=1, 
+    cellphonedb_interactions=False, 
+    interaction_list=None,
+    version = "2019-5",
+    organism = "mmusculus",
+    all_connections=True):
+    """retrieves all interactions from the graphs and returns a pandas dataframe suitable for plotting"""
+
+    import networkx as nx
+    import pandas as pd
+    import numpy as np
+    import plotly.express as px
+    import pkg_resources
+    
+    
+    df = nx.to_pandas_edgelist(G)
+    
+    # change name of scConnects interaction to better compare to cellPhoneDB
+    receptor_info = pd.read_csv(pkg_resources.resource_filename("scConnect", (f"data/Gene_annotation/{version}/{organism}/receptors.csv")), index_col=1)
+    ligand_info = pd.read_csv(pkg_resources.resource_filename("scConnect", (f"data/Gene_annotation/{version}/{organism}/ligands.csv")), index_col=1)
+
+    df["ligand_gene"] = [eval(ligand_info.loc[ligand]["preprogene"])[0] if isinstance(ligand_info.loc[ligand]["preprogene"], str) else ligand for ligand in df["ligand"]]
+    df["receptor_gene"] = [eval(receptor_info.loc[receptor]["gene"])[0] if isinstance(receptor_info.loc[receptor]["gene"], str) else receptor for receptor in df["receptor"]]
+
+    df["cellphonedb_interactions"] = [f"{l}_{r}" for l, r in list(zip(df["ligand_gene"], df["receptor_gene"]))]
+
+    #Create a new connection annotation merging source and target info
+    df["connection"] = [str(connection[0]+"|"+connection[1]) for connection in zip(df["source"], df["target"])]
+
+    #Collect all connection for specific interactions
+    if all_connections:
+        # select all significant interaction (significance > 1)
+        interactions = df[df[filter_by] >= th]["interaction"].unique()
+        # keep all interactions that were significant between any connection
+        df = df[[True if interaction in interactions else False for interaction in df["interaction"]]]
+
+        # only sort if all_connections == True
+         # sort based on connection and interactoin names to get order in the plot
+        if cellphonedb_interactions:
+            df.sort_values(by=[ "cellphonedb_interactions", "connection"], key=np.vectorize(str.lower), ascending=False, inplace=True)
+        else:
+            df.sort_values(by=["connection", "interaction"], key=np.vectorize(str.lower), ascending=False, inplace=True)
+    
+    else:
+        # if only selected interactions, sort by filter_by key
+        df= df[df[filter_by] >= th]
+        df.sort_values(by=[filter_by], ascending=False, inplace=True)
+   
+    return df
+
+# plotting function using the edge list data
+def dotplot(
+    G=None, 
+    df=None, 
+    filter_by="specificity", 
+    th=1,
+    organism="mmusculus",
+    version="2019-5",
+    all_connections=True,
+    cellphonedb_interactions=False, 
+    height_scale=40, 
+    width_scale=40, 
+    cmap=None):
+
+    import plotly.express as px
+    import pandas as pd
+    import numpy as np
+
+    if cmap == None:
+        cmap = px.colors.sequential.Viridis_r
+    
+    if isinstance(df, pd.DataFrame):
+        df = df
+        # Filter by feature and threshold
+        interactions = df[df[filter_by] >= th]["interaction"].unique()
+        # keep all interactions that were significant between any connection
+        df = df[[True if interaction in interactions else False for interaction in df["interaction"]]]
+    else:
+        df = edge_list(G, filter_by, th, organism=organism, version=version, all_connections=all_connections)
+        
+    # set width and hight of figure
+    width = len(df["connection"].unique())*width_scale
+    height = len(df["interaction"].unique())*height_scale
+    if cellphonedb_interactions:
+        y = "cellphonedb_interactions"
+    else:
+        y = "interaction"
+    
+    # log (specificity +1)for plotting sized
+    df["log_specificity"] = np.log10(df["specificity"]+1)
+    
+    # find and sort all connections
+    connections = list(set(df["connection"]))
+    connections.sort()
+
+    
+    
+    plot = px.scatter(df, x="connection", y=y, 
+        size="log_specificity", 
+        color="log_score",
+        opacity=0.8,
+        height=height, width=width,
+        size_max=10,
+        template="plotly_white",
+        render_mode="svg",
+        title=f"Interactions with {filter_by} higher than {th}",
+        color_continuous_scale=cmap,
+        hover_data=["specificity"],
+        category_orders = {"connection": connections})
+    
+    plot.update_layout(coloraxis_colorbar=dict(
+        title="Log score",
+        thicknessmode="pixels", thickness = 20,
+        lenmode="pixels", len=200,
+        yanchor="top", y=1
+        )
+    )
+    return plot
+    
+
+# functions to retrieve dataframes of ligand and receptor
+# information for further analysis
+def get_ligand_df(G, color_map=False):
+    """fetch all ligand information in a graph and return a DataFrame in long format"""
+    import pandas as pd
+    import numpy as np
+
+    nodes = G.nodes(data=True)
+    df = pd.DataFrame(columns=["ligand", "score", "node"])
+    for node, data in G.nodes.items():
+        temp_df = pd.DataFrame.from_dict(data["ligands_score"], orient="index", columns=["score"])
+        temp_df["z_score"] = pd.DataFrame.from_dict(data["ligands_zscore"], orient="index", columns=["z-score"])
+        temp_df["pvalue"] = pd.DataFrame.from_dict(data["ligands_corr_pval"], orient="index", columns=["pvalue"])
+        temp_df["specificity"] = -np.log10(temp_df["pvalue"])
+        temp_df["log_score"] = np.log10(temp_df["score"]+1)
+        temp_df.rename_axis(index="ligand", inplace=True)
+        temp_df["node"] = node
+        temp_df.reset_index(inplace=True)
+        df = df.append(temp_df, ignore_index=True,)
+        
+    color_map = dict(G.nodes(data="color"))
+    for k, v in color_map.items():
+        color_map[k] = "rgb" + str(tuple(v))
+        
+    if color_map:
+        return df, color_map
+    
+    return df
+
+def get_receptor_df(G, color_map=False):
+    """fetch all ligand information in a graph and return a DataFrame in long format"""
+    import pandas as pd
+    import numpy as np
+
+    nodes = G.nodes(data=True)
+    df = pd.DataFrame(columns=["receptor", "score", "node"])
+    for node, data in G.nodes.items():
+        temp_df = pd.DataFrame.from_dict(data["receptors_score"], orient="index", columns=["score"])
+        temp_df["z_score"] = pd.DataFrame.from_dict(data["receptors_zscore"], orient="index", columns=["z-score"])
+        temp_df["pvalue"] = pd.DataFrame.from_dict(data["receptors_corr_pval"], orient="index", columns=["pvalue"])
+        temp_df["specificity"] = -np.log10(temp_df["pvalue"])
+        temp_df["log_score"] = np.log10(temp_df["score"]+1)
+        temp_df.rename_axis(index="receptor", inplace=True)
+        temp_df["node"] = node
+        temp_df.reset_index(inplace=True)
+        df = df.append(temp_df, ignore_index=True,)
+        
+    color_map = dict(G.nodes(data="color"))
+    for k, v in color_map.items():
+        color_map[k] = "rgb" + str(tuple(v))
+        
+    if color_map:
+        return df, color_map
+    
+    return df
