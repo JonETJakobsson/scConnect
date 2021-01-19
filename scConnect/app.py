@@ -859,8 +859,8 @@ def graph(G, mode="external", **kwargs):
             weight = [0,1]
         if score == "specificity": 
             # set default start value to specificity value for ligand and receptor 
-            # p-value of 0.05 and 0.05 = 1.0
-            return (min(weight), max(weight), 1.0)
+            # p-value of (0.05 and 0.05)/2 = 1.3
+            return (min(weight), max(weight), 1.3)
         return (min(weight), max(weight), np.mean(weight))
     
     @app.callback(
