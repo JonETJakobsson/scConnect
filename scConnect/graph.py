@@ -881,7 +881,7 @@ def get_ligand_df(G, color_map=False):
     for k, v in color_map.items():
         color_map[k] = "rgb" + str(tuple(v))
         
-    if color_map:
+    if color_map == True:
         return df, color_map
     
     return df
@@ -908,7 +908,7 @@ def get_receptor_df(G, color_map=False):
     for k, v in color_map.items():
         color_map[k] = "rgb" + str(tuple(v))
         
-    if color_map:
+    if color_map == True:
         return df, color_map
     
     return df

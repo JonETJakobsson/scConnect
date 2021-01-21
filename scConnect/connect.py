@@ -316,6 +316,9 @@ def interactions(emitter, target, self_reference=True, organism="mmusculus"):
 
 # get all connections based on Ligands and receptors, and provide score for interactions
 # Also provide meta data as a dictionary for interaction
+def scale(value, from_range=(0, 1), to_range=(10E-100, 1)): # mitagatelog with 0
+        value = to_range[0] + (to_range[1] - to_range[0]) * (value -from_range[0]) / (to_range[1] - to_range[0])
+        return value
 
 def get_connections(
     ligands,
@@ -340,9 +343,7 @@ def get_connections(
     ligand_filter = [True if ligand in ligands.keys() else False for ligand in interactions.index.get_level_values(0)]
     interactions = interactions.loc[ligand_filter]
 
-    def scale(value, from_range=(0, 1), to_range=(10E-100, 1)): # mitagatelog with 0
-        value = float(to_range[0] + (to_range[1] - to_range[0]) * (value -from_range[0]) / (to_range[1] - to_range[0]))
-        return value
+    
 
     def interaction_specificity(l, r): # used to calculate interaction specificity score
         sig = -np.log10((l+r)/2)
@@ -354,8 +355,8 @@ def get_connections(
             if (ligand, receptor) in interaction_set:
                 interaction = interactions.loc[ligand, receptor]
                 score = float(gmean((l_score, r_score)))
-                ligand_pval = float(scale(ligands_corr_pval[emitter_cluster][ligand]))
-                receptor_pval = float(scale(receptors_corr_pval[target_cluster][receptor]))
+                ligand_pval = float(ligands_corr_pval[emitter_cluster][ligand])
+                receptor_pval = float(receptors_corr_pval[target_cluster][receptor])
                 specificity = float(interaction_specificity(ligand_pval, receptor_pval))
                 log_score = float(np.log10(score + 1))
                 importance = specificity * log_score
@@ -507,8 +508,7 @@ def _score_pv_df(mean, std, value):
     if warning:
         total = score_df.shape[0] * score_df.shape[1]
         print(f"{faults/total*100} % of group metrices were 0. increase n to reduce this number")
-        
-    return score_df, pval_df
+    
 
 def _corrected_pvalue(pvalues, method="fdr_bh"):
     """correct a dataframe of p-values to a dataframe of corrected p-values.
@@ -537,6 +537,9 @@ def _corrected_pvalue(pvalues, method="fdr_bh"):
     
     corr_p = corr_p.reshape(pvalues.shape)
     corr_pval = pd.DataFrame(corr_p, columns=pvalues.columns, index=pvalues.index)
+    
+    # scale p values to remove abloslute 0 calls
+    corr_pval = scale(corr_pval)
     
     return corr_pval
     
