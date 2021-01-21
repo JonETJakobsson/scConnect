@@ -589,8 +589,8 @@ def specificity(adata, n, groupby, organism="hsapiens", return_values=False, tra
     
     adata.uns.update({"ligands_zscore": ligand_score.to_dict()})
     adata.uns.update({"receptors_zscore": receptor_score.to_dict()})
-    adata.uns.update({"ligands_corr_pval": ligand_pval.to_dict()})
-    adata.uns.update({"receptors_corr_pval": receptor_pval.to_dict()})
+    adata.uns.update({"ligands_pval": ligand_pval.to_dict()})
+    adata.uns.update({"receptors_pval": receptor_pval.to_dict()})
     adata.uns.update({"ligands_corr_pval": ligand_corr_pval.to_dict()})
     adata.uns.update({"receptors_corr_pval": receptor_corr_pval.to_dict()})
 
