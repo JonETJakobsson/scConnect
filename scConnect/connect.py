@@ -509,6 +509,7 @@ def _score_pv_df(mean, std, value):
         total = score_df.shape[0] * score_df.shape[1]
         print(f"{faults/total*100} % of group metrices were 0. increase n to reduce this number")
     
+    return score_df, pval_df
 
 def _corrected_pvalue(pvalues, method="fdr_bh"):
     """correct a dataframe of p-values to a dataframe of corrected p-values.
@@ -540,7 +541,6 @@ def _corrected_pvalue(pvalues, method="fdr_bh"):
     
     # scale p values to remove abloslute 0 calls
     corr_pval = scale(corr_pval)
-    
     return corr_pval
     
 def specificity(adata, n, groupby, organism="hsapiens", return_values=False, transformation="log1p"):
