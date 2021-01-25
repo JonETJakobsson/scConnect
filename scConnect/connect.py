@@ -616,3 +616,40 @@ def specificity(adata, n, groupby, organism="hsapiens", return_values=False, tra
         return adata, ligand_values, receptor_values
 
     return adata
+
+# Save and load specificity calculations (time consuming)
+
+def save_specificity(adata, filename):
+    """Saves data calculated by cn.connect.specificity to an excel file. 
+    This file can later be loaded using cn.connect.load_specificity"""
+    import pandas as pd
+    
+    keys = ['ligands_zscore',
+     'receptors_zscore',
+     'ligands_pval',
+     'receptors_pval',
+     'ligands_corr_pval',
+     'receptors_corr_pval']
+    
+    xls = pd.ExcelWriter(filename)
+    for key in keys:
+        table = pd.DataFrame(adata.uns[key])
+        table.to_excel(xls, sheet_name=key)
+    xls.close()
+
+def load_specificity(adata, filename):
+    """Loads previously calculated specificity to an andata object"""
+
+    import pandas as pd
+    keys = ['ligands_zscore',
+        'receptors_zscore',
+        'ligands_pval',
+        'receptors_pval',
+        'ligands_corr_pval',
+        'receptors_corr_pval']
+
+    xls = pd.read_excel(filename)
+    for key in keys:
+        data = pd.read_excel(filename, sheet_name=key, index_col=0)
+        adata.uns[key] = {k:value.to_dict() for k, value in data.iteritems()}
+    
