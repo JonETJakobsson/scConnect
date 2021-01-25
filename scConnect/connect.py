@@ -474,7 +474,7 @@ def _std_df(df):
     return std_df
         
 
-def _score_pv_df(mean, std, value):
+def _score_pv_df(mean, std, value, emperical, values):
     """Calculate z-scores and p-values for ligand and receptor 
     calls compared to random group designation
     
@@ -486,12 +486,20 @@ def _score_pv_df(mean, std, value):
     pval_df = mean.copy()
     warning = False # warning flag for if mean or std is 0 (mening no values were ever sampled to that group)
     faults = 0
-    for i in range(score_df.shape[0]):
-        for j in range(score_df.shape[1]):
-            
+
+   
+    for i in range(score_df.shape[0]): # for each ligand and receptorcelltype
+        dist = list() #find the distribution for this ligand or receptor in all cell types
+        for celltype in values.iloc[i,:]:
+            for sample in eval(celltype):
+                dist.append(sample)
+
+        
+        for j in range(score_df.shape[1]): # for each celltype
+            v = value.iloc[i,j]
             s = std.iloc[i,j]
             m = mean.iloc[i,j]
-            v = value.iloc[i,j]
+        
             if s == 0: # sampeling never managed to include this ligand or receptor for this group
                 z_score = 0.0
                 pval = 1
@@ -501,9 +509,14 @@ def _score_pv_df(mean, std, value):
                 z_score = (v-m)/s
                 #pval =  float(stats.norm.sf(abs(z_score))*2) # Two tailed p-value
                 pval =  float(stats.norm.sf(z_score)) # one tailed p-value
-    
+
+            if emperical == True: # Calculate pvalues emperically from the collected distribution
+                pval = sum(v < dist)/len(dist)
+
+            
             score_df.iloc[i,j] = z_score
             pval_df.iloc[i,j] = pval
+            pval = sum(v < dist)/len(dist)
             
     if warning:
         total = score_df.shape[0] * score_df.shape[1]
@@ -543,11 +556,13 @@ def _corrected_pvalue(pvalues, method="fdr_bh"):
     corr_pval = scale(corr_pval)
     return corr_pval
     
-def specificity(adata, n, groupby, organism="hsapiens", return_values=False, transformation="log1p"):
+def specificity(adata, n, groupby, organism="hsapiens", return_values=False, transformation="log1p", emperical=True):
     """calculate statistics for the ligands and receptor scores.
     
     Compare the group ligand and receptor scores to the mean score of 
-    that group after n number of random group assignment"""
+    that group after n number of random group assignment
+    
+    if emperical is True, calculates p-values emperically given the collected random distribution"""
     from random import shuffle
     import pandas as pd
     from scConnect.tools import printProgressBar
@@ -583,11 +598,11 @@ def specificity(adata, n, groupby, organism="hsapiens", return_values=False, tra
     # Calculate Z-scores, p-values and corrected p-values
     print("Calculating Z-score, p-values and corrected p-values...")
     ligand_value = pd.DataFrame(adata.uns["ligands"])
-    ligand_score , ligand_pval = _score_pv_df(ligand_mean, ligand_std, ligand_value)
+    ligand_score , ligand_pval = _score_pv_df(ligand_mean, ligand_std, ligand_value, emperical, ligand_values)
     ligand_corr_pval = _corrected_pvalue(ligand_pval)
     
     receptor_value = pd.DataFrame(adata.uns["receptors"])
-    receptor_score , receptor_pval = _score_pv_df(receptor_mean, receptor_std, receptor_value)
+    receptor_score , receptor_pval = _score_pv_df(receptor_mean, receptor_std, receptor_value, emperical, receptor_values)
     receptor_corr_pval = _corrected_pvalue(receptor_pval)
     
     adata.uns.update({"ligands_zscore": ligand_score.to_dict()})
