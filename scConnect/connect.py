@@ -487,11 +487,11 @@ def _score_pv_df(mean, std, value, emperical, values):
     warning = False # warning flag for if mean or std is 0 (mening no values were ever sampled to that group)
     faults = 0
 
-   
-    for i in range(score_df.shape[0]): # for each ligand and receptorcelltype
-        dist = list() #find the distribution for this ligand or receptor in all cell types
-        for celltype in values.iloc[i,:]:
-            for sample in eval(celltype):
+    for i in range(score_df.shape[0]): # for each ligand and receptor
+        dist = list() 
+        #find the distribution for this ligand or receptor in all cell types
+        for j in range(score_df.shape[1]): # for each cell type
+            for sample in eval(values.iloc[i,j]):
                 dist.append(sample)
 
         
@@ -516,7 +516,6 @@ def _score_pv_df(mean, std, value, emperical, values):
             
             score_df.iloc[i,j] = z_score
             pval_df.iloc[i,j] = pval
-            pval = sum(v < dist)/len(dist)
             
     if warning:
         total = score_df.shape[0] * score_df.shape[1]
