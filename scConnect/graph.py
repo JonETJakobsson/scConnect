@@ -859,7 +859,7 @@ def dotplot(
 
 # functions to retrieve dataframes of ligand and receptor
 # information for further analysis
-def get_ligand_df(G, color_map=False):
+def get_ligand_df(G, color_map=False, corr_pval=True):
     """fetch all ligand information in a graph and return a DataFrame in long format"""
     import pandas as pd
     import numpy as np
@@ -869,7 +869,10 @@ def get_ligand_df(G, color_map=False):
     for node, data in G.nodes.items():
         temp_df = pd.DataFrame.from_dict(data["ligands_score"], orient="index", columns=["score"])
         temp_df["z_score"] = pd.DataFrame.from_dict(data["ligands_zscore"], orient="index", columns=["z-score"])
-        temp_df["pvalue"] = pd.DataFrame.from_dict(data["ligands_corr_pval"], orient="index", columns=["pvalue"])
+        if corr_pval:
+            temp_df["pvalue"] = pd.DataFrame.from_dict(data["ligands_corr_pval"], orient="index", columns=["pvalue"])
+        else:
+             temp_df["pvalue"] = pd.DataFrame.from_dict(data["ligands_pval"], orient="index", columns=["pvalue"])
         temp_df["specificity"] = -np.log10(temp_df["pvalue"])
         temp_df["log_score"] = np.log10(temp_df["score"]+1)
         temp_df.rename_axis(index="ligand", inplace=True)
@@ -886,7 +889,7 @@ def get_ligand_df(G, color_map=False):
     
     return df
 
-def get_receptor_df(G, color_map=False):
+def get_receptor_df(G, color_map=False, corr_pval=True):
     """fetch all ligand information in a graph and return a DataFrame in long format"""
     import pandas as pd
     import numpy as np
@@ -896,7 +899,10 @@ def get_receptor_df(G, color_map=False):
     for node, data in G.nodes.items():
         temp_df = pd.DataFrame.from_dict(data["receptors_score"], orient="index", columns=["score"])
         temp_df["z_score"] = pd.DataFrame.from_dict(data["receptors_zscore"], orient="index", columns=["z-score"])
-        temp_df["pvalue"] = pd.DataFrame.from_dict(data["receptors_corr_pval"], orient="index", columns=["pvalue"])
+        if corr_pval:
+            temp_df["pvalue"] = pd.DataFrame.from_dict(data["receptors_corr_pval"], orient="index", columns=["pvalue"])
+        else:
+            temp_df["pvalue"] = pd.DataFrame.from_dict(data["receptors_pval"], orient="index", columns=["pvalue"])
         temp_df["specificity"] = -np.log10(temp_df["pvalue"])
         temp_df["log_score"] = np.log10(temp_df["score"]+1)
         temp_df.rename_axis(index="receptor", inplace=True)
