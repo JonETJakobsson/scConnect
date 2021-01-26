@@ -880,12 +880,12 @@ def get_ligand_df(G, color_map=False, corr_pval=True):
         temp_df.reset_index(inplace=True)
         df = df.append(temp_df, ignore_index=True,)
         
-    color_map = dict(G.nodes(data="color"))
-    for k, v in color_map.items():
-        color_map[k] = "rgb" + str(tuple(v))
+    color = dict(G.nodes(data="color"))
+    for k, v in color.items():
+        color[k] = "rgb" + str(tuple(v))
         
     if color_map == True:
-        return df, color_map
+        return df, color
     
     return df
 
@@ -910,11 +910,11 @@ def get_receptor_df(G, color_map=False, corr_pval=True):
         temp_df.reset_index(inplace=True)
         df = df.append(temp_df, ignore_index=True,)
         
-    color_map = dict(G.nodes(data="color"))
-    for k, v in color_map.items():
-        color_map[k] = "rgb" + str(tuple(v))
+    color = dict(G.nodes(data="color"))
+    for k, v in color.items():
+        color[k] = "rgb" + str(tuple(v))
         
     if color_map == True:
-        return df, color_map
+        return df, color
     
     return df

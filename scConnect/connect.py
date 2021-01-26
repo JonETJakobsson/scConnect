@@ -405,9 +405,11 @@ def nodes(adatas):
         print(f"precessing adata #{i+1}")
         ligands_score = adata.uns["ligands"]
         ligands_zscore = adata.uns["ligands_zscore"]
+        ligands_pval = adata.uns["ligands_pval"]
         ligands_corr_pval = adata.uns["ligands_corr_pval"]
         receptors_score = adata.uns["receptors"]
         receptors_zscore = adata.uns["receptors_zscore"]
+        receptors_pval = adata.uns["receptors_pval"]
         receptors_corr_pval = adata.uns["receptors_corr_pval"]
         genes = adata.uns["gene_call"]
         clusters = ligands_score.keys()
@@ -424,9 +426,11 @@ def nodes(adatas):
             node = (cluster, {
                 "ligands_score": cluster_ligands_score,
                 "ligands_zscore": ligands_zscore[cluster],
+                "ligands_pval": ligands_pval[cluster],
                 "ligands_corr_pval": ligands_corr_pval[cluster],
                 "receptors_score": cluster_receptors_score,
                 "receptors_zscore": receptors_zscore[cluster],
+                "receptors_pval": receptors_pval[cluster],
                 "receptors_corr_pval": receptors_corr_pval[cluster],
                 "genes": genes[cluster]})
             nodes.append(node)
