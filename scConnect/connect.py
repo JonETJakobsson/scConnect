@@ -206,7 +206,7 @@ def receptors(adata, organism="mmusculus"):
 
 # Interaction logic
 
-def interactions(emitter, target, self_reference=True, organism="mmusculus", pval_corr=True):
+def interactions(emitter, target, self_reference=True, organism="mmusculus", corr_pval=True):
     """return an edge list of interactions between clusters.
     If all connections are of interest, use the same data source for
     emitter and target.
@@ -263,7 +263,7 @@ def interactions(emitter, target, self_reference=True, organism="mmusculus", pva
     # load extra ligand and receptor statistics
     ligands_zscore = pd.DataFrame(emitter.uns["ligands_zscore"])
     receptors_zscore = pd.DataFrame(target.uns["receptors_zscore"])
-    if pval_corr:
+    if corr_pval:
         ligands_pval = pd.DataFrame(emitter.uns["ligands_corr_pval"])
         receptors_pval = pd.DataFrame(target.uns["receptors_corr_pval"])
     else:
@@ -482,7 +482,7 @@ def _std_df(df):
     return std_df
         
 
-def _score_pv_df(mean, std, value, emperical, values):
+def _score_pv_df(mean, std, value, emperical, values, merge_dist):
     """Calculate z-scores and p-values for ligand and receptor 
     calls compared to random group designation
     
@@ -495,12 +495,19 @@ def _score_pv_df(mean, std, value, emperical, values):
     warning = False # warning flag for if mean or std is 0 (mening no values were ever sampled to that group)
     faults = 0
 
-    for i in range(score_df.shape[0]): # for each ligand and receptor        
+    for i in range(score_df.shape[0]): # for each ligand and receptor
+        if merge_dist == True:
+            dist = list()
+            for j in range(score_df.shape[1]):
+                for val in eval(values.iloc[i,j]):
+                    dist.append(val)
+                
         for j in range(score_df.shape[1]): # for each celltype
             v = value.iloc[i,j]
             s = std.iloc[i,j]
             m = mean.iloc[i,j]
-            dist = eval(values.iloc[i,j])
+            if merge_dist == False:
+                dist = eval(values.iloc[i,j])
         
             if s == 0: # sampeling never managed to include this ligand or receptor for this group
                 z_score = 0.0
@@ -564,7 +571,7 @@ def _corrected_pvalue(pvalues, method="fdr_bh", scale_pval=False):
 
     return corr_pval
     
-def specificity(adata, n, groupby, organism="hsapiens", return_values=False, transformation="log1p", emperical=True):
+def specificity(adata, n, groupby, organism="hsapiens", return_values=False, transformation="log1p", emperical=True, merge_dist=True):
     """calculate statistics for the ligands and receptor scores.
     
     Compare the group ligand and receptor scores to the mean score of 
@@ -610,11 +617,11 @@ def specificity(adata, n, groupby, organism="hsapiens", return_values=False, tra
     # Calculate Z-scores, p-values and corrected p-values
     print("Calculating Z-score, p-values and corrected p-values...")
     ligand_value = pd.DataFrame(adata.uns["ligands"])
-    ligand_score , ligand_pval = _score_pv_df(ligand_mean, ligand_std, ligand_value, emperical, ligand_values)
+    ligand_score , ligand_pval = _score_pv_df(ligand_mean, ligand_std, ligand_value, emperical, ligand_values, merge_dist=merge_dist)
     ligand_corr_pval = _corrected_pvalue(ligand_pval, scale_pval=not emperical)
     
     receptor_value = pd.DataFrame(adata.uns["receptors"])
-    receptor_score , receptor_pval = _score_pv_df(receptor_mean, receptor_std, receptor_value, emperical, receptor_values)
+    receptor_score , receptor_pval = _score_pv_df(receptor_mean, receptor_std, receptor_value, emperical, receptor_values, merge_dist=merge_dist)
     receptor_corr_pval = _corrected_pvalue(receptor_pval, scale_pval=not emperical)
     
     adata.uns.update({"ligands_zscore": ligand_score.to_dict()})
@@ -640,6 +647,8 @@ def save_specificity(adata, filename):
      'receptors_zscore',
      'ligands_pval',
      'receptors_pval',
+     'ligands_pval',
+     'receptors_pval',
      'ligands_corr_pval',
      'receptors_corr_pval']
     
@@ -657,6 +666,8 @@ def load_specificity(adata, filename):
         'receptors_zscore',
         'ligands_pval',
         'receptors_pval',
+        'ligands_pval',
+        'receptors_pval'
         'ligands_corr_pval',
         'receptors_corr_pval']
 
