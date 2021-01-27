@@ -667,7 +667,7 @@ def load_specificity(adata, filename):
         'ligands_pval',
         'receptors_pval',
         'ligands_pval',
-        'receptors_pval'
+        'receptors_pval',
         'ligands_corr_pval',
         'receptors_corr_pval']
 
