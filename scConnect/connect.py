@@ -320,7 +320,7 @@ def interactions(emitter, target, self_reference=True, organism="mmusculus", cor
 
 # get all connections based on Ligands and receptors, and provide score for interactions
 # Also provide meta data as a dictionary for interaction
-def scale(value, from_range=(0, 1), to_range=(10E-100, 1)): # mitagatelog with 0
+def scale(value, from_range=(0, 1), to_range=(10E-100, 1)): # mitagate log with 0
         value = to_range[0] + (to_range[1] - to_range[0]) * (value -from_range[0]) / (to_range[1] - to_range[0])
         return value
 
