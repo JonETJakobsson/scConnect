@@ -13,7 +13,15 @@
   :align: center
   :height: 100px
  
-scConnect integrate gene expression profiles in scRNA-seq datasets with ligand and receptor interaction information from `Guide to pharmacology <https://www.guidetopharmacology.org/>`__ to construct a graph containing all putative interaction between cell types in the dataset. scConnect integrate well with Scanpy and  can be appended to  any scanpy analysis pipeline.
+===========================================
+scConnect: Like Tinder but for single cells
+===========================================
+
+**What can I do with scConnect?**
+You can investigate expression of ligands and receptors among the cell types in your scRNA-seq dataset. You can detect putative interactions between cell types which can be good starting points for further investigations *in vivo*. You can detect specific interaction between cell types, which can be good drug targets as the effect would be limited to those cell types.
+
+**How does it work?**
+scConnect estimate expression of ligands and receptors for cell types in scRNA-seq datasets. scConnect also estimate expression of molecular ligands that are synthezised by many enzymes, hence integrating gene expression related to synthesis, transport, reuptake etc. Using interaction information from `Guide to pharmacology <https://www.guidetopharmacology.org/>`__ putative cell-cell interactions can be identified. Using random permutation of cell type lables, scConnect estimate the specificity of each ligand and receptor for each cell type, and use this information to estimate the specificity of each interaction. All interactions are stored in a multi-directional graph structure and scConnect provide multitude of tools to analyse this data, including an interactive web application and several plotting functions. scConnect integrate well with Scanpy and  can be appended to  any scanpy analysis pipeline.
 
 =========
 Usecases:
