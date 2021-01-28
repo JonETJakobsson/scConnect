@@ -571,7 +571,7 @@ def _corrected_pvalue(pvalues, method="fdr_bh", scale_pval=False):
 
     return corr_pval
     
-def specificity(adata, n, groupby, organism="hsapiens", return_values=False, transformation="log1p", emperical=True, merge_dist=True):
+def specificity(adata, n, groupby, organism="hsapiens", return_values=False, transformation="log1p", emperical=True, merge_dist=False):
     """calculate statistics for the ligands and receptor scores.
     
     Compare the group ligand and receptor scores to the mean score of 
@@ -591,6 +591,15 @@ def specificity(adata, n, groupby, organism="hsapiens", return_values=False, tra
     ligand_dfs = list()
     receptor_dfs = list()
     
+    # variable to store the setting in, can be used when saving the specificity
+    settings = dict(
+        groupby = groupby,
+        permutations =  n,
+        transformation = transformation,
+        emperical = emperical,
+        merge_dist = merge_dist
+    )
+
     # shuffel group annotations n times and fetch ligand and receptor dataframes
     for i in range(n):
         printProgressBar(i+1, n, prefix=f"Shuffeling dataframe {i+1} out of {n}")
@@ -630,6 +639,7 @@ def specificity(adata, n, groupby, organism="hsapiens", return_values=False, tra
     adata.uns.update({"receptors_pval": receptor_pval.to_dict()})
     adata.uns.update({"ligands_corr_pval": ligand_corr_pval.to_dict()})
     adata.uns.update({"receptors_corr_pval": receptor_corr_pval.to_dict()})
+    adata.uns.update({"specificity_setting": settings})
 
     if return_values:
         return adata, ligand_values, receptor_values
@@ -650,7 +660,8 @@ def save_specificity(adata, filename):
      'ligands_pval',
      'receptors_pval',
      'ligands_corr_pval',
-     'receptors_corr_pval']
+     'receptors_corr_pval'
+     'specificity_setting']
     
     xls = pd.ExcelWriter(filename)
     for key in keys:
@@ -669,7 +680,8 @@ def load_specificity(adata, filename):
         'ligands_pval',
         'receptors_pval',
         'ligands_corr_pval',
-        'receptors_corr_pval']
+        'receptors_corr_pval',
+        'specificity_setting']
 
     xls = pd.read_excel(filename)
     for key in keys:
