@@ -489,7 +489,9 @@ def _score_pv_df(mean, std, value, emperical, values, merge_dist):
     returns: score_df and pval_df"""
     import numpy as np
     from scipy import stats
-    
+
+    assert (mean.shape == std.shape == value.shape), "dataframes are not of the same size, rerun ligand and receptor call"
+
     score_df = mean.copy()
     pval_df = mean.copy()
     warning = False # warning flag for if mean or std is 0 (mening no values were ever sampled to that group)
@@ -660,13 +662,14 @@ def save_specificity(adata, filename):
      'ligands_pval',
      'receptors_pval',
      'ligands_corr_pval',
-     'receptors_corr_pval'
-     'specificity_setting']
+     'receptors_corr_pval']
     
     xls = pd.ExcelWriter(filename)
     for key in keys:
         table = pd.DataFrame(adata.uns[key])
         table.to_excel(xls, sheet_name=key)
+    s = pd.Series(adata.uns["specificity_setting"])
+    s.to_excel(xls, sheet_name="specificity_setting")
     xls.close()
 
 def load_specificity(adata, filename):
@@ -680,11 +683,10 @@ def load_specificity(adata, filename):
         'ligands_pval',
         'receptors_pval',
         'ligands_corr_pval',
-        'receptors_corr_pval',
-        'specificity_setting']
+        'receptors_corr_pval']
 
-    xls = pd.read_excel(filename)
     for key in keys:
         data = pd.read_excel(filename, sheet_name=key, index_col=0)
         adata.uns[key] = {k:value.to_dict() for k, value in data.iteritems()}
+    adata.uns["specificity_setting"] = pd.read_excel(filename, sheet_name="specificity_setting", index_col=0).to_dict()[0]
     
