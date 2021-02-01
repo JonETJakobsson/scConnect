@@ -605,7 +605,7 @@ def specificity(adata, n, groupby, organism=organism, return_values=False, trans
     )
 
     # Run normal ligand and receptor call without shuffel on original adata
-    l, r = _ligand_receptor_call(adata, groupby=groupby, organism=organism, transformation=transformation, return_df=False)
+    _ligand_receptor_call(adata, groupby=groupby, organism=organism, transformation=transformation, return_df=False)
     # shuffel group annotations n times and fetch ligand and receptor dataframes
     for i in range(n):
         printProgressBar(i+1, n, prefix=f"Shuffeling dataframe {i+1} out of {n}")
