@@ -114,7 +114,7 @@ def find_orth_gene(gene, organism, target):
     return genes
 
 
-def get_peptide_ligands(organism="mmusculus", save=True, verbouse=False):
+def get_peptide_ligands(organism=organism, save=True, verbouse=False):
     """Find genes encoding peptidergic ligands using gprofiler orthogonal gene search and
     the interactions table from GTP
 
@@ -230,7 +230,7 @@ def get_peptide_ligands(organism="mmusculus", save=True, verbouse=False):
     return ligands
 
 
-def get_molecule_ligands(organism="mmusculus", save=True):
+def get_molecule_ligands(organism=organism, save=True):
     '''
     Creates a file with the molecule ligands
 
@@ -284,7 +284,7 @@ def get_molecule_ligands(organism="mmusculus", save=True):
     return molecules
 
 
-def merge_ligand_lists(organism="mmusculus", save=True):
+def merge_ligand_lists(organism=organism, save=True):
     '''Returns a list with peptides and molecule ligands merged, 
     ready to be used with the package tools.
 
@@ -308,7 +308,7 @@ def merge_ligand_lists(organism="mmusculus", save=True):
     return ligands
 
 
-def get_receptors(organism="mmusculus", receptor_types=["gpcr", "lgic"], save=True):
+def get_receptors(organism=organism, receptor_types=["gpcr", "lgic"], save=True):
     '''
     returns a list of all receptors with known genes. 
     Finds ortholog genes for human, then mouse then rat.
@@ -397,7 +397,7 @@ def get_interactions(save=True):
 
 
 def setup_database(
-    organism="mmusculus",
+    organism=organism,
     receptor_types=[
         "enzyme", "transporter", "gpcr", "catalytic_receptor",
         "other_protein", "vgic", "lgic", "other_ic", "nhr"]):
