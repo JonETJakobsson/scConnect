@@ -444,7 +444,7 @@ def nodes(adatas):
 # We can then calculate the z-score of the true ligand/receptor score, p-values and corrected p-values
 # Data an be used to detect group specific expression of ligands and receptors.
 
-def _ligand_receptor_call(adata, groupby, organism, transformation):
+def _ligand_receptor_call(adata, groupby, organism, transformation, return_df = True):
     import pandas as pd
     adata = cn.genecall.meanExpression(adata, groupby=groupby, normalization=False, use_raw=False, transformation=transformation)
     adata = cn.connect.ligands(adata, organism=organism)
@@ -452,7 +452,8 @@ def _ligand_receptor_call(adata, groupby, organism, transformation):
     
     ligands = pd.DataFrame(adata.uns["ligands"])
     receptors = pd.DataFrame(adata.uns["receptors"])
-    return ligands, receptors
+    if return_df:
+        return ligands, receptors
 
 def _values_df(dfs):
     values_df = dfs[0].copy()
@@ -603,6 +604,8 @@ def specificity(adata, n, groupby, organism=organism, return_values=False, trans
         merge_dist = merge_dist
     )
 
+    # Run normal ligand and receptor call without shuffel on original adata
+    l, r = _ligand_receptor_call(adata, groupby=groupby, organism=organism, transformation=transformation, return_df=False)
     # shuffel group annotations n times and fetch ligand and receptor dataframes
     for i in range(n):
         printProgressBar(i+1, n, prefix=f"Shuffeling dataframe {i+1} out of {n}")
