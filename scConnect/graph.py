@@ -1,4 +1,6 @@
-
+import scConnect as cn
+version = cn.database.version
+organism = cn.database.organism
 
 def build_graph(edge_list, node_list=False):
     """Construct a multi directional graph from an edgelist and nodelist and save as graph.
@@ -740,8 +742,8 @@ def edge_list(
     th=1, 
     cellphonedb_interactions=False, 
     interaction_list=None,
-    version = "2019-5",
-    organism = "mmusculus",
+    version = version,
+    organism = organism,
     all_connections=True):
     """retrieves all interactions from the graphs and returns a pandas dataframe suitable for plotting"""
 
@@ -793,8 +795,8 @@ def dotplot(
     df=None, 
     filter_by="specificity", 
     th=1,
-    organism="mmusculus",
-    version="2019-5",
+    organism=organism,
+    version=version,
     all_connections=True,
     cellphonedb_interactions=False, 
     height_scale=40, 
