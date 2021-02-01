@@ -1,5 +1,6 @@
 
-version = "2019-5"  # this is currently imported in other modules, so set verions here
+version = "2020-5"  # this is currently imported in other modules, so set verions here
+organism = "mmusculus"
 
 # Clean original GTP tables-----------------------------------------------------------------------------------------
 
