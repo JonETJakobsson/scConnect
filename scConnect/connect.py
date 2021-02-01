@@ -3,6 +3,7 @@ import scConnect as cn
 import scanpy as sc
 
 version = cn.database.version
+organism = cn.database.organism
 # Scoring logic for ligands
 
 
@@ -117,7 +118,7 @@ def ligandScore(ligand, genes):
         return 0.0
 
 
-def ligands(adata, organism="mmusculus", select_ligands=None):
+def ligands(adata, organism=organism, select_ligands=None):
     """return a dataframe with ligand scores for each cluster.
 
     .. note::
@@ -175,7 +176,7 @@ def receptorScore(receptor, genes):
     return gene_expression
 
 
-def receptors(adata, organism="mmusculus"):
+def receptors(adata, organism=organism):
     """return a dataframe with receptor scores for each cluster.
 
     .. note::
@@ -206,7 +207,7 @@ def receptors(adata, organism="mmusculus"):
 
 # Interaction logic
 
-def interactions(emitter, target, self_reference=True, organism="mmusculus", corr_pval=True):
+def interactions(emitter, target, self_reference=True, organism=organism, corr_pval=True):
     """return an edge list of interactions between clusters.
     If all connections are of interest, use the same data source for
     emitter and target.
@@ -443,7 +444,7 @@ def nodes(adatas):
 # We can then calculate the z-score of the true ligand/receptor score, p-values and corrected p-values
 # Data an be used to detect group specific expression of ligands and receptors.
 
-def _ligand_receptor_call(adata, groupby, organism, transformation):
+def _ligand_receptor_call(adata, groupby, organism, transformation, return_df = True):
     import pandas as pd
     adata = cn.genecall.meanExpression(adata, groupby=groupby, normalization=False, use_raw=False, transformation=transformation)
     adata = cn.connect.ligands(adata, organism=organism)
@@ -451,7 +452,8 @@ def _ligand_receptor_call(adata, groupby, organism, transformation):
     
     ligands = pd.DataFrame(adata.uns["ligands"])
     receptors = pd.DataFrame(adata.uns["receptors"])
-    return ligands, receptors
+    if return_df:
+        return ligands, receptors
 
 def _values_df(dfs):
     values_df = dfs[0].copy()
@@ -573,7 +575,7 @@ def _corrected_pvalue(pvalues, method="fdr_bh", scale_pval=False):
 
     return corr_pval
     
-def specificity(adata, n, groupby, organism="hsapiens", return_values=False, transformation="log1p", emperical=True, merge_dist=False):
+def specificity(adata, n, groupby, organism=organism, return_values=False, transformation="log1p", emperical=True, merge_dist=False):
     """calculate statistics for the ligands and receptor scores.
     
     Compare the group ligand and receptor scores to the mean score of 
@@ -602,6 +604,8 @@ def specificity(adata, n, groupby, organism="hsapiens", return_values=False, tra
         merge_dist = merge_dist
     )
 
+    # Run normal ligand and receptor call without shuffel on original adata
+    _ligand_receptor_call(adata, groupby=groupby, organism=organism, transformation=transformation, return_df=False)
     # shuffel group annotations n times and fetch ligand and receptor dataframes
     for i in range(n):
         printProgressBar(i+1, n, prefix=f"Shuffeling dataframe {i+1} out of {n}")
@@ -655,14 +659,17 @@ def save_specificity(adata, filename):
     This file can later be loaded using cn.connect.load_specificity"""
     import pandas as pd
     
-    keys = ['ligands_zscore',
-     'receptors_zscore',
-     'ligands_pval',
-     'receptors_pval',
-     'ligands_pval',
-     'receptors_pval',
-     'ligands_corr_pval',
-     'receptors_corr_pval']
+    keys = [
+        'ligands',
+        'receptors',
+        'ligands_zscore',
+        'receptors_zscore',
+        'ligands_pval',
+        'receptors_pval',
+        'ligands_pval',
+        'receptors_pval',
+        'ligands_corr_pval',
+        'receptors_corr_pval']
     
     xls = pd.ExcelWriter(filename)
     for key in keys:
@@ -676,7 +683,10 @@ def load_specificity(adata, filename):
     """Loads previously calculated specificity to an andata object"""
 
     import pandas as pd
-    keys = ['ligands_zscore',
+    keys = [
+        'ligands',
+        'receptors',
+        'ligands_zscore',
         'receptors_zscore',
         'ligands_pval',
         'receptors_pval',
