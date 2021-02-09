@@ -1,0 +1,12 @@
+,ligand,ligand_type,preprogene,synthesis,transport,reuptake,excluded,comment
+3,ADP-ribosylation factor 1,peptide,['arf-1.2'],,,,,inferred from Human
+18,C3a,peptide,['tep-1'],,,,,inferred from Human
+19,C5a,peptide,['tep-1'],,,,,inferred from Human
+20,C5a des-Arg,peptide,['tep-1'],,,,,inferred from Human
+80,EGF,peptide,['rme-2'],,,,,inferred from Human
+124,IL-17A,peptide,['F25D1.3'],,,,,inferred from Human
+127,IL-17C,peptide,['F25D1.3'],,,,,inferred from Human
+128,IL-17F,peptide,['F25D1.3'],,,,,inferred from Human
+139,IL-25,peptide,['F25D1.3'],,,,,inferred from Human
+233,amyloid β,peptide,['apl-1'],,,,,inferred from Human
+397,xenin,peptide,['copa-1'],,,,,inferred from Mouse

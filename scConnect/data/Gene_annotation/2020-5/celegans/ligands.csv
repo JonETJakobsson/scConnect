@@ -1,0 +1,14 @@
+,ligand,ligand_type,preprogene,synthesis,transport,reuptake,excluded,comment
+0,ADP-ribosylation factor 1,peptide,['arf-1.2'],,,,,inferred from Human
+1,C3a,peptide,['tep-1'],,,,,inferred from Human
+2,C5a,peptide,['tep-1'],,,,,inferred from Human
+3,C5a des-Arg,peptide,['tep-1'],,,,,inferred from Human
+4,EGF,peptide,['rme-2'],,,,,inferred from Human
+5,IL-17A,peptide,['F25D1.3'],,,,,inferred from Human
+6,IL-17C,peptide,['F25D1.3'],,,,,inferred from Human
+7,IL-17F,peptide,['F25D1.3'],,,,,inferred from Human
+8,IL-25,peptide,['F25D1.3'],,,,,inferred from Human
+9,amyloid β,peptide,['apl-1'],,,,,inferred from Human
+10,xenin,peptide,['copa-1'],,,,,inferred from Mouse
+11,(-)-adrenaline,molecule,,"['cat-2', 'bas-1', 'basl-1', 'tbh-1', 'anmt-3', 'anmt-1', 'anmt-2']","['W05E10.1', 'ZK550.2']",,,Manually added genes
+12,acetylcholine,molecule,,['cha-1'],['unc-17'],"['ace-3', 'ace-4', 'C23H4.2', 'C23H4.3', 'C23H4.4', 'C23H4.7', 'E01G6.3', 'cest-1', 'T02B5.3', 'ZC376.1', 'ZC376.2', 'ZC376.3', 'B0238.1', 'B0238.7', 'C01B10.4', 'C01B10.10', 'C42D4.2', 'C52A10.1', 'C52A10.2', 'F56C11.6', 'T22D1.11']",,Manually added genes

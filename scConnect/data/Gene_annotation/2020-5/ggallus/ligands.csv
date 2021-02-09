@@ -1,0 +1,255 @@
+,ligand,ligand_type,preprogene,synthesis,transport,reuptake,excluded,comment
+0,5-LOX activating protein,peptide,['ALOX5AP'],,,,,inferred from Human
+1,ACTH,peptide,['POMC'],,,,,inferred from Mouse
+2,ADP-ribosylation factor 1,peptide,['ARF1'],,,,,inferred from Human
+3,BAFF,peptide,"['TNFSF13B', 'ENSGALG00000049342', 'ENSGALG00000052140']",,,,,inferred from Human
+4,BDNF,peptide,['BDNF'],,,,,inferred from Human
+5,BMP-10,peptide,['BMP10'],,,,,inferred from Human
+6,BMP-2,peptide,['BMP2'],,,,,inferred from Human
+7,BMP-4,peptide,['BMP4'],,,,,inferred from Human
+8,BMP-5,peptide,['BMP5'],,,,,inferred from Human
+9,BMP-6,peptide,['BMP6'],,,,,inferred from Human
+10,BMP-7,peptide,['BMP7'],,,,,inferred from Human
+11,BMP-8A,peptide,['ENSGALG00000038984'],,,,,inferred from Human
+12,BMP-8B,peptide,['ENSGALG00000038984'],,,,,inferred from Human
+13,BMP-9,peptide,['GDF2'],,,,,inferred from Human
+14,C-type natriuretic peptide,peptide,['NPPC'],,,,,inferred from Human
+15,C3a,peptide,['C3'],,,,,inferred from Human
+16,C5a,peptide,['C5'],,,,,inferred from Human
+17,C5a des-Arg,peptide,['C5'],,,,,inferred from Human
+18,CCK-33,peptide,['CCK'],,,,,inferred from Human
+19,CCK-39,peptide,['CCK'],,,,,inferred from Human
+20,CCK-4,peptide,['CCK'],,,,,inferred from Human
+21,CCK-58,peptide,['CCK'],,,,,inferred from Human
+22,CCK-8,peptide,['CCK'],,,,,inferred from Mouse
+23,CCL11,peptide,"['ENSGALG00000014585', 'ENSGALG00000049551', 'ENSGALG00000053121', 'ENSGALG00000054196']",,,,,inferred from Mouse
+24,CCL13,peptide,"['ENSGALG00000014585', 'ENSGALG00000049551', 'ENSGALG00000053121', 'ENSGALG00000054196']",,,,,inferred from Human
+25,CCL19,peptide,"['ENSGALG00000046192', 'ENSGALG00000046192']",,,,,inferred from Mouse
+26,CCL2,peptide,"['ENSGALG00000014585', 'ENSGALG00000049551', 'ENSGALG00000053121', 'ENSGALG00000054196']",,,,,inferred from Human
+27,CCL20,peptide,['CCL20'],,,,,inferred from Human
+28,CCL21,peptide,['ENSGALG00000046192'],,,,,inferred from Human
+29,CCL4,peptide,['CCL4'],,,,,inferred from Human
+30,CCL7,peptide,"['ENSGALG00000014585', 'ENSGALG00000049551', 'ENSGALG00000053121', 'ENSGALG00000054196']",,,,,inferred from Human
+31,CCL8,peptide,"['ENSGALG00000014585', 'ENSGALG00000049551', 'ENSGALG00000053121', 'ENSGALG00000054196']",,,,,inferred from Mouse
+32,CD30 ligand,peptide,['TNFSF8'],,,,,inferred from Human
+33,CD40 ligand,peptide,['CD40LG'],,,,,inferred from Human
+34,CLUL1 (52-77),peptide,['CLUL1'],,,,,inferred from Human
+35,CRAMP,peptide,"['CATHL2', 'CATHL1', 'CATHL3']",,,,,inferred from Mouse
+36,CXCL12α,peptide,['CXCL12'],,,,,inferred from Human
+37,CXCL12β,peptide,['CXCL12'],,,,,inferred from Human
+38,CXCL12γ,peptide,['CXCL12'],,,,,inferred from Human
+39,CXCL12δ,peptide,['CXCL12'],,,,,inferred from Human
+40,CXCL12ε,peptide,['CXCL12'],,,,,inferred from Human
+41,CXCL12φ,peptide,['CXCL12'],,,,,inferred from Human
+42,CXCL13,peptide,"['CXCL13L2', 'CXCL13L3', 'CXCL13']",,,,,inferred from Human
+43,CXCL7,peptide,['ENSGALG00000046160'],,,,,inferred from Human
+44,CXCL8,peptide,"['IL8L1', 'IL8']",,,,,inferred from Human
+45,Ccl21a,peptide,"['ENSGALG00000046192', 'ENSGALG00000046192']",,,,,inferred from Mouse
+46,Ccl21b,peptide,"['ENSGALG00000046192', 'ENSGALG00000046192', 'ENSGALG00000046192', 'ENSGALG00000046192', 'ENSGALG00000046192', 'ENSGALG00000046192', 'ENSGALG00000046192']",,,,,inferred from Mouse
+47,Chgb (511-532),peptide,['CHGB'],,,,,inferred from Rat
+48,EGF,peptide,['EGF'],,,,,inferred from Human
+49,F2L,peptide,['HEBP1'],,,,,inferred from Human
+50,FLRT3,peptide,['FLRT3'],,,,,inferred from Rat
+51,Fas ligand,peptide,['FASLG'],,,,,inferred from Human
+52,G-CSF,peptide,['CSF3'],,,,,inferred from Human
+53,GHRH,peptide,['GHRH'],,,,,inferred from Human
+54,GnRH I,peptide,['GnRH-I'],,,,,inferred from Mouse
+55,HB-EGF,peptide,['HBEGF'],,,,,inferred from Human
+56,IFN-β,peptide,"['IFNW1', 'ENSGALG00000044725', 'IFN-A', 'IFN-A', 'IFN-A', 'IFN-A', 'ENSGALG00000052209', 'ENSGALG00000053207', 'IFN-A', 'ENSGALG00000054104', 'ENSGALG00000054368', 'ENSGALG00000054396']",,,,,inferred from Human
+57,IFN-γ,peptide,['IFNG'],,,,,inferred from Human
+58,IFN-κ,peptide,['IFNK'],,,,,inferred from Human
+59,IFN-λ1,peptide,"['ENSGALG00000047344', 'ENSGALG00000050947', 'IFNL3A']",,,,,inferred from Human
+60,IFN-λ2,peptide,"['ENSGALG00000047344', 'ENSGALG00000050947', 'IFNL3A']",,,,,inferred from Human
+61,IFN-λ3,peptide,"['ENSGALG00000047344', 'ENSGALG00000050947', 'IFNL3A']",,,,,inferred from Human
+62,IFN-ω,peptide,"['IFNW1', 'ENSGALG00000044725', 'IFN-A', 'IFN-A', 'IFN-A', 'IFN-A', 'ENSGALG00000052209', 'ENSGALG00000053207', 'IFN-A', 'ENSGALG00000054104', 'ENSGALG00000054368', 'ENSGALG00000054396']",,,,,inferred from Human
+63,IL-1 receptor antagonist,peptide,['IL1B'],,,,,inferred from Human
+64,IL-10,peptide,['IL10'],,,,,inferred from Human
+65,IL-11,peptide,['IL11'],,,,,inferred from Human
+66,IL-15,peptide,['IL15'],,,,,inferred from Human
+67,IL-17B,peptide,['IL17B'],,,,,inferred from Human
+68,IL-17C,peptide,['IL17C'],,,,,inferred from Human
+69,IL-17F,peptide,"['ENSGALG00000016677', 'IL17A']",,,,,inferred from Human
+70,IL-18,peptide,['IL18'],,,,,inferred from Human
+71,IL-19,peptide,['IL19'],,,,,inferred from Human
+72,IL-21,peptide,['IL21'],,,,,inferred from Human
+73,IL-22,peptide,['IL22'],,,,,inferred from Human
+74,IL-36 receptor antagonist,peptide,['IL1B'],,,,,inferred from Human
+75,IL-36α,peptide,['IL1B'],,,,,inferred from Human
+76,IL-36β,peptide,['IL1B'],,,,,inferred from Human
+77,IL-36γ,peptide,['IL1B'],,,,,inferred from Human
+78,IL-37,peptide,['IL1B'],,,,,inferred from Human
+79,IL-4,peptide,"['IL13', 'IL4']",,,,,inferred from Human
+80,IL-6,peptide,['IL6'],,,,,inferred from Human
+81,IL-7,peptide,['IL7'],,,,,inferred from Human
+82,IL-9,peptide,['IL9'],,,,,inferred from Human
+83,LL-37,peptide,"['CATHL2', 'CATHL1', 'CATHL3']",,,,,inferred from Human
+84,LVP,peptide,"['CATHL2', 'CATHL1', 'CATHL3']",,,,,inferred from Human
+85,M-CSF,peptide,['CSF1'],,,,,inferred from Human
+86,MANSC (415-431),peptide,['MANSC1'],,,,,inferred from Human
+87,MSMB (91-114),peptide,['ENSGALG00000044811'],,,,,inferred from Human
+88,Müllerian inhibiting substance,peptide,['AMH'],,,,,inferred from Human
+89,NGF,peptide,['NGF'],,,,,inferred from Human
+90,NPY,peptide,['NGF'],,,,,inferred from Human
+91,PACAP-27,peptide,['ADCYAP1'],,,,,inferred from Mouse
+92,PACAP-38,peptide,['ADCYAP1'],,,,,inferred from Mouse
+93,PHM,peptide,['VIP'],,,,,inferred from Human
+94,PHV,peptide,['VIP'],,,,,inferred from Rat
+95,PTHrP,peptide,['PTHLH'],,,,,inferred from Human
+96,PTHrP-(1-36),peptide,['PTHLH'],,,,,inferred from Human
+97,PYY-(3-36),peptide,['PYY'],,,,,inferred from Mouse
+98,PrRP-20,peptide,['PRLH'],,,,,inferred from Rat
+99,PrRP-31,peptide,['PRLH'],,,,,inferred from Rat
+100,R-spondin-1,peptide,['RSPO1'],,,,,inferred from Mouse
+101,R-spondin-2,peptide,['RSPO2'],,,,,inferred from Mouse
+102,R-spondin-3,peptide,['RSPO3'],,,,,inferred from Mouse
+103,R-spondin-4,peptide,['ENSGALG00000023640'],,,,,inferred from Mouse
+104,RANK ligand,peptide,['TNFSF11'],,,,,inferred from Human
+105,RFRP-3,peptide,['NPVF'],,,,,inferred from Human
+106,SRIF-14,peptide,['SST'],,,,,inferred from Mouse
+107,SRIF-28,peptide,['SST'],,,,,inferred from Mouse
+108,T-kinin,peptide,['KNG1'],,,,,inferred from Rat
+109,TGFα,peptide,['TGFA'],,,,,inferred from Human
+110,TGFβ1,peptide,['TGFB1'],,,,,inferred from Human
+111,TGFβ2,peptide,['TGFB2'],,,,,inferred from Human
+112,TGFβ3,peptide,['TGFB3'],,,,,inferred from Human
+113,TL1A,peptide,['TNFSF15'],,,,,inferred from Human
+114,TRAIL,peptide,['TNFSF10'],,,,,inferred from Human
+115,TRH,peptide,['TRH'],,,,,inferred from Mouse
+116,VEGFA,peptide,['VEGFA'],,,,,inferred from Human
+117,VEGFC,peptide,['VEGFC'],,,,,inferred from Human
+118,VEGFD,peptide,['VEGFD'],,,,,inferred from Human
+119,VEGFE,peptide,['PDGFC'],,,,,inferred from Human
+120,VIP,peptide,['VIP'],,,,,inferred from Mouse
+121,Wnt-3a,peptide,['WNT3A'],,,,,inferred from Human
+122,Wnt-4,peptide,['WNT4'],,,,,inferred from Human
+123,Wnt-5a,peptide,['WNT5A'],,,,,inferred from Human
+124,[Leu]enkephalin,peptide,['PENK'],,,,,inferred from Mouse
+125,[Met]enkephalin,peptide,['PENK'],,,,,inferred from Mouse
+126,[Pyr1]apelin-13,peptide,['APLN'],,,,,inferred from Mouse
+127,[des-Arg10]kallidin,peptide,['KNG1'],,,,,inferred from Human
+128,[des-Arg9]bradykinin,peptide,['KNG1'],,,,,inferred from Mouse
+129,[des-octanoyl]ghrelin,peptide,['GHRL'],,,,,inferred from Human
+130,activin A,peptide,['INHBA'],,,,,inferred from Human
+131,activin B,peptide,['INHBB'],,,,,inferred from Human
+132,agouti,peptide,['ASIP'],,,,,inferred from Mouse
+133,agouti-related protein,peptide,['AGRP'],,,,,inferred from Human
+134,amphiregulin,peptide,['AREG'],,,,,inferred from Human
+135,amylin,peptide,['IAPP'],,,,,inferred from Mouse
+136,amyloid β,peptide,['APP'],,,,,inferred from Human
+137,angiopoietin-1,peptide,['ANGPT1'],,,,,inferred from Human
+138,angiopoietin-4,peptide,['ANGPT4'],,,,,inferred from Human
+139,angiotensin A,peptide,['AGT'],,,,,inferred from Human
+140,angiotensin II,peptide,['AGT'],,,,,inferred from Mouse
+141,angiotensin III,peptide,['AGT'],,,,,inferred from Mouse
+142,angiotensin IV,peptide,['AGT'],,,,,inferred from Mouse
+143,angiotensin-(1-7),peptide,['AGT'],,,,,inferred from Mouse
+144,annexin I,peptide,['ANXA1'],,,,,inferred from Human
+145,annexin I-(2-26),peptide,['ANXA1'],,,,,inferred from Human
+146,apelin-13,peptide,['APLN'],,,,,inferred from Mouse
+147,apelin-17,peptide,['APLN'],,,,,inferred from Mouse
+148,apelin-36,peptide,['APLN'],,,,,inferred from Human
+149,aprotinin,peptide,['APLN'],,,,,inferred from Human
+150,betacellulin,peptide,['BTC'],,,,,inferred from Human
+151,bovine adrenal medulla peptide 8-22,peptide,['PENK'],,,,,inferred from Human
+152,bradykinin,peptide,['KNG1'],,,,,inferred from Mouse
+153,brain natriuretic peptide,peptide,['NPPA'],,,,,inferred from Human
+154,chemerin,peptide,['RARRES2'],,,,,inferred from Human
+155,chorionic somatomammotropin hormone-like 1 ,peptide,['GH'],,,,,inferred from Human
+156,ciliary neurotrophic factor,peptide,['CNTF'],,,,,inferred from Human
+157,corticotrophin-releasing hormone,peptide,['CRH'],,,,,inferred from Mouse
+158,corticotropin-releasing factor,peptide,['CRH'],,,,,inferred from Mouse
+159,cytokine domain of tyrosyl tRNA synthetase,peptide,['YARS'],,,,,inferred from Human
+160,des-Br-neuropeptide B-23,peptide,['NPB'],,,,,inferred from Human
+161,des-Br-neuropeptide B-29,peptide,['NPB'],,,,,inferred from Human
+162,ectodysplasin A1,peptide,['EDA'],,,,,inferred from Human
+163,ectodysplasin A2,peptide,['EDA'],,,,,inferred from Human
+164,endothelin-1,peptide,['EDN1'],,,,,inferred from Mouse
+165,endothelin-2,peptide,['EDN2'],,,,,inferred from Human
+166,endothelin-3,peptide,['EDN3'],,,,,inferred from Mouse
+167,epigen,peptide,['EPGN'],,,,,inferred from Human
+168,epiregulin,peptide,['EREG'],,,,,inferred from Human
+169,galanin,peptide,['GAL'],,,,,inferred from Mouse
+170,gastric inhibitory polypeptide,peptide,['GIP'],,,,,inferred from Rat
+171,gastrin-releasing peptide,peptide,['GRP'],,,,,inferred from Human
+172,ghrelin,peptide,['GHRL'],,,,,inferred from Human
+173,glucagon,peptide,['GCG'],,,,,inferred from Mouse
+174,glucagon-like peptide 1-(7-36) amide,peptide,['GCG'],,,,,inferred from Mouse
+175,glucagon-like peptide 1-(7-37),peptide,['GCG'],,,,,inferred from Mouse
+176,glucagon-like peptide 2,peptide,['GCG'],,,,,inferred from Rat
+177,glucagon-like peptide 2-(2-33),peptide,['GCG'],,,,,inferred from Rat
+178,glucagon-like peptide 2-(3-33),peptide,['GCG'],,,,,inferred from Rat
+179,growth arrest specific protein 6,peptide,['GAS6'],,,,,inferred from Human
+180,growth differentiation factor 15,peptide,['ENSGALG00000052151'],,,,,inferred from Human
+181,growth hormone 1,peptide,['GH'],,,,,inferred from Human
+182,growth hormone 2,peptide,['GH'],,,,,inferred from Human
+183,growth/differentiation factor-10,peptide,['GDF10'],,,,,inferred from Human
+184,growth/differentiation factor-7,peptide,['GDF7'],,,,,inferred from Human
+185,growth/differentiation factor-9,peptide,['GDF9'],,,,,inferred from Human
+186,guanylyl cyclase-activating protein 1,peptide,['GUCA1A'],,,,,inferred from Mouse
+187,guanylyl cyclase-activating protein 2,peptide,['GUCA1B'],,,,,inferred from Mouse
+188,hepatocyte growth factor,peptide,['HGF'],,,,,inferred from Human
+189,insulin,peptide,"['INS', 'INS']",,,,,inferred from Human
+190,insulin-like growth factor 1,peptide,['IGF-I'],,,,,inferred from Mouse
+191,insulin-like growth factor 2,peptide,['IGF2'],,,,,inferred from Human
+192,kallidin,peptide,['KNG1'],,,,,inferred from Human
+193,large neuromedin N,peptide,['NTS'],,,,,inferred from Human
+194,large neurotensin,peptide,['NTS'],,,,,inferred from Human
+195,liver enriched antimicrobial peptide 2,peptide,['LEAP2'],,,,,inferred from Human
+196,macrophage stimulating protein 1,peptide,['MST1'],,,,,inferred from Human
+197,melanin-concentrating hormone,peptide,['PMCH'],,,,,inferred from Mouse
+198,microtubule associated protein tau,peptide,['MAPT'],,,,,inferred from Human
+199,motilin,peptide,['MLN'],,,,,inferred from Human
+200,mucosal addressin cell adhesion molecule 1,peptide,['ENSGALG00000028341'],,,,,inferred from Human
+201,myostatin,peptide,['GDF8'],,,,,inferred from Human
+202,neuregulin-1,peptide,['NRG1'],,,,,inferred from Human
+203,neuregulin-2,peptide,['NRG2'],,,,,inferred from Human
+204,neuregulin-4,peptide,['NRG4'],,,,,inferred from Human
+205,neurokinin A,peptide,['TAC1'],,,,,inferred from Mouse
+206,neuromedin N,peptide,['NTS'],,,,,inferred from Mouse
+207,neuromedin S-33,peptide,['NMS'],,,,,inferred from Human
+208,neuromedin U-23,peptide,['NMU'],,,,,inferred from Rat
+209,neuromedin U-25,peptide,['NMU'],,,,,inferred from Human
+210,neuromedin U-8,peptide,['NMU'],,,,,inferred from Human
+211,neuropeptide B-23,peptide,['NPB'],,,,,inferred from Human
+212,neuropeptide B-29,peptide,['NPB'],,,,,inferred from Human
+213,neuropeptide K,peptide,['TAC1'],,,,,inferred from Rat
+214,neuropeptide S,peptide,['NPS'],,,,,inferred from Mouse
+215,neuropeptide Y,peptide,['NPY'],,,,,inferred from Mouse
+216,neuropeptide Y-(3-36),peptide,['NPY'],,,,,inferred from Mouse
+217,neuropeptide γ,peptide,['TAC1'],,,,,inferred from Mouse
+218,neurotensin,peptide,['NTS'],,,,,inferred from Mouse
+219,neurotrophin-3,peptide,['NTF3'],,,,,inferred from Human
+220,nociceptin/orphanin FQ,peptide,['PNOC'],,,,,inferred from Mouse
+221,orexin-A,peptide,['HCRT'],,,,,inferred from Mouse
+222,orexin-B,peptide,['HCRT'],,,,,inferred from Human
+223,osteocrin,peptide,['OSTN'],,,,,inferred from Human
+224,oxytocin,peptide,['AVP'],,,,,inferred from Mouse
+225,peptide YY,peptide,['PYY'],,,,,inferred from Mouse
+226,prokineticin-1,peptide,['PROK1'],,,,,inferred from Human
+227,prokineticin-2,peptide,['PROK2'],,,,,inferred from Human
+228,prokineticin-2β,peptide,['PROK2'],,,,,inferred from Human
+229,prolactin,peptide,['prl'],,,,,inferred from Human
+230,prosaptide,peptide,"['ENSGALG00000004747', 'PSAP']",,,,,inferred from Human
+231,protein S,peptide,['PROS1'],,,,,inferred from Human
+232,ribosomal protein S19,peptide,['RPS19'],,,,,inferred from Human
+233,serum amyloid A,peptide,['ENSGALG00000027716'],,,,,inferred from Human
+234,stem cell factor,peptide,['KITLG'],,,,,inferred from Human
+235,substance P,peptide,['TAC1'],,,,,inferred from Mouse
+236,thrombopoietin,peptide,['THPO'],,,,,inferred from Human
+237,urocortin 1,peptide,['UCN'],,,,,inferred from Mouse
+238,urocortin 3,peptide,['UCN3'],,,,,inferred from Mouse
+239,uroguanylin,peptide,['GUCA2B'],,,,,inferred from Human
+240,urotensin II-related peptide,peptide,['UTS2B'],,,,,inferred from Mouse
+241,urotensin-II,peptide,['UTS2'],,,,,inferred from Mouse
+242,vasopressin,peptide,['AVP'],,,,,inferred from Mouse
+243,xenin,peptide,['COPA'],,,,,inferred from Mouse
+244,α-MSH,peptide,['POMC'],,,,,inferred from Mouse
+245,β-CGRP,peptide,['CALCA'],,,,,inferred from Rat
+246,β-endorphin,peptide,['POMC'],,,,,inferred from Human
+247,γ-MSH,peptide,['POMC'],,,,,inferred from Mouse
+248,L-glutamic acid,molecule,,,"['SLC17A6', 'SLC17A8']","['SLC1A1', 'SLC1A2', 'SLC1A6']",,Manually added genes
+249,GABA,molecule,,"['GAD1', 'GAD2']",['SLC32A1'],['SLC6A1'],,Manually added genes
+250,glycine,molecule,,,['SLC32A1'],['SLC6A9'],,Manually added genes
+251,(-)-adrenaline,molecule,,"['TH', 'DDC', 'DBH', 'PNMT']",['SLC18A2'],,,Manually added genes
+252,5-hydroxytryptamine,molecule,,"['TPH2', 'DDC']",['SLC18A2'],['SLC6A4'],,Manually added genes
+253,acetylcholine,molecule,,['CHAT'],['SLC18A3'],"['ACHE', 'SLC5A7']",,Manually added genes

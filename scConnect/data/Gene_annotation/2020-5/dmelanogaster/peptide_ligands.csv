@@ -1,0 +1,15 @@
+,ligand,ligand_type,preprogene,synthesis,transport,reuptake,excluded,comment
+3,ADP-ribosylation factor 1,peptide,['Arf79F'],,,,,inferred from Human
+18,C3a,peptide,"['Tep4', 'Tep3', 'Tep2', 'Tep1']",,,,,inferred from Human
+19,C5a,peptide,"['Tep4', 'Tep3', 'Tep2', 'Tep1']",,,,,inferred from Human
+20,C5a des-Arg,peptide,"['Tep4', 'Tep3', 'Tep2', 'Tep1']",,,,,inferred from Human
+80,EGF,peptide,['Lrp4'],,,,,inferred from Human
+233,amyloid β,peptide,['Appl'],,,,,inferred from Human
+241,annexin I,peptide,"['AnxB9', 'AnxB11']",,,,,inferred from Human
+242,annexin I-(2-26),peptide,"['AnxB9', 'AnxB11']",,,,,inferred from Human
+264,cytokine domain of tyrosyl tRNA synthetase,peptide,['TyrRS'],,,,,inferred from Human
+312,hepatocyte growth factor,peptide,"['CG14780', 'CG14227', 'CG11664', 'CG30287', 'CG30288', 'CG30289', 'CG30414', 'CG31205', 'CG33225', 'CG33226', 'CG30283']",,,,,inferred from Human
+329,macrophage stimulating protein 1,peptide,"['CG14780', 'CG14227', 'CG11664', 'CG30287', 'CG30288', 'CG30289', 'CG30414', 'CG31205', 'CG33225', 'CG33226', 'CG30283']",,,,,inferred from Human
+380,ribosomal protein S19,peptide,['RpS19b'],,,,,inferred from Human
+383,serum amyloid A,peptide,['CG30467'],,,,,inferred from Human
+397,xenin,peptide,['alphaCOP'],,,,,inferred from Mouse
