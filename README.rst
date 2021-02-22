@@ -91,9 +91,9 @@ Change log:
 Major changes:
 
 * Added a method that calulates z-scores and p-values for each ligand and receptor score (:code:`connect.specificity()`):
-   * Utilize bootstapping to assess the random distribution of ligand and recepto score for each cell type.
+   * Utilize permutation to assess the random distribution of ligand and receptor score for each cell type.
    * Calculates a Z-score for each ligand and receptor score given this random distribution.
-   * Calculates emperical p-values from the bootstapped random distribution. 
+   * Calculates emperical p-values from the permutated random distribution. 
    * Calculates multiple test corrected p-values using Benjamini/Hochberg (false discovery rate) correction.
    * Estimate interaction specificity by wieghting both ligand and receptor p-values 
    * :math:`I_{LR_{specificity}} = -\log_{10}(R_{p-value} + L_{p-value})`
@@ -110,6 +110,13 @@ Major changes:
 * retrieving data from graph:
    * Retrieve interaction data using :code:`graph.edge_list()` and plot a dotplot using :code:`graph.dotplot()`
    * Retrieve information about ligands and receptors using :code:`graph.get_ligand_df()` and :code:`graph.get_receptor_df()`
+
+* Save progress
+    * Save calculated specificity using :code:`connect.save_specificity()` and :code:`connect.load_specificity()`.
+
+Minor Changes:
+
+* Updated GTP database to 2020-5 from 2019-5.
 
 
 ?????
