@@ -9,4 +9,4 @@ deploy:
     tags: true
   provider: pypi
   username: __token__
-  secure: $PYPI_TOKEN
+  password: $PYPI_TOKEN
