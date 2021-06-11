@@ -76,7 +76,10 @@ or
     
 
 
-
+===========
+How to cite
+===========
+If this method is usefull to your research, please site our paper in bioinformatics: `scConnect: a method for exploratory analysis of cell–cell communication based on single-cell RNA-sequencing data <https://doi.org/10.1093/bioinformatics/btab245>`_
   
 
 ===========
