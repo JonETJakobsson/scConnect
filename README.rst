@@ -76,7 +76,10 @@ or
     
 
 
-
+===========
+How to cite
+===========
+If this method is usefull to your research, please site our paper in bioinformatics: `scConnect: a method for exploratory analysis of cell–cell communication based on single-cell RNA-sequencing data <https://doi.org/10.1093/bioinformatics/btab245>`_
   
 
 ===========
@@ -100,8 +103,7 @@ Major changes:
    * Calculates a Z-score for each ligand and receptor score given this random distribution.
    * Calculates emperical p-values from the permutated random distribution. 
    * Calculates multiple test corrected p-values using Benjamini/Hochberg (false discovery rate) correction.
-   * Estimate interaction specificity by wieghting both ligand and receptor p-values 
-   * :math:`I_{LR_{specificity}} = -\log_{10}(R_{p-value} + L_{p-value})`
+   * Estimate interaction specificity by wieghting both ligand and receptor p-values .
 
 * Updates to the web app:
    * Summmize and filter edges based on specificity in the network graph.
