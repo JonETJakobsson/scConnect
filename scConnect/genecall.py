@@ -19,7 +19,13 @@ def get_adata_df(adata, transformation, layer, use_raw):
     """
     import pandas as pd
     from numpy import expm1
+    from scipy.sparse import issparse
 
+    # Check if adata.X is a sparse matrix
+    # Turn into dense matrix
+    if issparse(adata.X):
+        adata.X = adata.X.todense()
+    
     # Get requested data
     if use_raw: # use raw if this is disired
         data = adata.raw.X.T

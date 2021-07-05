@@ -82,6 +82,11 @@ or
 ===========
 Change log:
 ===========
+?????
+1.0.4
+?????
+
+* Fixed issue where working with AnnData objects of sparse type caused an error when running gene call.
 
 ?????
 1.0.3
