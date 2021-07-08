@@ -35,9 +35,9 @@ Usecases:
 ??????????????????????????
 Documentation and tutorial
 ??????????????????????????
-For a short introduction to how scConnect can be used please check out this `tutorial`_ and for information about the API please consult the `documentation`_.
+For a short introduction on how scConnect can be used please check out this `tutorial`_ and for information about the API please consult the `documentation`_.
 
-The quickest and easiest way to try out the tutorial is to run through this binder:
+The quickest and easiest way to try out the tutorial is to run this binder (click on the badge bellow and a notebook will open for you to explore):
 
 .. image:: https://mybinder.org/badge_logo.svg
  :target: https://mybinder.org/v2/gh/JonETJakobsson/scConnect/master?filepath=tutorial%2FConnecting%20brain%20regions.ipynb   
