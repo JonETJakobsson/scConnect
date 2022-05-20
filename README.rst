@@ -86,7 +86,7 @@ If this method is usefull to your research, please site our paper in bioinformat
 Change log:
 ===========
 ?????
-1.0.4
+1.0.4 - Master
 ?????
 
 * Fixed issue where working with AnnData objects of sparse type caused an error when running gene call.
